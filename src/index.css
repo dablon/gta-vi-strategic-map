@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Sora", system-ui, sans-serif;
+  --color-ink: #041218;
+  --color-lagoon: #061820;
+  --color-deep: #0a2833;
+  --color-panel: #0e3340;
+  --color-mist: #d7ece8;
+  --color-mute: #8fb4ad;
+  --color-coral: #ff5c39;
+  --color-teal: #2ec4b6;
+  --color-gold: #f0c75e;
+  --color-line: #1a4a57;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-lagoon);
+  color: var(--color-mist);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-coral) 55%, transparent);
+  color: white;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+.animate-drift {
+  animation: drift 5s ease-in-out infinite;
+}
+
+.map-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.map-scroll::-webkit-scrollbar-thumb {
+  background: #1f5563;
+  border-radius: 999px;
+}
+
+.map-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
