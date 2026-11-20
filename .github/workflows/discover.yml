@@ -38,7 +38,7 @@ jobs:
 
       # El script NO toca discovered.json si la lista no cambió: sin commits
       # ni deploys vacíos cada 5 horas.
-      - name: Fetch new gtadb landmarks
+      - name: Fetch new gtadb and IGN Leonida locations
         run: |
           set -o pipefail
           node scripts/discover-locations.mjs | tee discovery-summary.md

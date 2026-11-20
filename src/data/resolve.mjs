@@ -56,6 +56,13 @@ export function nearestRegion(wx, wy) {
   )[0][0]
 }
 
+/** Barrio más cercano. Sirve para etiquetar un pin que llega sin zona (IGN). */
+export function nearestArea(wx, wy) {
+  return Object.entries(AREA_CENTROIDS).sort(
+    ([, a], [, b]) => (a[0] - wx) ** 2 + (a[1] - wy) ** 2 - ((b[0] - wx) ** 2 + (b[1] - wy) ** 2),
+  )[0][0]
+}
+
 function hash(s) {
   let h = 2166136261
   for (let i = 0; i < s.length; i++) {

@@ -1,10 +1,11 @@
-// Busca landmarks nuevos en gtadb y los fusiona en public/discovered.json.
-// No reescribe los pines curados (src/data/seeds.json). Solo añade sitios
-// nuevos (mismo id, o a menos de 60 m, o el mismo nombre a menos de 400 m
-// contra cualquier pin ya conocido, con nombre Y coordenada reales).
-// Máximo 40 pines nuevos por pasada, priorizando categoría y confianza.
-// Solo escribe el archivo si cambió la lista de locations: sin churn de
-// commits/deploys. Con schema de upstream roto, sale 1 y no toca nada.
+// Busca landmarks nuevos en gtadb y marcadores de IGN Leonida, y los fusiona
+// en public/discovered.json. No reescribe los pines curados (src/data/seeds.json).
+// Solo añade sitios nuevos (mismo id, o a menos de 60 m, o el mismo nombre a
+// menos de 400 m contra cualquier pin ya conocido). gtadb tiene tope de 40
+// pines nuevos por pasada. IGN entra entero: son las mismas ubicaciones del
+// mapa interactivo, ya clasificadas. Solo escribe el archivo si cambió la
+// lista. Con el schema de gtadb roto, sale 1 y no toca nada. Si IGN falla,
+// se conservan los pines ign-* ya publicados.
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import {
   classify,
@@ -16,10 +17,11 @@ import {
   tooClose,
 } from './lib/gtadb.mjs'
 import { nearestRegion } from '../src/data/resolve.mjs'
+import { fetchIgnMarkers, fitIgnProjection, ignMarkerToPin, matchControlPairs, readControlPoints } from './lib/ign.mjs'
 
 const OUT = new URL('../public/discovered.json', import.meta.url)
 const MAX_NEW = 40
-const SCHEMA_VERSION = 2
+const SCHEMA_VERSION = 3
 
 const TIPS = {
   ammunation: 'Armería detectada en gtadb. Carga chaleco antes del golpe.',
@@ -99,8 +101,10 @@ const previous = existsSync(OUT)
 
 const previousLocations = previous.locations ?? []
 
-// Los ya publicados siguen contando como conocidos para el dedupe.
+// Los gtadb ya publicados siguen contando como conocidos. Los ign-* se
+// reconstruyen en cada pasada, así que no deben bloquearse a sí mismos.
 for (const loc of previousLocations) {
+  if (String(loc.id).startsWith('ign-')) continue
   known.ids.add(loc.id)
   known.points.push({ wx: loc.wx, wy: loc.wy, name: norm(loc.name) })
 }
@@ -143,16 +147,44 @@ candidates.sort(
 )
 const added = candidates.slice(0, MAX_NEW)
 
-// Mantengo lo publicado que sigue vigente: no solapado con lo curado y vivo aguas arriba.
+// Mantengo lo publicado de gtadb que sigue vigente. Los ign-* no se heredan:
+// salen frescos de esta pasada, o se quedan los viejos si IGN no respondió.
 const kept = previousLocations.filter(
   (loc) =>
+    !String(loc.id).startsWith('ign-') &&
     !curated.ids.has(loc.id) &&
     !tooClose(loc, curated.points) &&
     upstreamIds.has(loc.id.replace('gtadb-', '')) &&
     !added.some((n) => n.id === loc.id),
 )
 
-const locations = [...kept, ...added].sort((a, b) => a.id.localeCompare(b.id))
+let ignNote = 'IGN no disponible; se conservan los pines ign-* previos'
+let ignAdded = []
+try {
+  const markers = await fetchIgnMarkers()
+  const projection = fitIgnProjection(matchControlPairs(markers, readControlPoints(import.meta.url)))
+  if (!projection) {
+    ignNote = `IGN respondió ${markers.length} marcadores, pero la proyección no ancla (menos de 6 pares o mediana > 40 m). No publico pines nuevos de IGN.`
+    ignAdded = previousLocations.filter((loc) => String(loc.id).startsWith('ign-'))
+  } else {
+    const seen = new Set()
+    for (const marker of markers) {
+      const pin = ignMarkerToPin(marker, projection.project)
+      if (!pin || seen.has(pin.id) || known.ids.has(pin.id) || tooClose(pin, known.points)) continue
+      seen.add(pin.id)
+      ignAdded.push(pin)
+      known.ids.add(pin.id)
+      known.points.push({ wx: pin.wx, wy: pin.wy, name: norm(pin.name) })
+    }
+    ignNote = `marcadores ${markers.length} · anclas ${projection.inliers} · mediana ${Math.round(projection.median)} m · nuevos ${ignAdded.length}`
+  }
+} catch (err) {
+  ignNote = `IGN falló (${err.message ?? err}). Se conservan los pines ign-* previos.`
+  ignAdded = previousLocations.filter((loc) => String(loc.id).startsWith('ign-'))
+  console.error(ignNote)
+}
+
+const locations = [...kept, ...added, ...ignAdded].sort((a, b) => a.id.localeCompare(b.id))
 
 const changed = JSON.stringify(locations) !== JSON.stringify(previousLocations)
 // Cualquier id previo que ya no está en locations es "removido":
@@ -184,3 +216,12 @@ console.log(`- nuevos: ${added.length}${Object.keys(byCat).length ? ` (${Object.
 console.log(`- removidos (baja upstream o solapa con curados): ${removedList.length}${Object.keys(removedByCat).length ? ` (${Object.entries(removedByCat).map(([k, v]) => `${k}: ${v}`).join(', ')})` : ''}`)
 console.log(`- publicados en discovered.json: ${locations.length} · sin confirmar: ${lowConf}`)
 console.log(`- archivo: ${changed ? 'ACTUALIZADO' : 'sin cambios (no hay commit ni deploy)'}`)
+console.log('')
+console.log('## ign discovery')
+console.log('')
+console.log(`- ${ignNote}`)
+if (ignNote.includes('nuevos')) {
+  const ignByCat = {}
+  for (const p of ignAdded) ignByCat[p.category] = (ignByCat[p.category] ?? 0) + 1
+  console.log(`- por categoría: ${Object.entries(ignByCat).map(([k, v]) => `${k}: ${v}`).join(', ')}`)
+}
