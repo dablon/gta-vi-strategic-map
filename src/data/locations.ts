@@ -31,6 +31,10 @@ const AREA_CENTROIDS: Record<string, [number, number]> = {
   Grassrivers: [-3068, -4544],
   'Leonard County': [-845, 3721],
   'Lummox County': [-3536, 7046],
+  'Vice City': [-800, 200],
+  Stockyard: [-380, 1760],
+  Balsero: [-1850, 650],
+  Millport: [-1075, 6490],
 }
 
 function hash(s: string): number {
@@ -65,6 +69,8 @@ interface Seed extends Extra {
   /** Coordenadas exactas de gtadb; si faltan se usa el centroide de `centroid ?? area`. */
   at?: [number, number]
   centroid?: string
+  /** Radio del jitter cuando la posición es de barrio, no de landmark. */
+  spread?: number
 }
 
 function build(seed: Seed): MapLocation {
@@ -78,12 +84,12 @@ function build(seed: Seed): MapLocation {
     const key = seed.centroid ?? seed.area
     const c = AREA_CENTROIDS[key]
     if (!c) throw new Error(`Sin centroide para "${key}" (${seed.id})`)
-    const [dx, dy] = jitter(seed.id)
+    const [dx, dy] = jitter(seed.id, seed.spread ?? 160)
     wx = c[0] + dx
     wy = c[1] + dy
     precision = 'area'
   }
-  const { at: _at, centroid: _centroid, ...rest } = seed
+  const { at: _at, centroid: _centroid, spread: _spread, ...rest } = seed
   return { ...rest, wx, wy, precision }
 }
 
@@ -130,7 +136,32 @@ const SEEDS: Seed[] = [
   { id: 'jew-avery', name: 'Avery Pawn (Crossroad Park)', category: 'jewelry', region: 'port_gellhorn', area: 'Port Gellhorn', at: [-6334, 3930], payoutMin: 1000, payoutMax: 4000, security: 'low', unlock: 'Cap. 2 — Hit Avery Pawn', lootType: 'Jewelry', tip: 'Tutorial de pawn en el Crossroad Park Minimall. Código de caja visto: 4248.', source: 'sixthstar; posición gtadb L615' },
   { id: 'jew-siren', name: "The Siren's Chest", category: 'jewelry', region: 'leonida_keys', area: 'Key Lento', unlock: CH3, lootType: 'Jewelry', tip: 'Joyería de los Keys.', source: 'gta6activities' },
   { id: 'jew-plush', name: 'Plush', category: 'jewelry', region: 'vice_city', area: 'Tequesta', unlock: CH3, lootType: 'Jewelry', tip: 'Tequesta: encadena con la Fleeca de la zona.', source: 'Fan map' },
-  { id: 'jew-legendary', name: 'Legendary Custom Jewelry', category: 'jewelry', region: 'vice_beach', area: 'Ocean Beach', unlock: CH3, lootType: 'Jewelry', tip: 'Cadena Ocean Beach: joyería → Yasmani → Pay ’n’ Spray.', source: 'Fan map' },
+  { id: 'jew-legendary', name: 'Legendary Custom Jewelry', category: 'jewelry', region: 'vice_beach', area: 'Ocean Beach', payoutMin: 14000, payoutMax: 25000, unlock: CH3, lootType: 'Jewelry', tip: 'Cadena Ocean Beach: joyería → Yasmani → Pay ’n’ Spray.', source: 'gta6activities' },
+  { id: 'jew-akoya', name: 'Akoya Jewelers', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 14000, payoutMax: 25000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Tope de card ($14k–$25k). Barrio exacto sin mapear: pin al centro de Vice City.', source: 'gta6activities' },
+  { id: 'jew-blanc', name: 'Blanc & Giroux', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 14000, payoutMax: 25000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Joyería de lujo. Misma banda de payout que Akoya.', source: 'gta6activities' },
+  { id: 'jew-covgari', name: 'Covgari', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 14000, payoutMax: 25000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Relojería de lujo. Caja fuerte trasera, vende a Yasmani.', source: 'gta6activities' },
+  { id: 'jew-donovan', name: 'Donovan Banks & Co.', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 14000, payoutMax: 25000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Alta joyería. No es un banco: es vitrina y caja.', source: 'gta6activities' },
+  { id: 'jew-kowalski', name: 'Kowalski', category: 'jewelry', region: 'leonard', area: 'Waning Sands', payoutMin: 14000, payoutMax: 25000, unlock: CH3, lootType: 'Jewelry', tip: 'Lujo en Waning Sands. La PD está en el pueblo: entra y sal.', source: 'gta6activities' },
+  { id: 'jew-rococo', name: 'Rococo Rich', category: 'jewelry', region: 'vice_beach', area: 'Ocean Beach', payoutMin: 14000, payoutMax: 25000, unlock: CH3, lootType: 'Jewelry', tip: 'Cadena de playa con Legendary y Marshal’s.', source: 'gta6activities' },
+  { id: 'jew-roval', name: 'Roval Jewelry', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 14000, payoutMax: 25000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Tope de card. Posición de barrio, no de puerta.', source: 'gta6activities' },
+  { id: 'jew-skala', name: 'Skala', category: 'jewelry', region: 'leonard', area: 'Waning Sands', payoutMin: 14000, payoutMax: 25000, unlock: CH3, lootType: 'Jewelry', tip: 'Segunda joyería cara de Waning Sands, junto a Kowalski.', source: 'gta6activities' },
+  { id: 'jew-glitters', name: 'All That Glitters', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 9000, payoutMax: 20000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Escalón medio-alto.', source: 'gta6activities' },
+  { id: 'jew-brilliant', name: 'Brilliant Cuts', category: 'jewelry', region: 'leonard', area: 'Belville', payoutMin: 9000, payoutMax: 20000, unlock: CH3, lootType: 'Jewelry', tip: 'Encadena con Druthers State Bank.', source: 'gta6activities' },
+  { id: 'jew-marshals', name: "Marshal's", category: 'jewelry', region: 'vice_beach', area: 'Ocean Beach', payoutMin: 9000, payoutMax: 20000, unlock: CH3, lootType: 'Jewelry', tip: 'Vice Beach. Salida por la marina si suben las estrellas.', source: 'gta6activities' },
+  { id: 'jew-peacock', name: 'Peacock', category: 'jewelry', region: 'vice_city', area: 'Peacock Bay', payoutMin: 9000, payoutMax: 20000, unlock: CH3, lootType: 'Jewelry', tip: 'El nombre apunta a Peacock Bay; la guía solo dice Vice City. Trata el pin como aproximado.', source: 'gta6activities' },
+  { id: 'jew-victoria', name: 'Victoria Lee Jeweler', category: 'jewelry', region: 'capri', area: 'Capri', payoutMin: 9000, payoutMax: 20000, unlock: CH3, lootType: 'Jewelry', tip: 'Única joyería cara de la costa del Golfo, cerca de Gibson Brothers.', source: 'gta6activities' },
+  { id: 'jew-casa-empeno', name: 'Casa De Empeño', category: 'jewelry', region: 'vice_beach', area: 'Ocean Beach', payoutMin: 4500, payoutMax: 12000, security: 'low', unlock: CH3, lootType: 'Jewelry', tip: 'Pawn de playa. Seguridad baja en la card.', source: 'gta6activities' },
+  { id: 'jew-ernesto', name: "Ernesto's Pawn", category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 4500, payoutMax: 12000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Pawn urbano. Snap Gun, vitrina, caja.', source: 'gta6activities' },
+  { id: 'jew-florence', name: 'Florence & Co.', category: 'jewelry', region: 'ambrosia', area: 'Ambrosia', payoutMin: 4500, payoutMax: 12000, unlock: CH3, lootType: 'Jewelry', tip: 'Ambrosia. La PD del pueblo está cerca.', source: 'gta6activities' },
+  { id: 'jew-stash', name: 'Pawn Stash', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 4500, payoutMax: 12000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Pawn de relleno. Card $4.5k–$12k.', source: 'gta6activities' },
+  { id: 'jew-richardson', name: 'Richardson Jewelry & Diamonds', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 4500, payoutMax: 12000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Diamantes. Yasmani paga mejor que un pawn random.', source: 'gta6activities' },
+  { id: 'jew-timeless', name: 'Timeless Peculiars', category: 'jewelry', region: 'grassrivers', area: 'Watson Bay', payoutMin: 4500, payoutMax: 12000, unlock: CH3, lootType: 'Jewelry', tip: 'Watson Bay. Salida por pantano si hay calor.', source: 'gta6activities' },
+  { id: 'jew-crown', name: 'Crown Jewels', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 1000, payoutMax: 10000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Vice-Dale. Payout bajo para ser joyería.', source: 'gta6activities' },
+  { id: 'jew-fast-cash', name: 'Fast Cash', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 1000, payoutMax: 10000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Empeño rápido. No es un Payday Loans.', source: 'gta6activities' },
+  { id: 'jew-martez', name: 'Martez Empeños', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 1000, payoutMax: 10000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Card leída a medias. Trátalo como pawn chico.', source: 'gta6activities' },
+  { id: 'jew-pawn-city', name: 'Pawn City', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 1000, payoutMax: 10000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Pawn de volumen, no de lujo.', source: 'gta6activities' },
+  { id: 'jew-place', name: 'The Jewelry Place', category: 'jewelry', region: 'vice_city', area: 'Vice City', payoutMin: 1000, payoutMax: 10000, spread: 1400, unlock: CH3, lootType: 'Jewelry', tip: 'Vice-Dale. Card $1k–$10k.', source: 'gta6activities' },
+  { id: 'jew-empenos', name: 'Joyeria Empeños', category: 'jewelry', region: 'vice_city', area: 'Rockridge', at: [-1148, 1012], payoutMin: 1000, payoutMax: 10000, unlock: CH3, lootType: 'Jewelry', tip: 'Rockridge, a una cuadra de Little Gems y el Ammu-Nation. Hay una segunda sucursal sin pin exacto.', source: 'gtadb L2759' },
 
   // —— STICK-UPS ——
   { id: 'su-xero-rockridge', name: 'Xero Food Mart Rockridge', category: 'stickup', region: 'vice_city', area: 'Rockridge', at: [-1299, 989], payoutMin: 1000, payoutMax: 3000, security: 'low', lootType: 'Cash', tip: 'La mejor card de stick-up leída ($1k–$3k). Entra por atrás, cámaras, caja.', source: 'gameplay; posición gtadb L608' },
@@ -151,6 +182,13 @@ const SEEDS: Seed[] = [
   { id: 'su-trotmans', name: "Trotman's Super Market", category: 'stickup', region: 'leonard', area: 'Leonard County', at: [-1075, 6489], payoutMin: 100, payoutMax: 1000, security: 'low', lootType: 'Cash', tip: 'Millport, extremo norte. Sin policía cerca conocida.', source: 'gtadb L3397' },
   { id: 'su-xero-capri', name: 'Xero Gas Station Capri', category: 'stickup', region: 'capri', area: 'Capri', at: [-6234, -763], payoutMin: 100, payoutMax: 2000, security: 'low', lootType: 'Cash', tip: 'Combina con Gibson Brothers Bank.', source: 'gtadb L1612' },
   { id: 'su-ltd-hamlet', name: 'LTD Gas Station Hamlet', category: 'stickup', region: 'hamlet', area: 'Hamlet', at: [-2568, -3617], payoutMin: 100, payoutMax: 1000, security: 'low', lootType: 'Cash', tip: 'Fence de Hamlet a 30 m.', source: 'gtadb L260' },
+  { id: 'su-glamour', name: 'Glamour Clothing', category: 'stickup', region: 'vice_city', area: 'Stockyard', at: [-437, 1696], payoutMin: 200, payoutMax: 600, security: 'low', lootType: 'Cash', tip: 'Ropa. Una pasada de tiendas de Vice City pagó ~$3.1k en ~15 min.', source: 'gtadb L478; payout gta6activities' },
+  { id: 'su-pearl', name: 'Pearl House Hair Salon', category: 'stickup', region: 'port_gellhorn', area: 'Port Gellhorn', payoutMin: 1000, payoutMax: 1748, security: 'medium', lootType: 'Cash + valuables', tip: 'El back room pagó $1,748. Explosivo abre la puerta y destroza parte del botín.', source: 'gta6activities' },
+  { id: 'su-three-sheets', name: 'Three Sheets Liquor', category: 'stickup', region: 'leonida_keys', area: 'Key Lento', payoutMin: 100, payoutMax: 1208, security: 'low', lootType: 'Cash', tip: 'Hold-up de $1,208, $968 en la caja. Tres estrellas en ese run.', source: 'gta6activities' },
+  { id: 'su-sarena', name: "Sarena's Bargain Store", category: 'stickup', region: 'port_gellhorn', area: 'Port Gellhorn', payoutMin: 64, payoutMax: 240, security: 'low', lootType: 'Cash', tip: 'Caja mínima ($64). Sirve para el reto de 50 Stick Ups, no para hacerte rico.', source: 'gta6activities' },
+  { id: 'su-bargain', name: 'Bargain World', category: 'stickup', region: 'port_gellhorn', area: 'Port Gellhorn', payoutMin: 200, payoutMax: 240, security: 'low', lootType: 'Cash', tip: 'Solo registradora, ~14 s.', source: 'gta6activities' },
+  { id: 'su-zaks', name: "Zak's Liquor", category: 'stickup', region: 'vice_city', area: 'Vice City', payoutMin: 100, payoutMax: 1000, security: 'low', spread: 1200, lootType: 'Cash', tip: 'Licorería. Card $100–$1,000.', source: 'gta6activities' },
+  { id: 'su-palmis', name: 'Palmis Liquor', category: 'stickup', region: 'vice_city', area: 'Vice City', payoutMin: 100, payoutMax: 1000, security: 'low', spread: 1200, lootType: 'Cash', tip: 'Licorería. Misma banda que Zak’s.', source: 'gta6activities' },
 
   // —— OPERACIONES ILEGALES ——
   { id: 'op-janjak', name: "Janjak's Garage (San4San)", category: 'illegal_op', region: 'vice_city', area: 'La Perle', payoutMin: 11300, payoutMax: 16800, security: 'high', unlock: 'Al conocer San4San', lootType: 'Narcóticos + cash', tip: 'Card más rica leída. Weed op detrás del garage. Pagó ~$9k en footage.', source: 'gta6activities' },
@@ -163,7 +201,21 @@ const SEEDS: Seed[] = [
   { id: 'op-kingfishers', name: 'Kingfishers fishing shacks', category: 'illegal_op', region: 'leonida_keys', area: 'Key Lento', unlock: 'Capítulo 1+', lootType: 'Narcóticos', tip: 'Raid temprano: ~$3,200 en droga. Primera pandilla del menú Progress > Gangs.', source: 'gta6heists / PowerPyx' },
   { id: 'op-sunrise-rv', name: 'Sunrise RV Park', category: 'illegal_op', region: 'grassrivers', area: 'Grassrivers', at: [-3477, -4497], lootType: 'Narcóticos', tip: 'Front en los humedales; salida en airboat.', source: 'Fan map; posición gtadb L265' },
   { id: 'op-manatee', name: 'Manatee Motel', category: 'illegal_op', region: 'grassrivers', area: 'Grassrivers', lootType: 'Narcóticos', tip: 'Motel front en Mariana County.', source: 'Fan map' },
-  { id: 'op-farm-fix', name: 'Farm Fix Meth Lab', category: 'illegal_op', region: 'leonard', area: 'Leonard County', lootType: 'Narcóticos', tip: 'Lab rural. Vende la droga a Tyrone.', source: 'Fan map' },
+  { id: 'op-farm-fix', name: 'Farm Fix Meth Lab', category: 'illegal_op', region: 'leonard', area: 'Leonard County', lootType: 'Narcóticos', tip: 'Lab rural. Vende la droga a Tyrone.', source: 'gta6activities' },
+  { id: 'op-weed-front', name: 'Backroom Weed Front', category: 'illegal_op', region: 'port_gellhorn', area: 'Port Gellhorn', lootType: 'Narcóticos', tip: 'Trastienda de weed. Chaleco: estos fronts disparan.', source: 'gta6activities' },
+  { id: 'op-carter', name: 'Carter Mining Boathouse', category: 'illegal_op', region: 'mount_kalaga', area: 'Lummox County', lootType: 'Narcóticos + cash', tip: 'Casa de botes al norte. Salida por agua.', source: 'gta6activities' },
+  { id: 'op-chatfield', name: 'Chatfield Storage & Logistics', category: 'illegal_op', region: 'vice_city', area: 'Vice City', spread: 1200, lootType: 'Mercancía + cash', tip: 'Almacén tapadera. Vice-Dale, pin de barrio.', source: 'gta6activities' },
+  { id: 'op-cigar', name: 'Cigar Import Front', category: 'illegal_op', region: 'vice_city', area: 'Vice City', spread: 1200, lootType: 'Contrabando', tip: 'Importadora de puros. El dinero está en la trastienda, no en el mostrador.', source: 'gta6activities' },
+  { id: 'op-exotic', name: 'Exotic Animals Front', category: 'illegal_op', region: 'leonida_keys', area: 'Key Lento', lootType: 'Contrabando', tip: 'Front de animales en los Keys. Early-game si ya estás en el sur.', source: 'gta6activities' },
+  { id: 'op-meth-gas', name: 'Gas Station Meth Front', category: 'illegal_op', region: 'ambrosia', area: 'Ambrosia', lootType: 'Narcóticos', tip: 'Gasolinera tapadera en Kelly County. No es un stick-up: es lab.', source: 'gta6activities' },
+  { id: 'op-irons', name: 'Irons Building Supply', category: 'illegal_op', region: 'ambrosia', area: 'Ambrosia', lootType: 'Cash + mercancía', tip: 'Ferretería front. Encadena con Florence & Co. y sal del pueblo.', source: 'gta6activities' },
+  { id: 'op-june', name: 'June Warehouse', category: 'illegal_op', region: 'port_gellhorn', area: 'Port Gellhorn', lootType: 'Mercancía + cash', tip: 'Almacén de Port Gellhorn. Lleva furgoneta si el botín es cajas.', source: 'gta6activities' },
+  { id: 'op-cascara', name: 'La Cascara Motel', category: 'illegal_op', region: 'port_gellhorn', area: 'Port Gellhorn', lootType: 'Narcóticos + cash', tip: 'Motel front. gtadb no tiene coordenada válida: pin de pueblo.', source: 'gta6activities' },
+  { id: 'op-carrier', name: 'Leonida Carrier Warehouse', category: 'illegal_op', region: 'vice_city', area: 'Vice City', spread: 1200, lootType: 'Mercancía', tip: 'Almacén de transporte. Botín en cajas, no en caja registradora.', source: 'gta6activities' },
+  { id: 'op-palmer', name: 'Palmer Fishing Warehouse', category: 'illegal_op', region: 'grassrivers', area: 'Watson Bay', lootType: 'Narcóticos', tip: 'Almacén pesquero. Misma lógica que los Kingfishers, más al norte.', source: 'gta6activities' },
+  { id: 'op-slator', name: 'Slator Towing Inc', category: 'illegal_op', region: 'vice_city', area: 'Vice City', spread: 1200, lootType: 'Cash + coches', tip: 'Grúa tapadera. Mira el patio: a veces el botín es el coche, no la caja.', source: 'gta6activities' },
+  { id: 'op-sound', name: 'Sound4Sond Studio', category: 'illegal_op', region: 'vice_city', area: 'Vice City', spread: 1200, lootType: 'Cash + narcóticos', tip: 'Estudio front, ligado a San4San. No es solo un local de música.', source: 'gta6activities' },
+  { id: 'op-lost-vista', name: 'Lost Vista Trailer Park', category: 'illegal_op', region: 'port_gellhorn', area: 'Port Gellhorn', payoutMin: 1040, payoutMax: 1040, lootType: 'Narcóticos + cash', tip: 'Raid registrado: $1,040. Parque de trailers, varias puertas.', source: 'gta6activities' },
 
   // —— FENCES ——
   { id: 'fence-yasmani', name: 'Yasmani', category: 'fence', region: 'vice_city', area: 'Little Cuba', unlock: CH3, bestFor: 'Joyas + billetes marcados', tip: 'Mejor precio en joyería y marked bills. Te da la Snap Gun tras el primer encargo.', source: 'PowerPyx / sixthstar' },
@@ -182,6 +234,8 @@ const SEEDS: Seed[] = [
   { id: 'pd-southside', name: 'Payday Loans Southside', category: 'payday', region: 'vice_city', area: 'Southside', unlock: CH3, lootType: 'Marked bills', tip: 'Zona de pandillas: calor social + policial.', source: 'gta6activities' },
   { id: 'pd-quick-buck', name: 'Quick Buck La Perle', category: 'payday', region: 'vice_city', area: 'La Perle', unlock: CH3, lootType: 'Marked bills', tip: 'Cerca de Tyrone y Janjak.', source: 'gta6activities' },
   { id: 'pd-cashflow', name: 'Cash Flow', category: 'payday', region: 'port_gellhorn', area: 'Port Gellhorn', unlock: CH3, lootType: 'Marked bills', tip: 'Payday loan: apunta al cajero y te da los billetes.', source: 'gta6activities' },
+  { id: 'pd-payline', name: 'Payline Loans 247', category: 'payday', region: 'hamlet', area: 'Hamlet', unlock: CH3, lootType: 'Marked bills', tip: 'Hamlet, abierto 24/7. Vende los billetes marcados; no los gastes en el LTD de al lado.', source: 'gta6activities' },
+  { id: 'pd-quick-hamlet', name: 'Quick Buck Hamlet', category: 'payday', region: 'hamlet', area: 'Hamlet', unlock: CH3, lootType: 'Marked bills', tip: 'Segunda financiera de Hamlet, distinta de la de La Perle.', source: 'gta6activities' },
 
   // —— PAY ’N’ SPRAY ——
   { id: 'pns-la-perle', name: "Pay 'n' Spray La Perle", category: 'paynspray', region: 'vice_city', area: 'La Perle', at: [-1249, 1187], tip: 'Después del raid a Janjak o de vender a Tyrone.', source: 'gtadb L415' },
@@ -194,7 +248,13 @@ const SEEDS: Seed[] = [
   { id: 'pns-hamlet', name: "Pay 'n' Spray Hamlet", category: 'paynspray', region: 'hamlet', area: 'Hamlet', tip: 'Salida tras M7 / Hamlet Pawn.', source: 'Fan map' },
   { id: 'pns-watson', name: "Pay 'n' Spray Watson Bay", category: 'paynspray', region: 'grassrivers', area: 'Watson Bay', tip: 'Cerca del Shorefront Watson Bay.', source: 'Fan map' },
   { id: 'pns-southwind', name: "Pay 'n' Spray Southwind", category: 'paynspray', region: 'grassrivers', area: 'Southwind', tip: 'Cierra el stick-up del Xero Southwind.', source: 'Fan map' },
-  { id: 'pns-salton', name: "Pay 'n' Spray Salton", category: 'paynspray', region: 'vice_city', area: 'Salton', tip: 'Oeste de Little Cuba, de camino a VCIA.', source: 'Fan map' },
+  { id: 'pns-salton', name: "Pay 'n' Spray Salton", category: 'paynspray', region: 'vice_city', area: 'Salton', tip: 'Oeste de Little Cuba, de camino a VCIA.', source: 'gta6activities' },
+  { id: 'pns-balsero', name: "Pay 'n' Spray Balsero", category: 'paynspray', region: 'vice_city', area: 'Balsero', tip: 'Oeste industrial. Cierra robos de Stockyard y el concesionario Vapid.', source: 'gta6activities' },
+  { id: 'pns-stockyard', name: "Pay 'n' Spray Stockyard", category: 'paynspray', region: 'vice_city', area: 'Stockyard', tip: 'Al lado de Glamour Clothing y Euroform.', source: 'gta6activities' },
+  { id: 'pns-grass', name: "Pay 'n' Spray Grassrivers", category: 'paynspray', region: 'grassrivers', area: 'Grassrivers', tip: 'El del pantano. Úsalo si el de Watson Bay queda al otro lado del calor.', source: 'gta6activities' },
+  { id: 'pns-grayson', name: "Pay 'n' Spray Grayson", category: 'paynspray', region: 'mount_kalaga', area: 'Lummox County', tip: 'Norte. Salida tras Carter Mining o el de caza.', source: 'gta6activities' },
+  { id: 'pns-millport', name: "Pay 'n' Spray Millport", category: 'paynspray', region: 'mount_kalaga', area: 'Millport', tip: 'Extremo norte, junto a Trotman’s.', source: 'gta6activities' },
+  { id: 'pns-waning', name: "Pay 'n' Spray Waning Sands", category: 'paynspray', region: 'leonard', area: 'Waning Sands', tip: 'Después de Kowalski o Skala. No pases por delante de la PD.', source: 'gta6activities' },
 
   // —— POLICÍA ——
   { id: 'pol-vice-beach', name: 'Vice Beach Police Department', category: 'police', region: 'vice_beach', area: 'Ocean Beach', at: [1495, 400], tip: 'Sobre Shorefront Ave. No escapes de las bóvedas OB hacia el norte por aquí.', source: 'gtadb L1293' },
@@ -229,6 +289,14 @@ const SEEDS: Seed[] = [
   { id: 'mar-brian', name: "Brian's Boat Works & Marina", category: 'marina', region: 'leonida_keys', area: 'Key Lento', at: [-2555, -5859], tip: 'Lanchas en Key Lento. Fence Brian en el mismo sitio.', source: 'gtadb L326' },
   { id: 'mar-watson', name: 'Watson Bay Marina', category: 'marina', region: 'grassrivers', area: 'Watson Bay', at: [-5152, -3397], tip: 'Al Golfo o a los canales de Grassrivers.', source: 'gtadb L619' },
   { id: 'mar-buckskin', name: 'Buckskin Marina', category: 'marina', region: 'capri', area: 'Capri', at: [-4194, 920], tip: 'Marina del interior, al norte de Capri.', source: 'gtadb L1782' },
+
+  // —— COCHES ——
+  { id: 'car-vapid', name: 'Vapid Dealership', category: 'vehicle', region: 'vice_city', area: 'Southside', at: [-1987, -2339], lootType: 'Coches', tip: 'Concesionario. El patio es un catálogo robable; véndelo en Pay ’n’ Spray si lleva tracker.', source: 'gtadb L1610' },
+  { id: 'car-moto', name: 'Motorcycle Customs', category: 'vehicle', region: 'vice_city', area: 'Southside', at: [-2064, -2110], lootType: 'Motos', tip: 'Taller de motos. Una moto corta el tráfico de las 4 estrellas de una bóveda.', source: 'gtadb L1608' },
+  { id: 'car-rideout', name: 'Rideout Customs', category: 'vehicle', region: 'vice_city', area: 'Crosstown', at: [-866, 975], lootType: 'Coches tuneados', tip: 'Taller. Blindaje y motor antes de un vault, no después.', source: 'gtadb L2375' },
+  { id: 'car-simons', name: "Simon's Tires", category: 'vehicle', region: 'vice_city', area: 'La Perle', at: [-1119, 1176], tip: 'Neumáticos en La Perle, al lado del Pay ’n’ Spray.', source: 'gtadb L419' },
+  { id: 'car-ricardo', name: "Ricardo's Tires", category: 'vehicle', region: 'vice_city', area: 'La Perle', at: [-999, 1312], tip: 'Segundo taller de ruedas de La Perle.', source: 'gtadb L3408' },
+  { id: 'car-wash-pg', name: 'Car Wash Port Gellhorn', category: 'vehicle', region: 'port_gellhorn', area: 'Port Gellhorn', at: [-6223, 4380], tip: 'Quita la descripción del coche sin pagar un respray completo.', source: 'gtadb L316' },
 ]
 
 const LANDMARK_TIPS: Partial<Record<LocationCategory, string>> = {

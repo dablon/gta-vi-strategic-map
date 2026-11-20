@@ -17,6 +17,7 @@ export type LocationCategory =
   | 'transit'
   | 'modshop'
   | 'hospital'
+  | 'vehicle'
 
 export type CategoryGroup = 'robbery' | 'liquidity' | 'escape' | 'prep'
 

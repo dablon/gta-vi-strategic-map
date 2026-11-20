@@ -15,6 +15,7 @@ import {
   Skull,
   SprayCan,
   Store,
+  CarFront,
   TrainFront,
   Vault,
   Wrench,
@@ -41,6 +42,7 @@ export const CATEGORY_ICONS: Record<LocationCategory, LucideIcon> = {
   modshop: Wrench,
   safehouse: House,
   hospital: Hospital,
+  vehicle: CarFront,
 }
 
 const svgCache = new Map<LocationCategory, string>()

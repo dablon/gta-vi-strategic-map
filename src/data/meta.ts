@@ -153,6 +153,15 @@ export const CATEGORIES: CategoryMeta[] = [
     color: '#fecaca',
     mapUse: 'Landmarks #hospital. Donde reapareces si el golpe sale mal.',
   },
+  {
+    id: 'vehicle',
+    group: 'escape',
+    label: 'Coches (robo / venta)',
+    short: 'Coches',
+    color: '#94a3b8',
+    mapUse:
+      'Concesionarios, talleres y lavaderos. Un coche con tracker se vende en Pay ’n’ Spray (~$4k+). El lavadero baja el calor visual.',
+  },
 ]
 
 export const REGIONS: RegionMeta[] = [
