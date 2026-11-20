@@ -2,12 +2,14 @@ name: Discover locations
 
 on:
   # El cron no corre al hacer push. Este paths lo lanza al subir el propio workflow
-  # o el script. El commit del bot solo toca discovered.json, así que no se reengancha.
+  # o el script. El commit del bot solo toca public/*.json, así que no se reengancha.
   push:
     branches: [main]
     paths:
       - .github/workflows/discover.yml
-      - scripts/discover-locations.mjs
+      - scripts/**
+      - src/data/seeds.json
+      - src/data/landmarkPins.json
   schedule:
     # Cada 5 horas en punto (UTC). GitHub puede retrasar el cron en repos públicos.
     - cron: '0 */5 * * *'
@@ -31,19 +33,35 @@ jobs:
         with:
           node-version: 22
 
-      - name: Fetch new gtadb landmarks
-        run: node scripts/discover-locations.mjs
+      - name: Sanity-check data contract
+        run: node scripts/validate-data.mjs
 
-      - name: Commit discovered pins
+      # El script NO toca discovered.json si la lista no cambió: sin commits
+      # ni deploys vacíos cada 5 horas.
+      - name: Fetch new gtadb landmarks
+        run: |
+          set -o pipefail
+          node scripts/discover-locations.mjs | tee discovery-summary.md
+          cat discovery-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      # Bandeja de propuestas: issues con label pin-suggestion → suggestions.json.
+      # Sigue con archivo previo si el API de GitHub falla; no bloquea el descubrimiento.
+      - name: Refresh community suggestions
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/fetch-suggestions.mjs
+
+      - name: Commit published feeds
         id: commit
         run: |
-          git add public/discovered.json
+          git add public/discovered.json public/suggestions.json
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Update discovered map locations"
+            git commit -m "Update published map feeds"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi

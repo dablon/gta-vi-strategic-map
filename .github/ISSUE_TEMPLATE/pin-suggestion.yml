@@ -1,0 +1,67 @@
+name: Pin suggestion
+description: Propón un punto de interés para el mapa (robos, escape, preparación)
+title: "Pin: "
+labels: pin-suggestion
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Las propuestas se publican en el mapa como pins dorados punteados ("sin moderar")
+        hasta que un humano las confirme. Para coordenadas exactas, usa el modo
+        **Proponer un pin** del propio mapa: https://dablon.github.io/gta-vi-strategic-map/
+  - type: input
+    id: nombre
+    attributes:
+      label: Nombre
+      description: "Ej.: Lombank Little Havana"
+    validations:
+      required: true
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Categoría (category)
+      description: "Identificador de categoría del atlas"
+      options:
+        - bank_vault
+        - bank_small
+        - jewelry
+        - stickup
+        - illegal_op
+        - fence
+        - payday
+        - paynspray
+        - police
+        - ammunation
+        - safehouse
+        - marina
+        - gas
+        - store
+        - airport
+        - transit
+        - modshop
+        - hospital
+        - vehicle
+    validations:
+      required: true
+  - type: input
+    id: barrio
+    attributes:
+      label: Barrio / zona (opcional)
+  - type: input
+    id: wx
+    attributes:
+      label: Coordenada wx (metros del mundo)
+      description: "Del bloque json del issue generado por el mapa, o del editor de gtadb"
+    validations:
+      required: true
+  - type: input
+    id: wy
+    attributes:
+      label: Coordenada wy (metros del mundo)
+    validations:
+      required: true
+  - type: textarea
+    id: notas
+    attributes:
+      label: Notas
+      description: "Entrada, guardias, caja fuerte, ruta de escape…"

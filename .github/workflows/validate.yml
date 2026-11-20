@@ -1,0 +1,31 @@
+name: Validate data and tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Data contract (zod sobre seeds/pins/discovered/suggestions)
+        run: node scripts/validate-data.mjs
+
+      - name: Unit tests
+        run: npx vitest run
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
