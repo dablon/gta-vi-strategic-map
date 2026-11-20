@@ -1,521 +1,642 @@
-import { useDeferredValue, useMemo, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useState } from 'react'
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Link2,
+  Minus,
+  Plus,
+  RotateCcw,
+  Search,
+  SlidersHorizontal,
+  X,
+} from 'lucide-react'
 import { LeonidaMap } from './components/LeonidaMap'
-import { CATEGORIES, MAP_TYPES, REGIONS } from './data/meta'
+import { CategoryIcon } from './components/icons'
+import { CATEGORIES, GROUPS, REGIONS } from './data/meta'
 import { LOCATIONS, payoutLabel } from './data/locations'
-import type { LocationCategory, RegionId, SecurityLevel } from './data/types'
+import type { LocationCategory, MapLocation, RegionId, SecurityLevel } from './data/types'
 
-const ALL_CATEGORIES = CATEGORIES.map((c) => c.id)
 const ALL_REGIONS = REGIONS.map((r) => r.id)
+const FOUND_KEY = 'leonida-heist-atlas:found'
+const HIDDEN_KEY = 'leonida-heist-atlas:hidden'
 
-function categoryMeta(id: LocationCategory) {
-  return CATEGORIES.find((c) => c.id === id)!
+const categoryMeta = (id: LocationCategory) => CATEGORIES.find((c) => c.id === id)!
+const regionLabel = (id: RegionId) => REGIONS.find((r) => r.id === id)!.label
+const countByCategory = Object.fromEntries(
+  CATEGORIES.map((c) => [c.id, LOCATIONS.filter((l) => l.category === c.id).length]),
+) as Record<LocationCategory, number>
+
+function loadSet(key: string, fallback: string[] = []): Set<string> {
+  try {
+    const raw = localStorage.getItem(key)
+    return new Set(raw ? (JSON.parse(raw) as string[]) : fallback)
+  } catch {
+    return new Set(fallback)
+  }
 }
 
-function regionMeta(id: RegionId) {
-  return REGIONS.find((r) => r.id === id)!
-}
+const PRESETS: { label: string; show: LocationCategory[]; minPayout?: number; security?: SecurityLevel }[] = [
+  { label: 'Bóvedas + escape', show: ['bank_vault', 'paynspray', 'police', 'marina'], minPayout: 65000 },
+  { label: 'Farm joyería → Yasmani', show: ['jewelry', 'fence', 'paynspray'] },
+  { label: 'Compounds + narcóticos', show: ['illegal_op', 'fence', 'ammunation'] },
+  { label: 'Stick-ups low risk', show: ['stickup', 'gas', 'store', 'paynspray'], security: 'low' },
+]
 
 export default function App() {
-  const [activeCategories, setActiveCategories] = useState<LocationCategory[]>([
-    'bank_vault',
-    'bank_small',
-    'jewelry',
-    'fence',
-    'paynspray',
-  ])
+  const [hidden, setHidden] = useState<Set<string>>(() => loadSet(HIDDEN_KEY, ['hospital', 'transit']))
+  const [found, setFound] = useState<Set<string>>(() => loadSet(FOUND_KEY))
+  const [hideFound, setHideFound] = useState(false)
   const [activeRegions, setActiveRegions] = useState<RegionId[]>([...ALL_REGIONS])
   const [securityFilter, setSecurityFilter] = useState<SecurityLevel | 'all'>('all')
   const [minPayout, setMinPayout] = useState(0)
   const [query, setQuery] = useState('')
   const deferredQuery = useDeferredValue(query)
-  const [selectedId, setSelectedId] = useState<string | null>('vault-lombank-downtown')
-  const [showMapTypes, setShowMapTypes] = useState(false)
-  const [mobileTab, setMobileTab] = useState<'map' | 'filters' | 'detail'>('map')
+  const [selectedId, setSelectedId] = useState<string | null>(() => {
+    const id = decodeURIComponent(location.hash.slice(1))
+    return LOCATIONS.some((l) => l.id === id) ? id : null
+  })
+  const [leftOpen, setLeftOpen] = useState(() => matchMedia('(min-width: 768px)').matches)
+  const [rightOpen, setRightOpen] = useState(() => matchMedia('(min-width: 1024px)').matches)
+  const [advancedOpen, setAdvancedOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => localStorage.setItem(FOUND_KEY, JSON.stringify([...found])), [found])
+  useEffect(() => localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden])), [hidden])
+  useEffect(() => {
+    history.replaceState(null, '', selectedId ? `#${encodeURIComponent(selectedId)}` : location.pathname)
+  }, [selectedId])
+
+  const q = deferredQuery.trim().toLowerCase()
 
   const filtered = useMemo(() => {
-    const q = deferredQuery.trim().toLowerCase()
     return LOCATIONS.filter((loc) => {
-      if (!activeCategories.includes(loc.category)) return false
+      if (hidden.has(loc.category)) return false
       if (!activeRegions.includes(loc.region)) return false
-      if (securityFilter !== 'all' && loc.security && loc.security !== securityFilter) return false
-      if (securityFilter !== 'all' && !loc.security) return false
-      if (minPayout > 0) {
-        const hasPayout = loc.payoutMax != null || loc.payoutMin != null
-        if (hasPayout) {
-          const max = loc.payoutMax ?? loc.payoutMin ?? 0
-          if (max < minPayout) return false
-        }
+      if (securityFilter !== 'all' && loc.security !== securityFilter) return false
+      if (minPayout > 0 && (loc.payoutMax != null || loc.payoutMin != null)) {
+        if ((loc.payoutMax ?? loc.payoutMin ?? 0) < minPayout) return false
       }
+      if (hideFound && found.has(loc.id) && loc.id !== selectedId) return false
       if (q) {
         const hay = `${loc.name} ${loc.area} ${loc.tip} ${loc.lootType ?? ''} ${loc.bestFor ?? ''}`.toLowerCase()
         if (!hay.includes(q)) return false
       }
       return true
     })
-  }, [activeCategories, activeRegions, securityFilter, minPayout, deferredQuery])
+  }, [hidden, activeRegions, securityFilter, minPayout, hideFound, found, selectedId, q])
 
-  const selected = useMemo(
-    () => LOCATIONS.find((l) => l.id === selectedId) ?? null,
-    [selectedId],
+  const searchResults = useMemo(
+    () =>
+      q
+        ? LOCATIONS.filter((l) => `${l.name} ${l.area}`.toLowerCase().includes(q)).slice(0, 40)
+        : [],
+    [q],
   )
 
-  const selectedVisible = selected && filtered.some((l) => l.id === selected.id)
+  const selected = LOCATIONS.find((l) => l.id === selectedId) ?? null
+  const selectedVisible = selected != null && filtered.some((l) => l.id === selected.id)
+
+  const topLoot = useMemo(
+    () =>
+      filtered
+        .filter((l) => l.payoutMax != null)
+        .sort((a, b) => (b.payoutMax ?? 0) - (a.payoutMax ?? 0))
+        .slice(0, 8),
+    [filtered],
+  )
 
   function toggleCategory(id: LocationCategory) {
-    setActiveCategories((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id],
-    )
+    setHidden((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
   }
 
-  function toggleRegion(id: RegionId) {
-    setActiveRegions((prev) =>
-      prev.includes(id) ? prev.filter((r) => r !== id) : [...prev, id],
-    )
+  function toggleFound(id: string) {
+    setFound((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
   }
 
-  function selectLocation(id: string) {
+  function selectFromList(id: string) {
+    const loc = LOCATIONS.find((l) => l.id === id)!
+    setHidden((prev) => {
+      if (!prev.has(loc.category)) return prev
+      const next = new Set(prev)
+      next.delete(loc.category)
+      return next
+    })
+    if (!activeRegions.includes(loc.region)) setActiveRegions((r) => [...r, loc.region])
+    setQuery('')
     setSelectedId(id)
-    setMobileTab('detail')
+    if (!matchMedia('(min-width: 768px)').matches) setLeftOpen(false)
   }
+
+  function applyPreset(p: (typeof PRESETS)[number]) {
+    setHidden(new Set(CATEGORIES.map((c) => c.id).filter((id) => !p.show.includes(id))))
+    setMinPayout(p.minPayout ?? 0)
+    setSecurityFilter(p.security ?? 'all')
+  }
+
+  function resetFilters() {
+    setHidden(new Set())
+    setActiveRegions([...ALL_REGIONS])
+    setSecurityFilter('all')
+    setMinPayout(0)
+    setQuery('')
+    setHideFound(false)
+  }
+
+  async function copyLink(id: string) {
+    await navigator.clipboard.writeText(`${location.origin}${location.pathname}#${encodeURIComponent(id)}`)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1200)
+  }
+
+  const visibleTotal = LOCATIONS.filter((l) => !hidden.has(l.category)).length
+  const visibleFound = LOCATIONS.filter((l) => !hidden.has(l.category) && found.has(l.id)).length
 
   return (
-    <div className="flex h-full min-h-0 flex-col bg-[var(--color-lagoon)] text-[var(--color-mist)]">
-      <header className="relative z-20 border-b border-[var(--color-line)] bg-[linear-gradient(120deg,#061820_0%,#0a2f3a_55%,#123038_100%)] px-4 py-3 md:px-6">
-        <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(circle_at_15%_20%,#ff5c3922,transparent_35%),radial-gradient(circle_at_85%_0%,#2ec4b622,transparent_40%)]" />
-        <div className="relative flex flex-wrap items-end justify-between gap-3">
-          <div className="animate-fade-up">
-            <p className="font-[family-name:var(--font-display)] text-3xl tracking-tight text-white md:text-4xl">
-              Leonida <span className="text-[var(--color-coral)]">Heist Atlas</span>
+    <div className="relative h-full w-full overflow-hidden bg-[#3f9ab6] text-[var(--color-cream)]">
+      <LeonidaMap
+        locations={filtered}
+        selectedId={selectedVisible ? selectedId : null}
+        foundIds={found}
+        onSelect={setSelectedId}
+        popup={
+          selected && (
+            <LocationPopup
+              loc={selected}
+              found={found.has(selected.id)}
+              copied={copied}
+              onClose={() => setSelectedId(null)}
+              onToggleFound={() => toggleFound(selected.id)}
+              onCopy={() => void copyLink(selected.id)}
+            />
+          )
+        }
+      />
+
+      {/* Panel izquierdo */}
+      <aside
+        className={`genie-panel absolute bottom-3 left-3 top-3 z-[800] flex w-[min(320px,calc(100vw-24px))] flex-col rounded-2xl transition-transform duration-300 ${
+          leftOpen ? 'translate-x-0' : '-translate-x-[calc(100%+12px)]'
+        }`}
+      >
+        <button
+          type="button"
+          onClick={() => setLeftOpen((v) => !v)}
+          className="absolute -right-7 top-4 grid h-10 w-7 place-items-center rounded-r-lg bg-[var(--color-genie)] text-white shadow-md"
+          title={leftOpen ? 'Ocultar panel' : 'Mostrar panel'}
+        >
+          {leftOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+        </button>
+
+        <div className="map-scroll flex-1 overflow-y-auto px-4 pb-4">
+          <header className="pt-5 text-center">
+            <p className="font-[family-name:var(--font-heading)] text-[38px] font-bold leading-none tracking-wide text-white drop-shadow">
+              LEONIDA
             </p>
-            <p className="mt-1 max-w-xl text-sm text-[var(--color-mute)]">
-              Mapa filtrable de puntos estratégicos para robos in-game en GTA VI — bóvedas, joyerías,
-              fences, escapes y más.
+            <p className="font-[family-name:var(--font-heading)] text-lg font-semibold uppercase leading-tight tracking-[0.12em] text-[var(--color-gold)]">
+              Heist Atlas
             </p>
-          </div>
-          <div className="flex items-center gap-2">
+            <p className="mt-1 text-[11px] uppercase tracking-wider text-white/70">
+              Mapa interactivo de robos · GTA VI
+            </p>
+          </header>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <button type="button" className="genie-btn" onClick={() => setHidden(new Set())}>
+              Mostrar todo
+            </button>
             <button
               type="button"
-              onClick={() => setShowMapTypes((v) => !v)}
-              className="rounded-md border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-2 text-sm font-medium text-[var(--color-mist)] transition hover:border-[var(--color-teal)]"
+              className="genie-btn"
+              onClick={() => setHidden(new Set(CATEGORIES.map((c) => c.id)))}
             >
-              {showMapTypes ? 'Cerrar tipos de mapa' : 'Tipos de mapa útiles'}
+              Ocultar todo
             </button>
-            <div className="rounded-md border border-[var(--color-line)] bg-[var(--color-deep)] px-3 py-2 text-xs text-[var(--color-mute)]">
-              {filtered.length} / {LOCATIONS.length} pins
-            </div>
           </div>
-        </div>
 
-        {showMapTypes && (
-          <div className="relative mt-4 grid gap-3 animate-fade-up md:grid-cols-2 xl:grid-cols-4">
-            {MAP_TYPES.map((t) => (
-              <article
-                key={t.title}
-                className="rounded-lg border border-[var(--color-line)] bg-[var(--color-deep)]/90 p-3"
-              >
-                <h2 className="font-[family-name:var(--font-display)] text-lg text-white">{t.title}</h2>
-                <p className="mt-1 text-xs text-[var(--color-mute)]">{t.why}</p>
-                <ul className="mt-2 flex flex-wrap gap-1.5">
-                  {t.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded bg-[var(--color-panel)] px-2 py-0.5 text-[11px] text-[var(--color-teal)]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        )}
-      </header>
-
-      <div className="flex gap-1 border-b border-[var(--color-line)] bg-[var(--color-deep)] p-1 md:hidden">
-        {(
-          [
-            ['map', 'Mapa'],
-            ['filters', 'Filtros'],
-            ['detail', 'Detalle'],
-          ] as const
-        ).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setMobileTab(id)}
-            className={`flex-1 rounded px-2 py-2 text-sm font-medium ${
-              mobileTab === id
-                ? 'bg-[var(--color-coral)] text-white'
-                : 'text-[var(--color-mute)]'
-            }`}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid min-h-0 flex-1 md:grid-cols-[300px_minmax(0,1fr)_320px]">
-        {/* Filters */}
-        <aside
-          className={`map-scroll min-h-0 overflow-y-auto border-r border-[var(--color-line)] bg-[var(--color-deep)] p-4 ${
-            mobileTab === 'filters' ? 'block' : 'hidden md:block'
-          }`}
-        >
-          <label className="block">
-            <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-              Buscar
-            </span>
+          <label className="relative mt-3 block">
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Lombank, Yasmani, Ocean Beach…"
-              className="mt-1 w-full rounded-md border border-[var(--color-line)] bg-[var(--color-lagoon)] px-3 py-2 text-sm outline-none ring-[var(--color-teal)] placeholder:text-[var(--color-mute)]/60 focus:ring-1"
+              placeholder="Buscar…"
+              className="w-full rounded-full bg-[var(--color-genie-ink)]/55 py-2 pl-4 pr-9 text-sm text-white outline-none placeholder:text-white/55 focus:ring-2 focus:ring-[var(--color-gold)]/60"
             />
+            {query ? (
+              <button
+                type="button"
+                onClick={() => setQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white"
+                title="Limpiar"
+              >
+                <X size={15} />
+              </button>
+            ) : (
+              <Search size={15} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70" />
+            )}
           </label>
 
-          <div className="mt-5">
-            <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-                Categorías
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-[var(--color-teal)]"
-                onClick={() =>
-                  setActiveCategories(
-                    activeCategories.length === ALL_CATEGORIES.length ? [] : [...ALL_CATEGORIES],
-                  )
-                }
-              >
-                {activeCategories.length === ALL_CATEGORIES.length ? 'Ninguna' : 'Todas'}
-              </button>
-            </div>
-            <div className="space-y-1.5">
-              {CATEGORIES.map((cat) => {
-                const on = activeCategories.includes(cat.id)
-                const count = LOCATIONS.filter((l) => l.category === cat.id).length
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => toggleCategory(cat.id)}
-                    className={`flex w-full items-center gap-2 rounded-md border px-2 py-1.5 text-left text-sm transition ${
-                      on
-                        ? 'border-[var(--color-line)] bg-[var(--color-panel)]'
-                        : 'border-transparent opacity-45 hover:opacity-70'
-                    }`}
-                    title={cat.mapUse}
-                  >
-                    <span
-                      className="h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{ background: cat.color }}
-                    />
-                    <span className="flex-1">{cat.short}</span>
-                    <span className="text-[11px] text-[var(--color-mute)]">{count}</span>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-                Regiones
-              </span>
-              <button
-                type="button"
-                className="text-[11px] text-[var(--color-teal)]"
-                onClick={() =>
-                  setActiveRegions(
-                    activeRegions.length === ALL_REGIONS.length ? [] : [...ALL_REGIONS],
-                  )
-                }
-              >
-                {activeRegions.length === ALL_REGIONS.length ? 'Ninguna' : 'Todas'}
-              </button>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {REGIONS.map((r) => {
-                const on = activeRegions.includes(r.id)
-                return (
-                  <button
-                    key={r.id}
-                    type="button"
-                    onClick={() => toggleRegion(r.id)}
-                    className={`rounded-md border px-2 py-1 text-[11px] ${
-                      on
-                        ? 'border-[var(--color-teal)]/50 bg-[var(--color-panel)] text-[var(--color-mist)]'
-                        : 'border-transparent bg-transparent text-[var(--color-mute)] opacity-50'
-                    }`}
-                  >
-                    {r.label}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-              Seguridad
-            </span>
-            <div className="mt-2 grid grid-cols-4 gap-1">
-              {(['all', 'low', 'medium', 'high'] as const).map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSecurityFilter(s)}
-                  className={`rounded-md px-1 py-1.5 text-[11px] capitalize ${
-                    securityFilter === s
-                      ? 'bg-[var(--color-coral)] text-white'
-                      : 'bg-[var(--color-panel)] text-[var(--color-mute)]'
-                  }`}
-                >
-                  {s === 'all' ? 'Todas' : s}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-                Payout mín.
-              </span>
-              <span className="text-[var(--color-gold)]">
-                {minPayout === 0 ? 'Cualquiera' : `≥ $${(minPayout / 1000).toFixed(0)}k`}
-              </span>
-            </div>
-            <input
-              type="range"
-              min={0}
-              max={150000}
-              step={5000}
-              value={minPayout}
-              onChange={(e) => setMinPayout(Number(e.target.value))}
-              className="mt-2 w-full accent-[var(--color-coral)]"
-            />
-          </div>
-
-          <div className="mt-6 rounded-lg border border-[var(--color-line)] bg-[var(--color-lagoon)] p-3">
-            <p className="text-xs font-semibold text-[var(--color-gold)]">Preset rápido</p>
-            <div className="mt-2 flex flex-col gap-1.5">
-              <button
-                type="button"
-                className="rounded bg-[var(--color-panel)] px-2 py-1.5 text-left text-xs hover:text-[var(--color-teal)]"
-                onClick={() => {
-                  setActiveCategories(['bank_vault', 'paynspray', 'police', 'ammunation'])
-                  setMinPayout(65000)
-                  setSecurityFilter('all')
-                }}
-              >
-                Solo bóvedas + escape
-              </button>
-              <button
-                type="button"
-                className="rounded bg-[var(--color-panel)] px-2 py-1.5 text-left text-xs hover:text-[var(--color-teal)]"
-                onClick={() => {
-                  setActiveCategories(['jewelry', 'fence', 'paynspray'])
-                  setMinPayout(0)
-                  setSecurityFilter('all')
-                }}
-              >
-                Farm joyería → Yasmani
-              </button>
-              <button
-                type="button"
-                className="rounded bg-[var(--color-panel)] px-2 py-1.5 text-left text-xs hover:text-[var(--color-teal)]"
-                onClick={() => {
-                  setActiveCategories(['illegal_op', 'fence', 'ammunation'])
-                  setMinPayout(0)
-                  setSecurityFilter('all')
-                }}
-              >
-                Compounds + narcóticos
-              </button>
-              <button
-                type="button"
-                className="rounded bg-[var(--color-panel)] px-2 py-1.5 text-left text-xs hover:text-[var(--color-teal)]"
-                onClick={() => {
-                  setActiveCategories(['stickup', 'paynspray'])
-                  setMinPayout(0)
-                  setSecurityFilter('low')
-                }}
-              >
-                Stick-ups low risk
-              </button>
-            </div>
-          </div>
-
-          <p className="mt-4 text-[10px] leading-relaxed text-[var(--color-mute)]">
-            Fuentes: PowerPyx, gta6activities.com, thegta6map.com, Mobalytics, sixthstar.net (guías
-            post-lanzamiento Nov 2026). Pins aproximados sobre mapa estilizado — no es el mapa
-            oficial de Rockstar.
-          </p>
-        </aside>
-
-        {/* Map */}
-        <main
-          className={`relative min-h-0 overflow-hidden bg-[#02303c] ${
-            mobileTab === 'map' ? 'block' : 'hidden md:block'
-          }`}
-        >
-          <div className="absolute inset-0 map-scroll overflow-auto">
-            <div className="mx-auto h-full min-h-[640px] w-full max-w-[900px] p-2 md:p-4">
-              {filtered.length === 0 ? (
-                <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
-                  <p className="font-[family-name:var(--font-display)] text-2xl text-white">
-                    Cero pins. Felicidades, genio.
-                  </p>
-                  <p className="max-w-sm text-sm text-[var(--color-mute)]">
-                    Afloja filtros o busca otra cosa. El mapa no inventa Lombanks donde no hay.
-                  </p>
-                  <button
-                    type="button"
-                    className="rounded-md bg-[var(--color-coral)] px-4 py-2 text-sm font-medium text-white"
-                    onClick={() => {
-                      setActiveCategories([...ALL_CATEGORIES])
-                      setActiveRegions([...ALL_REGIONS])
-                      setSecurityFilter('all')
-                      setMinPayout(0)
-                      setQuery('')
-                    }}
-                  >
-                    Resetear filtros
-                  </button>
-                </div>
-              ) : (
-                <LeonidaMap
-                  locations={filtered}
-                  selectedId={selectedVisible ? selectedId : null}
-                  onSelect={selectLocation}
-                />
-              )}
-            </div>
-          </div>
-          <div className="pointer-events-none absolute bottom-3 left-3 right-3 flex justify-center md:justify-start">
-            <div className="pointer-events-auto max-w-lg rounded-md border border-[var(--color-line)] bg-[var(--color-ink)]/85 px-3 py-2 text-[11px] text-[var(--color-mute)] backdrop-blur">
-              Click un pin para tip de ruta. Usa presets para cadenas de farm. Solo contenido de
-              videojuego.
-            </div>
-          </div>
-        </main>
-
-        {/* Detail + list */}
-        <aside
-          className={`map-scroll flex min-h-0 flex-col overflow-y-auto border-l border-[var(--color-line)] bg-[var(--color-deep)] ${
-            mobileTab === 'detail' ? 'flex' : 'hidden md:flex'
-          }`}
-        >
-          {selected ? (
-            <div className="border-b border-[var(--color-line)] p-4 animate-fade-up">
-              <div className="flex items-start gap-2">
-                <span
-                  className="mt-1.5 h-3 w-3 shrink-0 rounded-full"
-                  style={{ background: categoryMeta(selected.category).color }}
-                />
-                <div>
-                  <p className="text-[11px] uppercase tracking-wide text-[var(--color-mute)]">
-                    {categoryMeta(selected.category).label}
-                  </p>
-                  <h2 className="font-[family-name:var(--font-display)] text-2xl leading-tight text-white">
-                    {selected.name}
-                  </h2>
-                </div>
-              </div>
-
-              <dl className="mt-3 grid grid-cols-2 gap-2 text-sm">
-                <div className="rounded-md bg-[var(--color-panel)] p-2">
-                  <dt className="text-[10px] uppercase text-[var(--color-mute)]">Región</dt>
-                  <dd>{regionMeta(selected.region).label}</dd>
-                </div>
-                <div className="rounded-md bg-[var(--color-panel)] p-2">
-                  <dt className="text-[10px] uppercase text-[var(--color-mute)]">Zona</dt>
-                  <dd>{selected.area}</dd>
-                </div>
-                {payoutLabel(selected) && (
-                  <div className="rounded-md bg-[var(--color-panel)] p-2">
-                    <dt className="text-[10px] uppercase text-[var(--color-mute)]">Payout</dt>
-                    <dd className="text-[var(--color-gold)]">{payoutLabel(selected)}</dd>
-                  </div>
-                )}
-                {selected.security && (
-                  <div className="rounded-md bg-[var(--color-panel)] p-2">
-                    <dt className="text-[10px] uppercase text-[var(--color-mute)]">Seguridad</dt>
-                    <dd className="capitalize">{selected.security}</dd>
-                  </div>
-                )}
-                {selected.unlock && (
-                  <div className="col-span-2 rounded-md bg-[var(--color-panel)] p-2">
-                    <dt className="text-[10px] uppercase text-[var(--color-mute)]">Unlock</dt>
-                    <dd>{selected.unlock}</dd>
-                  </div>
-                )}
-                {selected.bestFor && (
-                  <div className="col-span-2 rounded-md bg-[var(--color-panel)] p-2">
-                    <dt className="text-[10px] uppercase text-[var(--color-mute)]">Mejor para</dt>
-                    <dd>{selected.bestFor}</dd>
-                  </div>
-                )}
-                {selected.lootType && (
-                  <div className="col-span-2 rounded-md bg-[var(--color-panel)] p-2">
-                    <dt className="text-[10px] uppercase text-[var(--color-mute)]">Loot</dt>
-                    <dd>{selected.lootType}</dd>
-                  </div>
-                )}
-              </dl>
-
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-mist)]">{selected.tip}</p>
-              <p className="mt-2 text-[10px] text-[var(--color-mute)]">Fuente: {selected.source}</p>
-              <p className="mt-3 text-xs leading-relaxed text-[var(--color-teal)]">
-                {categoryMeta(selected.category).mapUse}
+          {q ? (
+            <div className="mt-3">
+              <p className="mb-1 text-[11px] uppercase tracking-wider text-white/60">
+                {searchResults.length} resultados
               </p>
-            </div>
-          ) : (
-            <div className="border-b border-[var(--color-line)] p-4 text-sm text-[var(--color-mute)]">
-              Selecciona un pin en el mapa.
-            </div>
-          )}
-
-          <div className="flex-1 p-3">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-mute)]">
-              Lista filtrada
-            </p>
-            {filtered.length === 0 ? (
-              <p className="text-sm text-[var(--color-mute)]">Sin resultados.</p>
-            ) : (
-              <ul className="space-y-1">
-                {[...filtered]
-                  .sort((a, b) => (b.payoutMax ?? 0) - (a.payoutMax ?? 0))
-                  .map((loc) => (
+              {searchResults.length === 0 ? (
+                <p className="text-sm text-white/70">Nada. Ni el FIB lo encuentra.</p>
+              ) : (
+                <ul className="space-y-0.5">
+                  {searchResults.map((loc) => (
                     <li key={loc.id}>
                       <button
                         type="button"
-                        onClick={() => selectLocation(loc.id)}
-                        className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-sm transition ${
-                          loc.id === selectedId
-                            ? 'bg-[var(--color-panel)] ring-1 ring-[var(--color-coral)]/60'
-                            : 'hover:bg-[var(--color-panel)]/60'
-                        }`}
+                        onClick={() => selectFromList(loc.id)}
+                        className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-sm hover:bg-white/10"
                       >
-                        <span
-                          className="h-2 w-2 shrink-0 rounded-full"
-                          style={{ background: categoryMeta(loc.category).color }}
-                        />
-                        <span className="min-w-0 flex-1 truncate">{loc.name}</span>
-                        {payoutLabel(loc) && (
-                          <span className="shrink-0 text-[11px] text-[var(--color-gold)]">
-                            {payoutLabel(loc)}
+                        <IconBadge id={loc.category} />
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-white">{loc.name}</span>
+                          <span className="block truncate text-[11px] text-white/60">
+                            {categoryMeta(loc.category).short} · {loc.area}
                           </span>
-                        )}
+                        </span>
                       </button>
                     </li>
                   ))}
-              </ul>
-            )}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <>
+              <h2 className="mt-5 flex items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-semibold text-white">
+                <Minus size={14} /> Ubicaciones
+              </h2>
+              {GROUPS.map((group) => (
+                <section key={group.id} className="mt-2" title={group.why}>
+                  <h3 className="font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider text-[var(--color-gold)]">
+                    {group.label}
+                  </h3>
+                  <div className="mt-1 grid grid-cols-2 gap-x-3 gap-y-0.5">
+                    {CATEGORIES.filter((c) => c.group === group.id).map((cat) => {
+                      const on = !hidden.has(cat.id)
+                      return (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onClick={() => toggleCategory(cat.id)}
+                          title={cat.mapUse}
+                          className={`flex items-center gap-1.5 rounded px-1 py-1 text-left transition hover:bg-white/10 ${
+                            on ? '' : 'opacity-40'
+                          }`}
+                        >
+                          <IconBadge id={cat.id} />
+                          <span className="min-w-0 flex-1 truncate font-[family-name:var(--font-heading)] text-[12px] font-medium uppercase tracking-wide text-white">
+                            {cat.short}
+                          </span>
+                          <span className="text-[11px] tabular-nums text-white/75">
+                            {countByCategory[cat.id]}
+                          </span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </section>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => setAdvancedOpen((v) => !v)}
+                className="mt-5 flex w-full items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-semibold text-white"
+              >
+                {advancedOpen ? <Minus size={14} /> : <Plus size={14} />}
+                <SlidersHorizontal size={15} /> Filtros y presets
+              </button>
+              {advancedOpen && (
+                <div className="mt-2 space-y-4">
+                  <div>
+                    <h3 className="genie-subhead">Presets</h3>
+                    <div className="mt-1 grid gap-1">
+                      {PRESETS.map((p) => (
+                        <button
+                          key={p.label}
+                          type="button"
+                          onClick={() => applyPreset(p)}
+                          className="rounded-lg bg-white/10 px-3 py-1.5 text-left text-xs text-white hover:bg-white/20"
+                        >
+                          {p.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <h3 className="genie-subhead">Regiones</h3>
+                      <button
+                        type="button"
+                        className="text-[11px] text-white/75 hover:text-white"
+                        onClick={() =>
+                          setActiveRegions(activeRegions.length === ALL_REGIONS.length ? [] : [...ALL_REGIONS])
+                        }
+                      >
+                        {activeRegions.length === ALL_REGIONS.length ? 'Ninguna' : 'Todas'}
+                      </button>
+                    </div>
+                    <div className="mt-1 flex flex-wrap gap-1">
+                      {REGIONS.map((r) => {
+                        const on = activeRegions.includes(r.id)
+                        return (
+                          <button
+                            key={r.id}
+                            type="button"
+                            title={r.blurb}
+                            onClick={() =>
+                              setActiveRegions((prev) =>
+                                prev.includes(r.id) ? prev.filter((x) => x !== r.id) : [...prev, r.id],
+                              )
+                            }
+                            className={`rounded-full px-2.5 py-1 text-[11px] transition ${
+                              on ? 'bg-white text-[var(--color-genie-ink)]' : 'bg-white/10 text-white/60'
+                            }`}
+                          >
+                            {r.label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="genie-subhead">Seguridad</h3>
+                    <div className="mt-1 grid grid-cols-4 gap-1">
+                      {(['all', 'low', 'medium', 'high'] as const).map((s) => (
+                        <button
+                          key={s}
+                          type="button"
+                          onClick={() => setSecurityFilter(s)}
+                          className={`rounded-full py-1 text-[11px] capitalize ${
+                            securityFilter === s
+                              ? 'bg-white text-[var(--color-genie-ink)]'
+                              : 'bg-white/10 text-white/75'
+                          }`}
+                        >
+                          {s === 'all' ? 'Todas' : s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <h3 className="genie-subhead">Payout mínimo</h3>
+                      <span className="text-xs text-[var(--color-gold)]">
+                        {minPayout === 0 ? 'Cualquiera' : `≥ $${(minPayout / 1000).toFixed(0)}k`}
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={150000}
+                      step={5000}
+                      value={minPayout}
+                      onChange={(e) => setMinPayout(Number(e.target.value))}
+                      className="mt-1 w-full accent-[var(--color-gold)]"
+                    />
+                  </div>
+                  <button type="button" className="genie-btn w-full" onClick={resetFilters}>
+                    Resetear filtros
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+
+          <p className="mt-6 text-[10px] leading-relaxed text-white/55">
+            Mapa y coordenadas: gtadb.org (CC BY 4.0). Payouts y tips: PowerPyx, gta6activities.com,
+            thegta6map.com, Mobalytics, sixthstar.net. Borde punteado en un pin = posición aproximada al
+            barrio. No es el mapa oficial de Rockstar ni de MapGenie.
+          </p>
+        </div>
+      </aside>
+
+      {/* Panel derecho: progreso */}
+      <aside
+        className={`genie-panel absolute right-3 top-3 z-[800] w-[min(260px,calc(100vw-24px))] rounded-2xl transition-transform duration-300 ${
+          rightOpen ? 'translate-x-0' : 'translate-x-[calc(100%+12px)]'
+        }`}
+      >
+        <button
+          type="button"
+          onClick={() => setRightOpen((v) => !v)}
+          className="absolute -left-7 top-4 grid h-10 w-7 place-items-center rounded-l-lg bg-[var(--color-genie)] text-white shadow-md"
+          title={rightOpen ? 'Ocultar progreso' : 'Mostrar progreso'}
+        >
+          {rightOpen ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+        </button>
+        <div className="map-scroll max-h-[calc(100vh-140px)] overflow-y-auto p-4">
+          <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-white">
+            Progreso de golpes
+          </h2>
+          <div className="mt-2 flex items-baseline justify-between text-sm">
+            <span className="text-white/75">Visitados</span>
+            <span className="font-semibold tabular-nums text-white">
+              {visibleFound} / {visibleTotal}
+            </span>
           </div>
-        </aside>
+          <div className="mt-1 h-2 overflow-hidden rounded-full bg-black/25">
+            <div
+              className="h-full rounded-full bg-[var(--color-gold)] transition-[width]"
+              style={{ width: `${visibleTotal ? (visibleFound / visibleTotal) * 100 : 0}%` }}
+            />
+          </div>
+          <div className="mt-3 space-y-1.5">
+            {GROUPS.map((g) => {
+              const ids = LOCATIONS.filter((l) => categoryMeta(l.category).group === g.id)
+              const done = ids.filter((l) => found.has(l.id)).length
+              return (
+                <div key={g.id} className="flex items-center gap-2 text-xs">
+                  <span className="w-24 shrink-0 uppercase tracking-wide text-[var(--color-gold)]">
+                    {g.label}
+                  </span>
+                  <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/25">
+                    <div
+                      className="h-full rounded-full bg-white/85"
+                      style={{ width: `${(done / ids.length) * 100}%` }}
+                    />
+                  </div>
+                  <span className="w-12 text-right tabular-nums text-white/75">
+                    {done}/{ids.length}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+          <label className="mt-3 flex cursor-pointer items-center justify-between text-sm text-white">
+            Ocultar visitados
+            <input
+              type="checkbox"
+              checked={hideFound}
+              onChange={(e) => setHideFound(e.target.checked)}
+              className="h-4 w-4 accent-[var(--color-gold)]"
+            />
+          </label>
+          {found.size > 0 && (
+            <button
+              type="button"
+              onClick={() => setFound(new Set())}
+              className="mt-2 flex items-center gap-1.5 text-xs text-white/70 hover:text-white"
+            >
+              <RotateCcw size={12} /> Reiniciar progreso
+            </button>
+          )}
+
+          {topLoot.length > 0 && (
+            <>
+              <h3 className="genie-subhead mt-4">Top botín visible</h3>
+              <ul className="mt-1 space-y-0.5">
+                {topLoot.map((loc) => (
+                  <li key={loc.id}>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(loc.id)}
+                      className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left text-xs hover:bg-white/10 ${
+                        loc.id === selectedId ? 'bg-white/15' : ''
+                      } ${found.has(loc.id) ? 'opacity-50' : ''}`}
+                    >
+                      <IconBadge id={loc.category} small />
+                      <span className="min-w-0 flex-1 truncate text-white">{loc.name}</span>
+                      <span className="shrink-0 tabular-nums text-[var(--color-gold)]">
+                        {payoutLabel(loc)}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </aside>
+
+      {filtered.length === 0 && (
+        <div className="absolute left-1/2 top-6 z-[750] -translate-x-1/2">
+          <div className="genie-panel rounded-2xl px-5 py-4 text-center">
+            <p className="font-[family-name:var(--font-heading)] text-xl font-semibold text-white">
+              Cero pins. Felicidades, genio.
+            </p>
+            <p className="mt-1 text-sm text-white/75">El mapa no inventa Lombanks donde no hay.</p>
+            <button type="button" className="genie-btn mt-3 px-4" onClick={resetFilters}>
+              Resetear filtros
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function IconBadge({ id, small = false }: { id: LocationCategory; small?: boolean }) {
+  const size = small ? 'h-5 w-5' : 'h-6 w-6'
+  return (
+    <span
+      className={`grid ${size} shrink-0 place-items-center rounded-md bg-white shadow-sm`}
+      style={{ color: '#1f1320', boxShadow: `inset 0 -2px 0 ${categoryMeta(id).color}` }}
+    >
+      <CategoryIcon id={id} size={small ? 12 : 14} />
+    </span>
+  )
+}
+
+interface PopupProps {
+  loc: MapLocation
+  found: boolean
+  copied: boolean
+  onClose: () => void
+  onToggleFound: () => void
+  onCopy: () => void
+}
+
+function LocationPopup({ loc, found, copied, onClose, onToggleFound, onCopy }: PopupProps) {
+  const cat = categoryMeta(loc.category)
+  const stats: [string, string][] = []
+  const payout = payoutLabel(loc)
+  if (payout) stats.push(['Payout', payout])
+  if (loc.security) stats.push(['Seguridad', loc.security])
+  if (loc.unlock) stats.push(['Unlock', loc.unlock])
+  if (loc.lootType) stats.push(['Loot', loc.lootType])
+  if (loc.bestFor) stats.push(['Mejor para', loc.bestFor])
+
+  return (
+    <div className="genie-panel genie-popup w-[300px] overflow-hidden rounded-2xl text-left">
+      <div className="relative h-16" style={{ background: `linear-gradient(135deg, ${cat.color}, #3b1f38)` }}>
+        <span className="absolute bottom-[-18px] left-4 grid h-11 w-11 place-items-center rounded-xl bg-white text-[#1f1320] shadow-lg">
+          <CategoryIcon id={loc.category} size={22} />
+        </span>
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/30 text-white hover:bg-black/50"
+          title="Cerrar"
+        >
+          <X size={15} />
+        </button>
+      </div>
+      <div className="px-4 pb-4 pt-6">
+        <div className="flex items-start gap-2">
+          <h3 className="flex-1 font-[family-name:var(--font-heading)] text-lg font-semibold leading-tight text-white">
+            {loc.name}
+          </h3>
+          <button
+            type="button"
+            onClick={onCopy}
+            className="mt-0.5 text-white/70 hover:text-white"
+            title="Copiar enlace"
+          >
+            {copied ? <Check size={15} /> : <Link2 size={15} />}
+          </button>
+        </div>
+        <p className="mt-1 font-[family-name:var(--font-heading)] text-[12px] font-semibold uppercase tracking-wider text-[var(--color-gold)]">
+          {cat.label}
+        </p>
+        <p className="text-[11px] text-white/65">
+          {loc.area} · {regionLabel(loc.region)}
+        </p>
+
+        {stats.length > 0 && (
+          <dl className="mt-2 grid grid-cols-2 gap-1.5 text-xs">
+            {stats.map(([k, v]) => (
+              <div
+                key={k}
+                className={`rounded-lg bg-black/20 px-2 py-1 ${v.length > 14 ? 'col-span-2' : ''}`}
+              >
+                <dt className="text-[9px] uppercase tracking-wider text-white/55">{k}</dt>
+                <dd className={`capitalize ${k === 'Payout' ? 'text-[var(--color-gold)]' : 'text-white'}`}>{v}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {loc.tip && <p className="mt-2 text-[13px] leading-snug text-white/90">{loc.tip}</p>}
+        <p className="mt-2 text-[10px] text-white/50">
+          {loc.precision === 'exact' ? 'Posición exacta' : `Aprox. barrio ${loc.area}`} · {loc.source}
+        </p>
+
+        <button
+          type="button"
+          onClick={onToggleFound}
+          className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-full py-2 text-xs font-semibold uppercase tracking-wider transition ${
+            found
+              ? 'bg-[var(--color-gold)] text-[var(--color-genie-ink)]'
+              : 'bg-white/15 text-white hover:bg-white/25'
+          }`}
+        >
+          {found && <Check size={14} />}
+          {found ? 'Visitado' : 'Marcar como visitado'}
+        </button>
       </div>
     </div>
   )

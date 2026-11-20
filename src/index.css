@@ -1,18 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-heading: "Oswald", system-ui, sans-serif;
   --font-sans: "Sora", system-ui, sans-serif;
-  --color-ink: #041218;
-  --color-lagoon: #061820;
-  --color-deep: #0a2833;
-  --color-panel: #0e3340;
-  --color-mist: #d7ece8;
-  --color-mute: #8fb4ad;
-  --color-coral: #ff5c39;
-  --color-teal: #2ec4b6;
-  --color-gold: #f0c75e;
-  --color-line: #1a4a57;
+  --color-genie: #8a4c7e;
+  --color-genie-hi: #a35e95;
+  --color-genie-ink: #3b1f38;
+  --color-gold: #f7c873;
+  --color-cream: #fbeef6;
 }
 
 * {
@@ -28,67 +23,243 @@ body,
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-lagoon);
-  color: var(--color-mist);
+  background: #3f9ab6;
+  color: var(--color-cream);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-coral) 55%, transparent);
-  color: white;
+  background: color-mix(in oklab, var(--color-gold) 55%, transparent);
+  color: var(--color-genie-ink);
 }
 
-@keyframes fade-up {
+/* Paneles flotantes estilo MapGenie (rosa/morado translúcido con palmeras difusas) */
+.genie-panel {
+  background:
+    radial-gradient(circle at 85% 100%, rgb(255 255 255 / 0.08), transparent 45%),
+    linear-gradient(180deg, rgb(150 84 136 / 0.94), rgb(122 64 112 / 0.94));
+  border: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 10px 30px rgb(30 10 30 / 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.genie-btn {
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.16);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.genie-btn:hover {
+  background: rgb(255 255 255 / 0.28);
+}
+
+.genie-subhead {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.genie-popup {
+  animation: pop-in 0.18s ease-out both;
+}
+
+@keyframes pop-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
-@keyframes pulse-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
+/* Mapa */
+.leaflet-container {
+  background: #3f9ab6 !important;
+  font-family: var(--font-sans);
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+.map-night .leaflet-tile-pane {
+  filter: brightness(0.42) saturate(1.35) hue-rotate(-12deg) contrast(1.15);
 }
 
-.animate-fade-up {
-  animation: fade-up 0.45s ease-out both;
+.map-night .leaflet-container {
+  background: #10283a !important;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 1.6s ease-out infinite;
+.leaflet-control-attribution {
+  background: rgb(59 31 56 / 0.75) !important;
+  color: rgb(255 255 255 / 0.7) !important;
+  font-size: 10px;
 }
 
-.animate-drift {
-  animation: drift 5s ease-in-out infinite;
+.leaflet-control-attribution a {
+  color: var(--color-gold) !important;
+}
+
+/* Pines: cabeza blanca redondeada con puntero, icono oscuro y acento de color */
+.pin {
+  position: relative;
+  width: 28px;
+  height: 34px;
+  transform-origin: 50% 100%;
+  transform: scale(var(--s, 1));
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.45));
+}
+
+[data-ztier="far"] .pin {
+  --s: 0.7;
+}
+
+.pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  transform: translate(-50%, -2px) rotate(45deg);
+  border-right: 2px solid var(--pin);
+  border-bottom: 2px solid var(--pin);
+}
+
+.pin__head {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #fff;
+  color: #1f1320;
+  border: 2px solid var(--pin);
+}
+
+.pin:hover {
+  transform: scale(calc(var(--s, 1) * 1.15));
+}
+
+.pin--area .pin__head {
+  border-style: dashed;
+}
+
+.pin--found {
+  opacity: 0.45;
+}
+
+.pin--found .pin__head::after {
+  content: "✓";
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: var(--color-genie-ink);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.pin--selected {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.pin--selected:hover {
+  transform: scale(1.3);
+}
+
+.pin--selected .pin__head {
+  background: var(--pin);
+  box-shadow: 0 0 0 3px #fff, 0 0 16px 4px var(--pin);
+}
+
+.pin--selected::after {
+  background: var(--pin);
+  border-color: #fff;
+}
+
+.pin-tooltip {
+  background: var(--color-genie-ink);
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 8px;
+  padding: 4px 9px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.35);
+}
+
+.pin-tooltip::before {
+  border-right-color: var(--color-genie-ink) !important;
+}
+
+/* Etiquetas de región / barrio según nivel de zoom */
+.map-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #fff;
+  text-shadow:
+    0 2px 6px rgb(0 0 0 / 0.55),
+    0 0 2px rgb(0 0 0 / 0.6);
+}
+
+.map-label--region {
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.map-label--area {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+[data-ztier="far"] .map-label--area,
+[data-ztier="near"] .map-label--region {
+  display: none;
+}
+
+[data-ztier="mid"] .map-label--region {
+  font-size: 34px;
+  opacity: 0.85;
+}
+
+[data-ztier="near"] .map-label--area {
+  font-size: 30px;
+  text-transform: none;
+  opacity: 0.85;
 }
 
 .map-scroll::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
 }
 
 .map-scroll::-webkit-scrollbar-thumb {
-  background: #1f5563;
+  background: rgb(255 255 255 / 0.25);
   border-radius: 999px;
 }
 
