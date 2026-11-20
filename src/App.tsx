@@ -23,9 +23,25 @@ const HIDDEN_KEY = 'leonida-heist-atlas:hidden'
 
 const categoryMeta = (id: LocationCategory) => CATEGORIES.find((c) => c.id === id)!
 const regionLabel = (id: RegionId) => REGIONS.find((r) => r.id === id)!.label
-const countByCategory = Object.fromEntries(
-  CATEGORIES.map((c) => [c.id, LOCATIONS.filter((l) => l.category === c.id).length]),
-) as Record<LocationCategory, number>
+const CATEGORY_IDS = new Set(CATEGORIES.map((c) => c.id))
+const REGION_IDS = new Set<string>(ALL_REGIONS)
+
+function formatStamp(iso: string) {
+  return new Intl.DateTimeFormat('es', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(iso))
+}
+
+function isDiscoveredLocation(value: unknown): value is MapLocation {
+  if (!value || typeof value !== 'object') return false
+  const loc = value as MapLocation
+  return (
+    typeof loc.id === 'string' &&
+    typeof loc.name === 'string' &&
+    CATEGORY_IDS.has(loc.category) &&
+    REGION_IDS.has(loc.region) &&
+    Number.isFinite(loc.wx) &&
+    Number.isFinite(loc.wy)
+  )
+}
 
 function loadSet(key: string, fallback: string[] = []): Set<string> {
   try {
@@ -60,6 +76,38 @@ export default function App() {
   const [rightOpen, setRightOpen] = useState(() => matchMedia('(min-width: 1024px)').matches)
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [extra, setExtra] = useState<MapLocation[]>([])
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null)
+  const [checkedAt, setCheckedAt] = useState<string | null>(null)
+
+  const catalog = useMemo(() => [...LOCATIONS, ...extra], [extra])
+  const countByCategory = useMemo(() => {
+    const counts = Object.fromEntries(CATEGORIES.map((c) => [c.id, 0])) as Record<LocationCategory, number>
+    for (const loc of catalog) counts[loc.category] += 1
+    return counts
+  }, [catalog])
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(`${import.meta.env.BASE_URL}discovered.json`, { cache: 'no-cache' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { updatedAt?: string | null; checkedAt?: string | null; locations?: unknown[] } | null) => {
+        if (cancelled || !data) return
+        const known = new Set(LOCATIONS.map((l) => l.id))
+        const fresh = (data.locations ?? []).filter(isDiscoveredLocation).filter((loc) => !known.has(loc.id))
+        setExtra(fresh)
+        setUpdatedAt(data.updatedAt ?? null)
+        setCheckedAt(data.checkedAt ?? null)
+        const hash = decodeURIComponent(location.hash.slice(1))
+        if (hash && fresh.some((loc) => loc.id === hash)) {
+          setSelectedId(hash)
+        }
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   useEffect(() => localStorage.setItem(FOUND_KEY, JSON.stringify([...found])), [found])
   useEffect(() => localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden])), [hidden])
@@ -70,7 +118,7 @@ export default function App() {
   const q = deferredQuery.trim().toLowerCase()
 
   const filtered = useMemo(() => {
-    return LOCATIONS.filter((loc) => {
+    return catalog.filter((loc) => {
       if (hidden.has(loc.category)) return false
       if (!activeRegions.includes(loc.region)) return false
       if (securityFilter !== 'all' && loc.security !== securityFilter) return false
@@ -84,17 +132,17 @@ export default function App() {
       }
       return true
     })
-  }, [hidden, activeRegions, securityFilter, minPayout, hideFound, found, selectedId, q])
+  }, [catalog, hidden, activeRegions, securityFilter, minPayout, hideFound, found, selectedId, q])
 
   const searchResults = useMemo(
     () =>
       q
-        ? LOCATIONS.filter((l) => `${l.name} ${l.area}`.toLowerCase().includes(q)).slice(0, 40)
+        ? catalog.filter((l) => `${l.name} ${l.area}`.toLowerCase().includes(q)).slice(0, 40)
         : [],
-    [q],
+    [catalog, q],
   )
 
-  const selected = LOCATIONS.find((l) => l.id === selectedId) ?? null
+  const selected = catalog.find((l) => l.id === selectedId) ?? null
   const selectedVisible = selected != null && filtered.some((l) => l.id === selected.id)
 
   const topLoot = useMemo(
@@ -125,7 +173,7 @@ export default function App() {
   }
 
   function selectFromList(id: string) {
-    const loc = LOCATIONS.find((l) => l.id === id)!
+    const loc = catalog.find((l) => l.id === id)!
     setHidden((prev) => {
       if (!prev.has(loc.category)) return prev
       const next = new Set(prev)
@@ -159,8 +207,8 @@ export default function App() {
     setTimeout(() => setCopied(false), 1200)
   }
 
-  const visibleTotal = LOCATIONS.filter((l) => !hidden.has(l.category)).length
-  const visibleFound = LOCATIONS.filter((l) => !hidden.has(l.category) && found.has(l.id)).length
+  const visibleTotal = catalog.filter((l) => !hidden.has(l.category)).length
+  const visibleFound = catalog.filter((l) => !hidden.has(l.category) && found.has(l.id)).length
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#3f9ab6] text-[var(--color-cream)]">
@@ -182,6 +230,12 @@ export default function App() {
           )
         }
       />
+
+      <div className="pointer-events-none absolute bottom-3 left-1/2 z-[650] max-w-[min(440px,calc(100vw-24px))] -translate-x-1/2 rounded-full bg-[var(--color-genie)]/95 px-4 py-1.5 text-center text-[11px] text-white shadow-lg shadow-black/30">
+        <span className="font-semibold uppercase tracking-wide text-[var(--color-gold)]">Último cambio </span>
+        {updatedAt ? formatStamp(updatedAt) : 'todavía no hay uno'}
+        {extra.length > 0 ? ` · ${extra.length} nuevos` : ''}
+      </div>
 
       {/* Panel izquierdo */}
       <aside
@@ -416,7 +470,16 @@ export default function App() {
             </>
           )}
 
-          <p className="mt-6 text-[10px] leading-relaxed text-white/55">
+          <p className="mt-6 text-[11px] leading-relaxed text-[var(--color-gold)]">
+            Último cambio: {updatedAt ? formatStamp(updatedAt) : 'todavía no hay uno'}
+            {extra.length > 0 ? ` · ${extra.length} pines automáticos` : ''}
+          </p>
+          <p className="text-[10px] leading-relaxed text-white/55">
+            {checkedAt
+              ? `Última revisión de gtadb: ${formatStamp(checkedAt)}. Corre cada 5 horas. La fecha de arriba solo cambia si entran pines nuevos.`
+              : 'La revisión automática corre en GitHub Actions cada 5 horas.'}
+          </p>
+          <p className="mt-2 text-[10px] leading-relaxed text-white/55">
             Mapa y coordenadas: gtadb.org (CC BY 4.0). Payouts y tips: PowerPyx, gta6activities.com,
             thegta6map.com, Mobalytics, sixthstar.net. Borde punteado en un pin = posición aproximada al
             barrio. No es el mapa oficial de Rockstar ni de MapGenie.
@@ -456,7 +519,7 @@ export default function App() {
           </div>
           <div className="mt-3 space-y-1.5">
             {GROUPS.map((g) => {
-              const ids = LOCATIONS.filter((l) => categoryMeta(l.category).group === g.id)
+              const ids = catalog.filter((l) => categoryMeta(l.category).group === g.id)
               const done = ids.filter((l) => found.has(l.id)).length
               return (
                 <div key={g.id} className="flex items-center gap-2 text-xs">

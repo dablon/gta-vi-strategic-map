@@ -1,0 +1,55 @@
+{
+  "updatedAt": "2026-11-20T00:50:19.145Z",
+  "checkedAt": "2026-11-20T00:50:19.145Z",
+  "addedLastRun": 4,
+  "locations": [
+    {
+      "id": "gtadb-L1670",
+      "name": "247 Supermarket",
+      "category": "stickup",
+      "region": "vice_city",
+      "area": "Crosstown",
+      "wx": -428,
+      "wy": 1636,
+      "precision": "exact",
+      "tip": "Tienda detectada en gtadb. Caja rápida, entra por atrás.",
+      "source": "gtadb L1670 (descubierto automáticamente)"
+    },
+    {
+      "id": "gtadb-L2891",
+      "name": "Marina",
+      "category": "marina",
+      "region": "leonida_keys",
+      "area": "Mariana County",
+      "wx": -2568,
+      "wy": -4666,
+      "precision": "exact",
+      "tip": "Marina detectada en gtadb. La policía terrestre no sigue al agua.",
+      "source": "gtadb L2891 (descubierto automáticamente)"
+    },
+    {
+      "id": "gtadb-L328",
+      "name": "Key Lento Marina Club",
+      "category": "marina",
+      "region": "leonida_keys",
+      "area": "Key Lento",
+      "wx": -2582,
+      "wy": -5782,
+      "precision": "exact",
+      "tip": "Marina detectada en gtadb. La policía terrestre no sigue al agua.",
+      "source": "gtadb L328 (descubierto automáticamente)"
+    },
+    {
+      "id": "gtadb-L501",
+      "name": "Lombank",
+      "category": "bank_small",
+      "region": "vice_city",
+      "area": "Tequesta",
+      "wx": -1114,
+      "wy": -1479,
+      "precision": "exact",
+      "tip": "Sucursal detectada en gtadb. Confirma en el juego si es bóveda o banco chico.",
+      "source": "gtadb L501 (descubierto automáticamente)"
+    }
+  ]
+}

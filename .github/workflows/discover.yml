@@ -1,0 +1,49 @@
+name: Discover locations
+
+on:
+  schedule:
+    # Cada 5 horas en punto (UTC). GitHub puede retrasar el cron en repos públicos.
+    - cron: '0 */5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: discover-locations
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch new gtadb landmarks
+        run: node scripts/discover-locations.mjs
+
+      - name: Commit discovered pins
+        id: commit
+        run: |
+          git add public/discovered.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update discovered map locations"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Un push con GITHUB_TOKEN no dispara el workflow de Pages. Hay que lanzarlo a mano.
+      - name: Redeploy GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run "Deploy to GitHub Pages" --ref main
