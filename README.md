@@ -1,4 +1,8 @@
 <p align="center">
+  <strong>🗺️ Acceso al mapa:</strong> <a href="https://dablon.github.io/gta-vi-strategic-map/">https://dablon.github.io/gta-vi-strategic-map/</a>
+</p>
+
+<p align="center">
   <img src="docs/readme/hero-leonida-sunset.jpg" alt="Atardecer sobre una bahía tropical: palmeras, un puente y un skyline de neón magenta" width="100%">
 </p>
 
