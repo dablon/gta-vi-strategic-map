@@ -1,6 +1,13 @@
 name: Discover locations
 
 on:
+  # El cron no corre al hacer push. Este paths lo lanza al subir el propio workflow
+  # o el script. El commit del bot solo toca discovered.json, así que no se reengancha.
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/discover.yml
+      - scripts/discover-locations.mjs
   schedule:
     # Cada 5 horas en punto (UTC). GitHub puede retrasar el cron en repos públicos.
     - cron: '0 */5 * * *'
