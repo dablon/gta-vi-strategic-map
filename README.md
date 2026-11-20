@@ -2,7 +2,7 @@
   <img src="docs/readme/hero-leonida-sunset.jpg" alt="Atardecer sobre una bahía tropical: palmeras, un puente y un skyline de neón magenta" width="100%">
 </p>
 
-<h1 align="center">LEONIDA HEIST ATLAS</h1>
+<h1 align="center">MAPA INTERACTIVO GTA VI LEONIDA HEIST ATLAS</h1>
 
 <p align="center">
   <strong>Roba. Vende. Desaparece.</strong><br>
