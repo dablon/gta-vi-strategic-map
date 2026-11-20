@@ -22,6 +22,12 @@ export const CATEGORY_IDS = [
   'modshop',
   'hospital',
   'vehicle',
+  'atm',
+  'clothing',
+  'bar',
+  'collectible',
+  'stunt',
+  'animal',
 ]
 
 export const REGION_IDS = [

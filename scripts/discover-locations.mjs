@@ -17,7 +17,14 @@ import {
   tooClose,
 } from './lib/gtadb.mjs'
 import { nearestRegion } from '../src/data/resolve.mjs'
-import { fetchIgnMarkers, fitIgnProjection, ignMarkerToPin, matchControlPairs, readControlPoints } from './lib/ign.mjs'
+import {
+  disambiguateNames,
+  fetchIgnMarkers,
+  fitIgnProjection,
+  ignMarkerToPin,
+  matchControlPairs,
+  readControlPoints,
+} from './lib/ign.mjs'
 
 const OUT = new URL('../public/discovered.json', import.meta.url)
 const MAX_NEW = 40
@@ -114,6 +121,7 @@ for (const lm of eachUsable(entries)) {
   const match = classify(lm.name ?? '', lm.tags)
   if (!match) continue
   const name = lm.name ?? `${GUESS_NAME[match.category] ?? 'Posible objetivo'} (${lm.area ?? lm.region ?? 'zona'})`
+  if (name.length < 2 || name.length > 120) continue
   const pin = {
     id: `gtadb-${lm.id}`,
     name,
@@ -168,10 +176,22 @@ try {
     ignAdded = previousLocations.filter((loc) => String(loc.id).startsWith('ign-'))
   } else {
     const seen = new Set()
+    const fresh = []
     for (const marker of markers) {
       const pin = ignMarkerToPin(marker, projection.project)
-      if (!pin || seen.has(pin.id) || known.ids.has(pin.id) || tooClose(pin, known.points)) continue
+      if (!pin || seen.has(pin.id)) continue
       seen.add(pin.id)
+      fresh.push(pin)
+    }
+    disambiguateNames(fresh)
+    // Cajeros, stunts y coleccionables van densos: 60 m funde máquinas distintas.
+    // 20 m solo descarta el mismo punto proyectado dos veces.
+    const dense = new Set(['atm', 'stunt', 'collectible'])
+    for (const pin of fresh) {
+      const crowded = dense.has(pin.category)
+        ? known.points.some((p) => Math.hypot(p.wx - pin.wx, p.wy - pin.wy) < 20)
+        : tooClose(pin, known.points)
+      if (known.ids.has(pin.id) || crowded) continue
       ignAdded.push(pin)
       known.ids.add(pin.id)
       known.points.push({ wx: pin.wx, wy: pin.wy, name: norm(pin.name) })

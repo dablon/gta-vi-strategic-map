@@ -18,8 +18,14 @@ export type LocationCategory =
   | 'modshop'
   | 'hospital'
   | 'vehicle'
+  | 'atm'
+  | 'clothing'
+  | 'bar'
+  | 'collectible'
+  | 'stunt'
+  | 'animal'
 
-export type CategoryGroup = 'robbery' | 'liquidity' | 'escape' | 'prep'
+export type CategoryGroup = 'robbery' | 'liquidity' | 'escape' | 'prep' | 'world'
 
 export type RegionId =
   | 'vice_city'

@@ -5,6 +5,7 @@ export const GROUPS: { id: CategoryGroup; label: string; why: string }[] = [
   { id: 'liquidity', label: 'Liquidez', why: 'El loot en la bolsa no paga. Necesitas comprador.' },
   { id: 'escape', label: 'Escape / Heat', why: 'Cambiar coche, perder estrellas, tirarte al agua o volar.' },
   { id: 'prep', label: 'Preparación', why: 'Armas, armadura, coche tuneado y punto de staging.' },
+  { id: 'world', label: 'Leonida', why: 'Cajeros, ropa, bares, coleccionables, stunts y animales que marca IGN.' },
 ]
 
 export const CATEGORIES: CategoryMeta[] = [
@@ -161,6 +162,54 @@ export const CATEGORIES: CategoryMeta[] = [
     color: '#94a3b8',
     mapUse:
       'Concesionarios, talleres y lavaderos. Un coche con tracker se vende en Pay ’n’ Spray (~$4k+). El lavadero baja el calor visual.',
+  },
+  {
+    id: 'atm',
+    group: 'world',
+    label: 'Cajeros',
+    short: 'ATM',
+    color: '#34d399',
+    mapUse: 'Cajeros fijos y remolcables de IGN. El remolcable se engancha y se abre fuera de cámara.',
+  },
+  {
+    id: 'clothing',
+    group: 'world',
+    label: 'Ropa y estilo',
+    short: 'Ropa',
+    color: '#f9a8d4',
+    mapUse: 'Tiendas de ropa, zapatos, peluquería, tatuajes y electrónica.',
+  },
+  {
+    id: 'bar',
+    group: 'world',
+    label: 'Bares',
+    short: 'Bar',
+    color: '#fb7185',
+    mapUse: 'Bares de IGN. Sitio de contacto, no de bóveda.',
+  },
+  {
+    id: 'collectible',
+    group: 'world',
+    label: 'Coleccionables',
+    short: 'Collectible',
+    color: '#c4b5fd',
+    mapUse: 'Cartas, revistas, murales, landmarks, curiosidades y esculturas.',
+  },
+  {
+    id: 'stunt',
+    group: 'world',
+    label: 'Stunts',
+    short: 'Stunt',
+    color: '#f97316',
+    mapUse: 'Saltos, base jumps, knife flights y pasos bajo puente.',
+  },
+  {
+    id: 'animal',
+    group: 'world',
+    label: 'Animales',
+    short: 'Animal',
+    color: '#86efac',
+    mapUse: 'Especies de IGN. El mapa público no da coordenadas: solo heatmaps.',
   },
 ]
 

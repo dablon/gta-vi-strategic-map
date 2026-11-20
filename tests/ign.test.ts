@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   coreKey,
+  disambiguateNames,
   fitIgnProjection,
   ignMarkerToPin,
   markerTitle,
@@ -22,6 +23,26 @@ describe('markerTitle', () => {
   it('prefija paradas cuyo nombre es solo la calle', () => {
     expect(markerTitle('29036', 'Basin Dr')).toBe('Bus Stop — Basin Dr')
     expect(markerTitle('29023', 'Downtown Fleeca Big Bank')).toBe('Downtown Fleeca Big Bank')
+    expect(markerTitle('29060', 'Leith River South')).toBe('Under the Bridge — Leith River South')
+    expect(markerTitle('29042', 'Slinger - Southside')).toBe('Casual & Street — Slinger - Southside')
+  })
+})
+
+describe('disambiguateNames', () => {
+  it('separa cajeros del mismo nombre para que el dedupe no los funda', () => {
+    const pins = [
+      { name: 'ATM', area: 'Downtown' },
+      { name: 'ATM', area: 'Downtown' },
+      { name: 'ATM', area: 'Hamlet' },
+      { name: 'Kenton', area: 'Vice City' },
+    ]
+    disambiguateNames(pins)
+    expect(pins.map((p) => p.name)).toEqual([
+      'ATM — Downtown 1',
+      'ATM — Downtown 2',
+      'ATM — Hamlet 1',
+      'Kenton',
+    ])
   })
 })
 
@@ -84,6 +105,14 @@ describe('ignMarkerToPin', () => {
   })
 
   it('ignora tipos que el atlas no tiene', () => {
-    expect(ignMarkerToPin({ typeSlug: '29021', markerName: 'ATM', mapGenieLocationId: 1, lng: 0, lat: 0 }, () => [0, 0])).toBeNull()
+    expect(ignMarkerToPin({ typeSlug: '29030', markerName: 'Gym', mapGenieLocationId: 1, lng: 0, lat: 0 }, () => [0, 0])).toBeNull()
+  })
+
+  it('clasifica un cajero', () => {
+    const pin = ignMarkerToPin(
+      { typeSlug: '29021', markerName: 'ATM', mapGenieLocationId: 7, lng: -0.57, lat: 0.66 },
+      () => [-662, -102],
+    )
+    expect(pin).toMatchObject({ id: 'ign-7', category: 'atm', name: 'ATM' })
   })
 })

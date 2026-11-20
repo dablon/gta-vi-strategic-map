@@ -10,8 +10,8 @@ import { nearestArea, nearestRegion } from '../../src/data/resolve.mjs'
 export const IGN_MARKERS_URL = 'https://mollusk.apis.ign.com/graphql'
 const PERSISTED_QUERY = 'ca69199362b91ef6e85d44bd89c9ffa827c96de0e3c75abf48db4420401ef370'
 
-/** typeSlug de IGN → categoría del atlas. Lo que IGN no mapea aquí (animales,
- *  coleccionables, stunts, cajeros) no entra: no tiene categoría en la app. */
+/** typeSlug de IGN → categoría del atlas. `prefix` antepone el tipo cuando el
+ *  nombre del marcador no lo dice ("Slinger" es ropa, "Leith River" es un puente). */
 export const IGN_TYPES = {
   29041: { category: 'ammunation', label: 'Ammu-Nation' },
   29022: { category: 'bank_small', label: 'Bank' },
@@ -41,6 +41,32 @@ export const IGN_TYPES = {
   29139: { category: 'illegal_op', label: 'PTT Youngin$' },
   29140: { category: 'illegal_op', label: 'The Guardia Brothers' },
   29141: { category: 'illegal_op', label: 'Criminals' },
+  29021: { category: 'atm', label: 'ATM' },
+  29037: { category: 'atm', label: 'ATM (Towable)' },
+  29042: { category: 'clothing', label: 'Casual & Street', prefix: true },
+  29043: { category: 'clothing', label: 'Sportswear', prefix: true },
+  29044: { category: 'clothing', label: 'Formal', prefix: true },
+  29045: { category: 'clothing', label: 'Souvenir & Swimwear', prefix: true },
+  29046: { category: 'clothing', label: 'Thrift', prefix: true },
+  29047: { category: 'clothing', label: 'Footwear', prefix: true },
+  29048: { category: 'clothing', label: 'Hair & Beauty', prefix: true },
+  29049: { category: 'clothing', label: 'Tattoos', prefix: true },
+  29050: { category: 'clothing', label: 'Electronics', prefix: true },
+  29055: { category: 'bar', label: 'Bar' },
+  29065: { category: 'collectible', label: 'Landmark', prefix: true },
+  29066: { category: 'collectible', label: 'Curiosity', prefix: true },
+  29067: { category: 'collectible', label: 'Sculpture', prefix: true },
+  29093: { category: 'collectible', label: 'Book Swap', prefix: true },
+  29120: { category: 'collectible', label: 'Magazine', prefix: true },
+  29143: { category: 'collectible', label: 'Unique Playlist', prefix: true },
+  29144: { category: 'collectible', label: '1010 Mural', prefix: true },
+  29112: { category: 'collectible', label: 'Jack of Hearts', prefix: true },
+  29113: { category: 'collectible', label: 'Delights', prefix: true },
+  29114: { category: 'collectible', label: 'Nine1Nine', prefix: true },
+  29019: { category: 'stunt', label: 'Stunt Jump' },
+  29057: { category: 'stunt', label: 'Base Jump' },
+  29059: { category: 'stunt', label: 'Knife Flight', prefix: true },
+  29060: { category: 'stunt', label: 'Under the Bridge', prefix: true },
 }
 
 const TIPS = {
@@ -57,6 +83,12 @@ const TIPS = {
   gas: 'Gasolinera marcada en IGN.',
   transit: 'Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución.',
   modshop: 'Taller de tuning marcado en IGN.',
+  atm: 'Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle.',
+  clothing: 'Tienda de ropa o estilo marcada en IGN.',
+  bar: 'Bar marcado en IGN.',
+  collectible: 'Coleccionable marcado en IGN.',
+  stunt: 'Stunt marcado en IGN.',
+  animal: 'Animal marcado en IGN.',
 }
 
 /** Palabras que IGN añade y el pin curado no ("Gas Station" vs "Gas"). */
@@ -74,11 +106,27 @@ export function markerTitle(typeSlug, markerName) {
   const meta = IGN_TYPES[typeSlug]
   const name = String(markerName ?? '').trim()
   if (!meta) return name
-  if (typeSlug === '29036' || typeSlug === '29038' || typeSlug === '29039') {
-    if (norm(name).includes(norm(meta.label))) return name
+  const transit = typeSlug === '29036' || typeSlug === '29038' || typeSlug === '29039'
+  if ((transit || meta.prefix) && !norm(name).includes(norm(meta.label))) {
     return `${meta.label} — ${name}`
   }
   return name
+}
+
+/** Los cajeros (y cualquier tipo con el mismo nombre repetido) se pisaban
+ *  entre sí: el dedupe trata igual nombre a <400 m como el mismo sitio. */
+export function disambiguateNames(pins) {
+  const counts = new Map()
+  for (const pin of pins) counts.set(pin.name, (counts.get(pin.name) ?? 0) + 1)
+  const seq = new Map()
+  for (const pin of pins) {
+    if ((counts.get(pin.name) ?? 0) < 2) continue
+    const key = `${pin.name}\0${pin.area}`
+    const n = (seq.get(key) ?? 0) + 1
+    seq.set(key, n)
+    const next = `${pin.name} — ${pin.area} ${n}`
+    pin.name = next.length > 120 ? next.slice(0, 120) : next
+  }
 }
 
 /** Pares {lng,lat,wx,wy} donde el nombre de IGN y un pin conocido coinciden
@@ -219,8 +267,8 @@ export function ignMarkerToPin(marker, project) {
   const typeSlug = String(marker.typeSlug)
   const meta = IGN_TYPES[typeSlug]
   if (!meta) return null
-  const name = markerTitle(typeSlug, marker.markerName)
-  if (name.length < 2 || name.length > 120) return null
+  const name = markerTitle(typeSlug, marker.markerName).slice(0, 120)
+  if (name.length < 2) return null
   const [wx, wy] = project(marker.lng, marker.lat)
   if (!Number.isFinite(wx) || !Number.isFinite(wy) || Math.abs(wx) > 16000 || Math.abs(wy) > 16000) return null
   const id = `ign-${marker.mapGenieLocationId}`

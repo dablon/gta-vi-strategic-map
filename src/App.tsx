@@ -62,6 +62,30 @@ function loadSet(key: string, fallback: string[] = []): Set<string> {
   }
 }
 
+/** Categorías de IGN que tapan el atlas de golpes si arrancan visibles. */
+const WORLD_HIDDEN = ['atm', 'clothing', 'bar', 'collectible', 'stunt', 'animal']
+const HIDDEN_VERSION = '2'
+
+function loadHidden(): Set<string> {
+  const fallback = ['hospital', 'transit', ...WORLD_HIDDEN]
+  try {
+    if (localStorage.getItem('leonida-heist-atlas:hidden-version') === HIDDEN_VERSION) {
+      return loadSet(HIDDEN_KEY, fallback)
+    }
+    const stored = localStorage.getItem(HIDDEN_KEY)
+    const next = new Set(stored ? (JSON.parse(stored) as string[]) : fallback)
+    if (!stored) {
+      for (const id of fallback) next.add(id)
+    }
+    for (const id of WORLD_HIDDEN) next.add(id)
+    localStorage.setItem(HIDDEN_KEY, JSON.stringify([...next]))
+    localStorage.setItem('leonida-heist-atlas:hidden-version', HIDDEN_VERSION)
+    return next
+  } catch {
+    return new Set(fallback)
+  }
+}
+
 const PRESETS: { label: string; show: LocationCategory[]; minPayout?: number; security?: SecurityLevel }[] = [
   { label: 'Bóvedas + escape', show: ['bank_vault', 'paynspray', 'police', 'marina'], minPayout: 65000 },
   { label: 'Farm joyería → Yasmani', show: ['jewelry', 'fence', 'paynspray'] },
@@ -75,7 +99,7 @@ interface Draft {
 }
 
 export default function App() {
-  const [hidden, setHidden] = useState<Set<string>>(() => loadSet(HIDDEN_KEY, ['hospital', 'transit']))
+  const [hidden, setHidden] = useState<Set<string>>(loadHidden)
   const [found, setFound] = useState<Set<string>>(() => loadSet(FOUND_KEY))
   const [hideFound, setHideFound] = useState(false)
   const [hideUnverified, setHideUnverified] = useState(true)

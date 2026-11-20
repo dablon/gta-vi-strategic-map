@@ -16,6 +16,12 @@ import {
   SprayCan,
   Store,
   CarFront,
+  CreditCard,
+  Flag,
+  Martini,
+  PawPrint,
+  Shirt,
+  Sparkles,
   TrainFront,
   Vault,
   Wrench,
@@ -43,6 +49,12 @@ export const CATEGORY_ICONS: Record<LocationCategory, LucideIcon> = {
   safehouse: House,
   hospital: Hospital,
   vehicle: CarFront,
+  atm: CreditCard,
+  clothing: Shirt,
+  bar: Martini,
+  collectible: Sparkles,
+  stunt: Flag,
+  animal: PawPrint,
 }
 
 const svgCache = new Map<LocationCategory, string>()
