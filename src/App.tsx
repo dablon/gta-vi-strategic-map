@@ -3,7 +3,9 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
   Link2,
+  MapPin,
   Minus,
   Plus,
   RotateCcw,
@@ -15,32 +17,40 @@ import { LeonidaMap } from './components/LeonidaMap'
 import { CategoryIcon } from './components/icons'
 import { CATEGORIES, GROUPS, REGIONS } from './data/meta'
 import { LOCATIONS, payoutLabel } from './data/locations'
-import type { LocationCategory, MapLocation, RegionId, SecurityLevel } from './data/types'
+import { nearestRegion } from './data/resolve.mjs'
+import { DiscoveredFileSchema, SuggestionFileSchema } from './data/pinSchema.mjs'
+import type { MapLocation, LocationCategory, RegionId, SecurityLevel, Suggestion } from './data/types'
 
 const ALL_REGIONS = REGIONS.map((r) => r.id)
 const FOUND_KEY = 'leonida-heist-atlas:found'
 const HIDDEN_KEY = 'leonida-heist-atlas:hidden'
 
+/** Único repo público conocido del proyecto; si se muda, actualizar aquí. */
+const REPO = 'dablon/gta-vi-strategic-map'
+
 const categoryMeta = (id: LocationCategory) => CATEGORIES.find((c) => c.id === id)!
 const regionLabel = (id: RegionId) => REGIONS.find((r) => r.id === id)!.label
-const CATEGORY_IDS = new Set(CATEGORIES.map((c) => c.id))
-const REGION_IDS = new Set<string>(ALL_REGIONS)
 
 function formatStamp(iso: string) {
   return new Intl.DateTimeFormat('es', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(iso))
 }
 
-function isDiscoveredLocation(value: unknown): value is MapLocation {
-  if (!value || typeof value !== 'object') return false
-  const loc = value as MapLocation
-  return (
-    typeof loc.id === 'string' &&
-    typeof loc.name === 'string' &&
-    CATEGORY_IDS.has(loc.category) &&
-    REGION_IDS.has(loc.region) &&
-    Number.isFinite(loc.wx) &&
-    Number.isFinite(loc.wy)
-  )
+function suggestionToLocation(s: Suggestion): MapLocation {
+  return {
+    id: `issue-${s.issue}`,
+    name: s.name,
+    category: s.category,
+    region: s.region ?? nearestRegion(s.wx, s.wy),
+    area: s.area ?? s.name,
+    wx: s.wx,
+    wy: s.wy,
+    precision: 'exact',
+    confidence: 'low',
+    suggested: true,
+    issueUrl: s.url,
+    tip: s.notes || 'Propuesta de la comunidad en GitHub. Sin verificación dentro del juego.',
+    source: `sugerencia #${s.issue}`,
+  }
 }
 
 function loadSet(key: string, fallback: string[] = []): Set<string> {
@@ -59,10 +69,17 @@ const PRESETS: { label: string; show: LocationCategory[]; minPayout?: number; se
   { label: 'Stick-ups low risk', show: ['stickup', 'gas', 'store', 'paynspray'], security: 'low' },
 ]
 
+interface Draft {
+  wx: number
+  wy: number
+}
+
 export default function App() {
   const [hidden, setHidden] = useState<Set<string>>(() => loadSet(HIDDEN_KEY, ['hospital', 'transit']))
   const [found, setFound] = useState<Set<string>>(() => loadSet(FOUND_KEY))
   const [hideFound, setHideFound] = useState(false)
+  const [hideUnverified, setHideUnverified] = useState(true)
+  const [showSuggestions, setShowSuggestions] = useState(true)
   const [activeRegions, setActiveRegions] = useState<RegionId[]>([...ALL_REGIONS])
   const [securityFilter, setSecurityFilter] = useState<SecurityLevel | 'all'>('all')
   const [minPayout, setMinPayout] = useState(0)
@@ -78,9 +95,17 @@ export default function App() {
   const [copied, setCopied] = useState(false)
   const [extra, setExtra] = useState<MapLocation[]>([])
   const [updatedAt, setUpdatedAt] = useState<string | null>(null)
-  const [checkedAt, setCheckedAt] = useState<string | null>(null)
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([])
+  const [pickMode, setPickMode] = useState(false)
+  const [draft, setDraft] = useState<Draft | null>(null)
 
-  const catalog = useMemo(() => [...LOCATIONS, ...extra], [extra])
+  const suggestionLocations = useMemo(() => suggestions.map(suggestionToLocation), [suggestions])
+
+  const catalog = useMemo(
+    () => [...LOCATIONS, ...extra, ...(showSuggestions ? suggestionLocations : [])],
+    [extra, suggestionLocations, showSuggestions],
+  )
+
   const countByCategory = useMemo(() => {
     const counts = Object.fromEntries(CATEGORIES.map((c) => [c.id, 0])) as Record<LocationCategory, number>
     for (const loc of catalog) counts[loc.category] += 1
@@ -91,15 +116,42 @@ export default function App() {
     let cancelled = false
     fetch(`${import.meta.env.BASE_URL}discovered.json`, { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null))
-      .then((data: { updatedAt?: string | null; checkedAt?: string | null; locations?: unknown[] } | null) => {
+      .then((data: unknown) => {
         if (cancelled || !data) return
+        const parsed = DiscoveredFileSchema.safeParse(data)
+        if (!parsed.success) {
+          console.warn('discovered.json inválido; se ignora.', parsed.error.issues[0]?.message)
+          return
+        }
         const known = new Set(LOCATIONS.map((l) => l.id))
-        const fresh = (data.locations ?? []).filter(isDiscoveredLocation).filter((loc) => !known.has(loc.id))
+        const fresh = parsed.data.locations.filter((loc) => !known.has(loc.id))
         setExtra(fresh)
-        setUpdatedAt(data.updatedAt ?? null)
-        setCheckedAt(data.checkedAt ?? null)
+        setUpdatedAt(parsed.data.updatedAt ?? null)
         const hash = decodeURIComponent(location.hash.slice(1))
         if (hash && fresh.some((loc) => loc.id === hash)) {
+          setSelectedId(hash)
+        }
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(`${import.meta.env.BASE_URL}suggestions.json`, { cache: 'no-cache' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: unknown) => {
+        if (cancelled || !data) return
+        const parsed = SuggestionFileSchema.safeParse(data)
+        if (!parsed.success) {
+          console.warn('suggestions.json inválido; se ignora.')
+          return
+        }
+        setSuggestions(parsed.data.suggestions)
+        const hash = decodeURIComponent(location.hash.slice(1))
+        if (hash && parsed.data.suggestions.some((s) => `issue-${s.issue}` === hash)) {
           setSelectedId(hash)
         }
       })
@@ -115,6 +167,18 @@ export default function App() {
     history.replaceState(null, '', selectedId ? `#${encodeURIComponent(selectedId)}` : location.pathname)
   }, [selectedId])
 
+  useEffect(() => {
+    if (!pickMode) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setPickMode(false)
+        setDraft(null)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [pickMode])
+
   const q = deferredQuery.trim().toLowerCase()
 
   const filtered = useMemo(() => {
@@ -126,13 +190,14 @@ export default function App() {
         if ((loc.payoutMax ?? loc.payoutMin ?? 0) < minPayout) return false
       }
       if (hideFound && found.has(loc.id) && loc.id !== selectedId) return false
+      if (hideUnverified && loc.confidence === 'low' && !loc.suggested) return false
       if (q) {
         const hay = `${loc.name} ${loc.area} ${loc.tip} ${loc.lootType ?? ''} ${loc.bestFor ?? ''}`.toLowerCase()
         if (!hay.includes(q)) return false
       }
       return true
     })
-  }, [catalog, hidden, activeRegions, securityFilter, minPayout, hideFound, found, selectedId, q])
+  }, [catalog, hidden, activeRegions, securityFilter, minPayout, hideFound, hideUnverified, found, selectedId, q])
 
   const searchResults = useMemo(
     () =>
@@ -152,6 +217,11 @@ export default function App() {
         .sort((a, b) => (b.payoutMax ?? 0) - (a.payoutMax ?? 0))
         .slice(0, 8),
     [filtered],
+  )
+
+  const unverifiedCount = useMemo(
+    () => catalog.filter((l) => l.confidence === 'low' && !l.suggested).length,
+    [catalog],
   )
 
   function toggleCategory(id: LocationCategory) {
@@ -181,6 +251,9 @@ export default function App() {
       return next
     })
     if (!activeRegions.includes(loc.region)) setActiveRegions((r) => [...r, loc.region])
+    // Que buscarlo no sea un callejón sin salida: si estaba filtrado por confianza, mostrarlo.
+    if (loc.confidence === 'low' && !loc.suggested) setHideUnverified(false)
+    if (loc.suggested) setShowSuggestions(true)
     setQuery('')
     setSelectedId(id)
     if (!matchMedia('(min-width: 768px)').matches) setLeftOpen(false)
@@ -207,6 +280,38 @@ export default function App() {
     setTimeout(() => setCopied(false), 1200)
   }
 
+  function openSuggestionIssue(form: { name: string; category: LocationCategory; area: string; notes: string }) {
+    if (!draft) return
+    const payload = {
+      name: form.name.trim(),
+      category: form.category,
+      wx: draft.wx,
+      wy: draft.wy,
+      area: form.area.trim() || undefined,
+      notes: form.notes.trim() || undefined,
+    }
+    const body = [
+      'Propuesta enviada desde el mapa Leonida Heist Atlas.',
+      '',
+      '```json',
+      JSON.stringify(payload),
+      '```',
+      '',
+      `- Región calculada: ${nearestRegion(draft.wx, draft.wy)}`,
+      `- Mapa: ${location.origin}${location.pathname}`,
+      '',
+      '_Un humano revisa las propuestas antes de que lleguen al mapa._',
+    ].join('\n')
+    const url =
+      `https://github.com/${REPO}/issues/new` +
+      `?labels=${encodeURIComponent('pin-suggestion')}` +
+      `&title=${encodeURIComponent(`Pin: ${payload.name}`)}` +
+      `&body=${encodeURIComponent(body)}`
+    window.open(url, '_blank', 'noopener')
+    setDraft(null)
+    setPickMode(false)
+  }
+
   const visibleTotal = catalog.filter((l) => !hidden.has(l.category)).length
   const visibleFound = catalog.filter((l) => !hidden.has(l.category) && found.has(l.id)).length
 
@@ -217,6 +322,8 @@ export default function App() {
         selectedId={selectedVisible ? selectedId : null}
         foundIds={found}
         onSelect={setSelectedId}
+        pickMode={pickMode && draft == null}
+        onPick={(wx, wy) => setDraft({ wx, wy })}
         popup={
           selected && (
             <LocationPopup
@@ -231,10 +338,27 @@ export default function App() {
         }
       />
 
+      {pickMode && draft == null && (
+        <div className="pointer-events-none absolute left-1/2 top-6 z-[750] -translate-x-1/2">
+          <div className="genie-panel rounded-full px-5 py-2 text-sm font-semibold text-[var(--color-gold)]">
+            Haz clic en el mapa donde va el pin · Esc cancela
+          </div>
+        </div>
+      )}
+
+      {draft && (
+        <SuggestFormModal
+          draft={draft}
+          onCancel={() => setDraft(null)}
+          onSubmit={(form) => openSuggestionIssue(form)}
+        />
+      )}
+
       <div className="pointer-events-none absolute bottom-3 left-1/2 z-[650] max-w-[min(440px,calc(100vw-24px))] -translate-x-1/2 rounded-full bg-[var(--color-genie)]/95 px-4 py-1.5 text-center text-[11px] text-white shadow-lg shadow-black/30">
         <span className="font-semibold uppercase tracking-wide text-[var(--color-gold)]">Último cambio </span>
         {updatedAt ? formatStamp(updatedAt) : 'todavía no hay uno'}
-        {extra.length > 0 ? ` · ${extra.length} nuevos` : ''}
+        {extra.length > 0 ? ` · ${extra.length} autodescubiertos` : ''}
+        {suggestions.length > 0 ? ` · ${suggestions.length} propuestas` : ''}
       </div>
 
       {/* Panel izquierdo */}
@@ -277,6 +401,22 @@ export default function App() {
               Ocultar todo
             </button>
           </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setDraft(null)
+              setPickMode((v) => !v)
+            }}
+            className={`mt-2 flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs font-semibold uppercase tracking-wider transition ${
+              pickMode
+                ? 'bg-[var(--color-gold)] text-[var(--color-genie-ink)]'
+                : 'bg-white/10 text-white hover:bg-white/20'
+            }`}
+          >
+            <MapPin size={14} />
+            {pickMode ? 'Cancelando… clic fuera o Esc' : 'Proponer un pin'}
+          </button>
 
           <label className="relative mt-3 block">
             <input
@@ -462,6 +602,30 @@ export default function App() {
                       className="mt-1 w-full accent-[var(--color-gold)]"
                     />
                   </div>
+                  <div className="space-y-1.5 rounded-lg bg-black/20 p-3">
+                    <h3 className="genie-subhead">Capas de datos</h3>
+                    <label className="flex cursor-pointer items-center justify-between text-xs text-white">
+                      Ocultar sin confirmar ({unverifiedCount})
+                      <input
+                        type="checkbox"
+                        checked={hideUnverified}
+                        onChange={(e) => setHideUnverified(e.target.checked)}
+                        className="h-4 w-4 accent-[var(--color-gold)]"
+                      />
+                    </label>
+                    <label className="flex cursor-pointer items-center justify-between text-xs text-white">
+                      Mostrar propuestas ({suggestions.length})
+                      <input
+                        type="checkbox"
+                        checked={showSuggestions}
+                        onChange={(e) => setShowSuggestions(e.target.checked)}
+                        className="h-4 w-4 accent-[var(--color-gold)]"
+                      />
+                    </label>
+                    <p className="text-[10px] leading-relaxed text-white/55">
+                      "Sin confirmar" = inferido de gtadb por el bot, nunca verificado dentro del juego.
+                    </p>
+                  </div>
                   <button type="button" className="genie-btn w-full" onClick={resetFilters}>
                     Resetear filtros
                   </button>
@@ -472,12 +636,19 @@ export default function App() {
 
           <p className="mt-6 text-[11px] leading-relaxed text-[var(--color-gold)]">
             Último cambio: {updatedAt ? formatStamp(updatedAt) : 'todavía no hay uno'}
-            {extra.length > 0 ? ` · ${extra.length} pines automáticos` : ''}
+            {extra.length > 0 ? ` · ${extra.length} autodescubiertos` : ''}
           </p>
           <p className="text-[10px] leading-relaxed text-white/55">
-            {checkedAt
-              ? `Última revisión de gtadb: ${formatStamp(checkedAt)}. Corre cada 5 horas. La fecha de arriba solo cambia si entran pines nuevos.`
-              : 'La revisión automática corre en GitHub Actions cada 5 horas.'}
+            El bot de gtadb revisa la fuente cada 5 horas en{' '}
+            <a
+              className="text-[var(--color-gold)] underline-offset-2 hover:underline"
+              href={`https://github.com/${REPO}/actions/workflows/discover.yml`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub Actions
+            </a>
+            . La fecha de arriba solo cambia si entran pines nuevos.
           </p>
           <p className="mt-2 text-[10px] leading-relaxed text-white/55">
             Mapa y coordenadas: gtadb.org (CC BY 4.0). Payouts y tips: PowerPyx, gta6activities.com,
@@ -614,6 +785,104 @@ function IconBadge({ id, small = false }: { id: LocationCategory; small?: boolea
   )
 }
 
+function SuggestFormModal({
+  draft,
+  onCancel,
+  onSubmit,
+}: {
+  draft: Draft
+  onCancel: () => void
+  onSubmit: (form: { name: string; category: LocationCategory; area: string; notes: string }) => void
+}) {
+  const [name, setName] = useState('')
+  const [category, setCategory] = useState<LocationCategory>('stickup')
+  const [area, setArea] = useState('')
+  const [notes, setNotes] = useState('')
+
+  return (
+    <div className="absolute inset-0 z-[900] grid place-items-center bg-black/50 p-4" onClick={onCancel}>
+      <div className="genie-panel w-[min(420px,100%)] rounded-2xl p-5" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start justify-between">
+          <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-white">
+            Proponer pin
+          </h3>
+          <button
+            type="button"
+            onClick={onCancel}
+            className="grid h-7 w-7 place-items-center rounded-full bg-black/30 text-white hover:bg-black/50"
+            title="Cancelar"
+          >
+            <X size={15} />
+          </button>
+        </div>
+        <p className="mt-1 text-[11px] text-white/70">
+          Posición: ({draft.wx}, {draft.wy}) m · región {regionLabel(nearestRegion(draft.wx, draft.wy))}.
+          Se abre como propuesta en GitHub; un humano la verifica antes de que aparezca en el mapa.
+        </p>
+        <form
+          className="mt-4 space-y-3"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (name.trim().length < 3) return
+            onSubmit({ name, category, area, notes })
+          }}
+        >
+          <label className="block">
+            <span className="genie-subhead">Nombre</span>
+            <input
+              autoFocus
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Ej.: Lombank Little Havana"
+              className="mt-1 w-full rounded-lg bg-[var(--color-genie-ink)]/55 px-3 py-2 text-sm text-white outline-none placeholder:text-white/45 focus:ring-2 focus:ring-[var(--color-gold)]/60"
+            />
+          </label>
+          <label className="block">
+            <span className="genie-subhead">Categoría</span>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value as LocationCategory)}
+              className="mt-1 w-full rounded-lg bg-[var(--color-genie-ink)]/55 px-3 py-2 text-sm text-white outline-none focus:ring-2 focus:ring-[var(--color-gold)]/60"
+            >
+              {CATEGORIES.map((c) => (
+                <option key={c.id} value={c.id} className="bg-[#2a1728]">
+                  {c.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block">
+            <span className="genie-subhead">Barrio / zona (opcional)</span>
+            <input
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
+              placeholder="Ej.: Little Havana"
+              className="mt-1 w-full rounded-lg bg-[var(--color-genie-ink)]/55 px-3 py-2 text-sm text-white outline-none placeholder:text-white/45 focus:ring-2 focus:ring-[var(--color-gold)]/60"
+            />
+          </label>
+          <label className="block">
+            <span className="genie-subhead">Notas (opcional)</span>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              rows={2}
+              placeholder="Entrada por atrás, 2 Guards, caja tras el mostrador…"
+              className="mt-1 w-full resize-none rounded-lg bg-[var(--color-genie-ink)]/55 px-3 py-2 text-sm text-white outline-none placeholder:text-white/45 focus:ring-2 focus:ring-[var(--color-gold)]/60"
+            />
+          </label>
+          <button
+            type="submit"
+            disabled={name.trim().length < 3}
+            className="genie-btn w-full disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            Abrir propuesta en GitHub
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+
 interface PopupProps {
   loc: MapLocation
   found: boolean
@@ -668,6 +937,31 @@ function LocationPopup({ loc, found, copied, onClose, onToggleFound, onCopy }: P
         <p className="text-[11px] text-white/65">
           {loc.area} · {regionLabel(loc.region)}
         </p>
+
+        {loc.suggested ? (
+          <p className="mt-2 rounded-lg bg-[var(--color-gold)]/15 px-2.5 py-1.5 text-[11px] text-[var(--color-gold)]">
+            Propuesta de la comunidad · sin moderar
+            {loc.issueUrl && (
+              <>
+                {' · '}
+                <a
+                  className="inline-flex items-center gap-1 underline underline-offset-2"
+                  href={loc.issueUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  verlo <ExternalLink size={11} />
+                </a>
+              </>
+            )}
+          </p>
+        ) : (
+          loc.confidence === 'low' && (
+            <p className="mt-2 rounded-lg bg-[var(--color-gold)]/15 px-2.5 py-1.5 text-[11px] text-[var(--color-gold)]">
+              Sin confirmar: inferido automáticamente de gtadb, no verificado dentro del juego.
+            </p>
+          )
+        )}
 
         {stats.length > 0 && (
           <dl className="mt-2 grid grid-cols-2 gap-1.5 text-xs">

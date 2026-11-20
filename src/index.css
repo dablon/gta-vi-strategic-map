@@ -154,6 +154,35 @@ body {
   border-style: dashed;
 }
 
+/* Baja confianza (autodescubiertos gtadb sin verificação): contorno punteado y algo transparentes. */
+.pin--low .pin__head {
+  border-style: dotted;
+}
+
+.pin--low {
+  opacity: 0.75;
+}
+
+[data-ztier="far"] .pin--low {
+  opacity: 0.6;
+}
+
+/* Sugerencias de la comunidad (issue de GitHub): borde dorado punteado. */
+.pin--suggested .pin__head {
+  border-style: dashed;
+  border-color: var(--color-gold);
+  background: rgb(255 255 255 / 0.85);
+}
+
+.pin--suggested::after {
+  border-color: var(--color-gold);
+}
+
+/* Modo "proponer pin": cruzar el cursor sobre el mapa. */
+.map-pick .leaflet-container {
+  cursor: crosshair !important;
+}
+
 .pin--found {
   opacity: 0.45;
 }

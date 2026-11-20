@@ -36,6 +36,8 @@ function pinIcon(loc: MapLocation, selected: boolean, found: boolean) {
   if (selected) classes.push('pin--selected')
   if (found) classes.push('pin--found')
   if (loc.precision === 'area') classes.push('pin--area')
+  if (loc.suggested) classes.push('pin--suggested')
+  else if (loc.confidence === 'low') classes.push('pin--low')
   return L.divIcon({
     className: '',
     iconSize: [PIN_W, PIN_H],
@@ -56,14 +58,21 @@ interface Props {
   foundIds: Set<string>
   onSelect: (id: string | null) => void
   popup: ReactNode
+  /** Modo "proponer pin": el clic en el mapa captura coordenadas en vez de deseleccionar. */
+  pickMode?: boolean
+  onPick?: (wx: number, wy: number) => void
 }
 
-export function LeonidaMap({ locations, selectedId, foundIds, onSelect, popup }: Props) {
+export function LeonidaMap({ locations, selectedId, foundIds, onSelect, popup, pickMode = false, onPick }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<L.Map | null>(null)
   const layerRef = useRef<L.LayerGroup | null>(null)
   const onSelectRef = useRef(onSelect)
   onSelectRef.current = onSelect
+  const pickRef = useRef(pickMode)
+  pickRef.current = pickMode
+  const onPickRef = useRef(onPick)
+  onPickRef.current = onPick
   const [night, setNight] = useState(false)
   const [fullscreen, setFullscreen] = useState(false)
   const [popupPoint, setPopupPoint] = useState<L.Point | null>(null)
@@ -113,7 +122,14 @@ export function LeonidaMap({ locations, selectedId, foundIds, onSelect, popup }:
       el.dataset.ztier = zoomTier(map.getZoom())
     }
     map.on('zoomend', syncTier)
-    map.on('click', () => onSelectRef.current(null))
+    map.on('click', (e) => {
+      if (pickRef.current && onPickRef.current) {
+        // CRS.Simple: lat = wy (y del mundo), lng = wx (x del mundo).
+        onPickRef.current(Math.round(e.latlng.lng), Math.round(e.latlng.lat))
+        return
+      }
+      onSelectRef.current(null)
+    })
     const wide = el.clientWidth >= 1024
     map.fitBounds(ISLAND_BOUNDS, {
       paddingTopLeft: [wide ? 330 : 0, 0],
@@ -207,7 +223,7 @@ export function LeonidaMap({ locations, selectedId, foundIds, onSelect, popup }:
     'grid h-10 w-10 place-items-center rounded-full bg-[var(--color-genie)]/95 text-white shadow-lg shadow-black/30 transition hover:bg-[var(--color-genie-hi)]'
 
   return (
-    <div className={`relative h-full w-full ${night ? 'map-night' : ''}`}>
+    <div className={`relative h-full w-full ${night ? 'map-night' : ''} ${pickMode ? 'map-pick' : ''}`}>
       <div ref={containerRef} className="h-full w-full" />
 
       {popupPoint && popup && (
