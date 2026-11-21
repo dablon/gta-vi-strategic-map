@@ -32,6 +32,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - run: npm ci
 
       - name: Sanity-check data contract
         run: node scripts/validate-data.mjs
