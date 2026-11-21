@@ -24,6 +24,16 @@ export type LocationCategory =
   | 'collectible'
   | 'stunt'
   | 'animal'
+  | 'gym'
+  | 'club'
+  | 'safe'
+  | 'charger'
+  | 'garage'
+  | 'rare_vehicle'
+  | 'food'
+  | 'sport'
+  | 'activity'
+  | 'race'
 
 export type CategoryGroup = 'robbery' | 'liquidity' | 'escape' | 'prep' | 'world'
 

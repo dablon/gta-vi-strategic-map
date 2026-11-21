@@ -63,8 +63,25 @@ function loadSet(key: string, fallback: string[] = []): Set<string> {
 }
 
 /** Categorías de IGN que tapan el atlas de golpes si arrancan visibles. */
-const WORLD_HIDDEN = ['atm', 'clothing', 'bar', 'collectible', 'stunt', 'animal']
-const HIDDEN_VERSION = '2'
+const WORLD_HIDDEN = [
+  'atm',
+  'clothing',
+  'bar',
+  'collectible',
+  'stunt',
+  'animal',
+  'gym',
+  'club',
+  'safe',
+  'charger',
+  'garage',
+  'rare_vehicle',
+  'food',
+  'sport',
+  'activity',
+  'race',
+]
+const HIDDEN_VERSION = '3'
 
 function loadHidden(): Set<string> {
   const fallback = ['hospital', 'transit', ...WORLD_HIDDEN]

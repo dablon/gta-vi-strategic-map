@@ -105,7 +105,7 @@ describe('ignMarkerToPin', () => {
   })
 
   it('ignora tipos que el atlas no tiene', () => {
-    expect(ignMarkerToPin({ typeSlug: '29030', markerName: 'Gym', mapGenieLocationId: 1, lng: 0, lat: 0 }, () => [0, 0])).toBeNull()
+    expect(ignMarkerToPin({ typeSlug: '99999', markerName: 'Nada', mapGenieLocationId: 1, lng: 0, lat: 0 }, () => [0, 0])).toBeNull()
   })
 
   it('clasifica un cajero', () => {

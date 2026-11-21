@@ -186,7 +186,21 @@ try {
     disambiguateNames(fresh)
     // Cajeros, stunts y coleccionables van densos: 60 m funde máquinas distintas.
     // 20 m solo descarta el mismo punto proyectado dos veces.
-    const dense = new Set(['atm', 'stunt', 'collectible'])
+    const dense = new Set([
+      'atm',
+      'stunt',
+      'collectible',
+      'charger',
+      'food',
+      'sport',
+      'activity',
+      'race',
+      'gym',
+      'club',
+      'safe',
+      'garage',
+      'rare_vehicle',
+    ])
     for (const pin of fresh) {
       const crowded = dense.has(pin.category)
         ? known.points.some((p) => Math.hypot(p.wx - pin.wx, p.wy - pin.wy) < 20)

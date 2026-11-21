@@ -28,6 +28,16 @@ export const CATEGORY_IDS = [
   'collectible',
   'stunt',
   'animal',
+  'gym',
+  'club',
+  'safe',
+  'charger',
+  'garage',
+  'rare_vehicle',
+  'food',
+  'sport',
+  'activity',
+  'race',
 ]
 
 export const REGION_IDS = [
