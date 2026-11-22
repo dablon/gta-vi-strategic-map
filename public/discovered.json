@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-11-21T20:41:46.363Z",
+  "updatedAt": "2026-11-22T03:41:11.576Z",
   "locations": [
     {
       "id": "gtadb-L1047",
@@ -3513,17 +3513,17 @@
       "source": "ign 1089542 (Basketball Hoop)"
     },
     {
-      "id": "ign-1089544",
-      "name": "Basketball Hoop — Hoop 88 – Vice-Dale County",
+      "id": "ign-1089543",
+      "name": "Basketball Hoop — Hoop 87 – Vice-Dale County",
       "category": "sport",
       "region": "vice_beach",
       "area": "Ocean Beach",
-      "wx": 1279,
+      "wx": 1265,
       "wy": 1061,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089544 (Basketball Hoop)"
+      "source": "ign 1089543 (Basketball Hoop)"
     },
     {
       "id": "ign-1089545",
@@ -3552,19 +3552,6 @@
       "source": "ign 1089546 (Basketball Hoop)"
     },
     {
-      "id": "ign-1089547",
-      "name": "Basketball Hoop — Hoop 91 – Kelly County",
-      "category": "sport",
-      "region": "port_gellhorn",
-      "area": "Port Gellhorn",
-      "wx": -6402,
-      "wy": 4230,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089547 (Basketball Hoop)"
-    },
-    {
       "id": "ign-1089548",
       "name": "Basketball Hoop — Hoop 92 – Kelly County",
       "category": "sport",
@@ -3576,6 +3563,19 @@
       "confidence": "medium",
       "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089548 (Basketball Hoop)"
+    },
+    {
+      "id": "ign-1089549",
+      "name": "Basketball Hoop — Hoop 93 – Kelly County",
+      "category": "sport",
+      "region": "port_gellhorn",
+      "area": "Port Gellhorn",
+      "wx": -6412,
+      "wy": 4214,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089549 (Basketball Hoop)"
     },
     {
       "id": "ign-1089550",
@@ -3643,19 +3643,6 @@
       "source": "ign 1089555 (Basketball Hoop)"
     },
     {
-      "id": "ign-1089558",
-      "name": "Mini-Golf — Dino Golf Challenge",
-      "category": "sport",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -4500,
-      "wy": 3836,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089558 (Mini-Golf)"
-    },
-    {
       "id": "ign-1089559",
       "name": "Mini-Golf — Frontier Adventure Golf",
       "category": "sport",
@@ -3706,6 +3693,45 @@
       "confidence": "medium",
       "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089564 (Pool Table)"
+    },
+    {
+      "id": "ign-1089567",
+      "name": "Pool Table — Opponent Pool - Skeeter's Bar",
+      "category": "sport",
+      "region": "hamlet",
+      "area": "Hamlet",
+      "wx": -2597,
+      "wy": -3896,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089567 (Pool Table)"
+    },
+    {
+      "id": "ign-1089568",
+      "name": "Pool Table — Opponent Pool - The Thirsty Wolf",
+      "category": "sport",
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -2027,
+      "wy": 3912,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089568 (Pool Table)"
+    },
+    {
+      "id": "ign-1089569",
+      "name": "Pool Table — Opponent Pool - Zotico's",
+      "category": "sport",
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -2841,
+      "wy": 832,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Deporte marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089569 (Pool Table)"
     },
     {
       "id": "ign-1089570",
@@ -4122,6 +4148,19 @@
       "confidence": "medium",
       "tip": "Gimnasio marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089603 (Gym)"
+    },
+    {
+      "id": "ign-1089606",
+      "name": "Club — Jack of Hearts",
+      "category": "club",
+      "region": "vice_city",
+      "area": "Crosstown",
+      "wx": -686,
+      "wy": 1211,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Club nocturno marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089606 (Club)"
     },
     {
       "id": "ign-1089609",
@@ -4616,19 +4655,6 @@
       "confidence": "medium",
       "tip": "Actividad marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089647 (Arcade)"
-    },
-    {
-      "id": "ign-1089650",
-      "name": "Arcade — Bang For Your Buck — Ambrosia 1",
-      "category": "activity",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -2032,
-      "wy": 3897,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Actividad marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089650 (Arcade)"
     },
     {
       "id": "ign-1089653",
@@ -6126,19 +6152,6 @@
       "source": "ign 1089784 (Stunt Jump)"
     },
     {
-      "id": "ign-1089785",
-      "name": "Valdemar on the River Parking North Stunt Jump",
-      "category": "stunt",
-      "region": "vice_city",
-      "area": "Little Cuba",
-      "wx": -1115,
-      "wy": -282,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Stunt marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089785 (Stunt Jump)"
-    },
-    {
       "id": "ign-1089786",
       "name": "Kelly River Stunt Jump",
       "category": "stunt",
@@ -6400,7 +6413,7 @@
     },
     {
       "id": "ign-1089808",
-      "name": "ATM — Tequesta 6",
+      "name": "ATM — Tequesta 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6413,7 +6426,7 @@
     },
     {
       "id": "ign-1089809",
-      "name": "ATM — Downtown 3",
+      "name": "ATM — Downtown 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6426,7 +6439,7 @@
     },
     {
       "id": "ign-1089810",
-      "name": "ATM — Tequesta 3",
+      "name": "ATM — Tequesta 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6439,7 +6452,7 @@
     },
     {
       "id": "ign-1089811",
-      "name": "ATM — Downtown 2",
+      "name": "ATM — Downtown 5",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6452,7 +6465,7 @@
     },
     {
       "id": "ign-1089813",
-      "name": "ATM — Tequesta 9",
+      "name": "ATM — Tequesta 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6465,7 +6478,7 @@
     },
     {
       "id": "ign-1089814",
-      "name": "ATM — Downtown 5",
+      "name": "ATM — Downtown 8",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6478,7 +6491,7 @@
     },
     {
       "id": "ign-1089815",
-      "name": "ATM — Tequesta 1",
+      "name": "ATM — Tequesta 7",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6490,8 +6503,21 @@
       "source": "ign 1089815 (ATM)"
     },
     {
+      "id": "ign-1089816",
+      "name": "ATM — Tequesta 9",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Tequesta",
+      "wx": -836,
+      "wy": -966,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089816 (ATM)"
+    },
+    {
       "id": "ign-1089817",
-      "name": "ATM — Downtown 13",
+      "name": "ATM — Downtown 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6503,34 +6529,21 @@
       "source": "ign 1089817 (ATM)"
     },
     {
-      "id": "ign-1089818",
-      "name": "ATM — Downtown 16",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Downtown",
-      "wx": -602,
-      "wy": -312,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089818 (ATM)"
-    },
-    {
-      "id": "ign-1089821",
+      "id": "ign-1089820",
       "name": "ATM — Downtown 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
-      "wx": -597,
-      "wy": -287,
+      "wx": -592,
+      "wy": -298,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089821 (ATM)"
+      "source": "ign 1089820 (ATM)"
     },
     {
       "id": "ign-1089822",
-      "name": "ATM — Downtown 8",
+      "name": "ATM — Downtown 10",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6543,7 +6556,7 @@
     },
     {
       "id": "ign-1089825",
-      "name": "ATM — Tequesta 7",
+      "name": "ATM — Tequesta 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6569,7 +6582,7 @@
     },
     {
       "id": "ign-1089828",
-      "name": "ATM — Tequesta 4",
+      "name": "ATM — Tequesta 5",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6595,7 +6608,7 @@
     },
     {
       "id": "ign-1089830",
-      "name": "ATM — Tequesta 10",
+      "name": "ATM — Tequesta 12",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6608,7 +6621,7 @@
     },
     {
       "id": "ign-1089831",
-      "name": "ATM — Downtown 9",
+      "name": "ATM — Downtown 7",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6620,8 +6633,21 @@
       "source": "ign 1089831 (ATM)"
     },
     {
+      "id": "ign-1089832",
+      "name": "ATM — Downtown 17",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": -771,
+      "wy": -235,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089832 (ATM)"
+    },
+    {
       "id": "ign-1089833",
-      "name": "ATM — Downtown 6",
+      "name": "ATM — Downtown 13",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6647,7 +6673,7 @@
     },
     {
       "id": "ign-1089835",
-      "name": "ATM — Tequesta 5",
+      "name": "ATM — Tequesta 10",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6660,7 +6686,7 @@
     },
     {
       "id": "ign-1089836",
-      "name": "ATM — Tequesta 8",
+      "name": "ATM — Tequesta 6",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6673,7 +6699,7 @@
     },
     {
       "id": "ign-1089837",
-      "name": "ATM — Tequesta 2",
+      "name": "ATM — Tequesta 11",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6683,6 +6709,19 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089837 (ATM)"
+    },
+    {
+      "id": "ign-1089838",
+      "name": "ATM — Downtown 15",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": -331,
+      "wy": 155,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089838 (ATM)"
     },
     {
       "id": "ign-1089839",
@@ -6699,7 +6738,7 @@
     },
     {
       "id": "ign-1089840",
-      "name": "ATM — Tequesta 11",
+      "name": "ATM — Tequesta 8",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -6712,7 +6751,7 @@
     },
     {
       "id": "ign-1089841",
-      "name": "ATM — Downtown 10",
+      "name": "ATM — Downtown 12",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -6764,7 +6803,7 @@
     },
     {
       "id": "ign-1089847",
-      "name": "ATM — Vice City 3",
+      "name": "ATM — Vice City 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -6803,7 +6842,7 @@
     },
     {
       "id": "ign-1089850",
-      "name": "ATM — Salton 2",
+      "name": "ATM — Salton 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Salton",
@@ -6816,7 +6855,7 @@
     },
     {
       "id": "ign-1089851",
-      "name": "ATM — Peacock Bay 2",
+      "name": "ATM — Peacock Bay 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Peacock Bay",
@@ -6829,7 +6868,7 @@
     },
     {
       "id": "ign-1089855",
-      "name": "ATM — Vice City 5",
+      "name": "ATM — Vice City 7",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -6841,34 +6880,8 @@
       "source": "ign 1089855 (ATM)"
     },
     {
-      "id": "ign-1089856",
-      "name": "ATM — Little Cuba 3",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Little Cuba",
-      "wx": -1056,
-      "wy": 219,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089856 (ATM)"
-    },
-    {
-      "id": "ign-1089857",
-      "name": "ATM — Peacock Bay 1",
-      "category": "atm",
-      "region": "hamlet",
-      "area": "Peacock Bay",
-      "wx": -1329,
-      "wy": -1806,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089857 (ATM)"
-    },
-    {
       "id": "ign-1089861",
-      "name": "ATM — Vice City 2",
+      "name": "ATM — Vice City 5",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -6894,7 +6907,7 @@
     },
     {
       "id": "ign-1089865",
-      "name": "ATM — Salton 1",
+      "name": "ATM — Salton 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Salton",
@@ -6907,7 +6920,7 @@
     },
     {
       "id": "ign-1089866",
-      "name": "ATM — Peacock Bay 3",
+      "name": "ATM — Peacock Bay 2",
       "category": "atm",
       "region": "hamlet",
       "area": "Peacock Bay",
@@ -6920,7 +6933,7 @@
     },
     {
       "id": "ign-1089867",
-      "name": "ATM — Vice City 1",
+      "name": "ATM — Vice City 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -6946,7 +6959,7 @@
     },
     {
       "id": "ign-1089869",
-      "name": "ATM — Little Cuba 1",
+      "name": "ATM — Little Cuba 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Little Cuba",
@@ -6972,7 +6985,7 @@
     },
     {
       "id": "ign-1089871",
-      "name": "ATM — Ocean Beach 4",
+      "name": "ATM — Ocean Beach 7",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7011,7 +7024,7 @@
     },
     {
       "id": "ign-1089874",
-      "name": "ATM — Little Cuba 4",
+      "name": "ATM — Little Cuba 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Little Cuba",
@@ -7024,7 +7037,7 @@
     },
     {
       "id": "ign-1089875",
-      "name": "ATM — VCIA 16",
+      "name": "ATM — VCIA 10",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7037,7 +7050,7 @@
     },
     {
       "id": "ign-1089876",
-      "name": "ATM — Southside 1",
+      "name": "ATM — Southside 5",
       "category": "atm",
       "region": "hamlet",
       "area": "Southside",
@@ -7050,7 +7063,7 @@
     },
     {
       "id": "ign-1089877",
-      "name": "ATM — Ocean Beach 21",
+      "name": "ATM — Ocean Beach 17",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7063,7 +7076,7 @@
     },
     {
       "id": "ign-1089878",
-      "name": "ATM — Ocean Beach 11",
+      "name": "ATM — Ocean Beach 1",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7076,7 +7089,7 @@
     },
     {
       "id": "ign-1089880",
-      "name": "ATM — Ocean Beach 10",
+      "name": "ATM — Ocean Beach 20",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7089,7 +7102,7 @@
     },
     {
       "id": "ign-1089881",
-      "name": "ATM — Rockridge 4",
+      "name": "ATM — Rockridge 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Rockridge",
@@ -7102,7 +7115,7 @@
     },
     {
       "id": "ign-1089882",
-      "name": "ATM — Ocean Beach 5",
+      "name": "ATM — Ocean Beach 3",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7115,7 +7128,7 @@
     },
     {
       "id": "ign-1089883",
-      "name": "ATM — Southside 2",
+      "name": "ATM — Southside 3",
       "category": "atm",
       "region": "hamlet",
       "area": "Southside",
@@ -7128,7 +7141,7 @@
     },
     {
       "id": "ign-1089884",
-      "name": "ATM — Ocean Beach 14",
+      "name": "ATM — Ocean Beach 19",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7141,7 +7154,7 @@
     },
     {
       "id": "ign-1089885",
-      "name": "ATM — Rockridge 6",
+      "name": "ATM — Rockridge 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Rockridge",
@@ -7154,7 +7167,7 @@
     },
     {
       "id": "ign-1089886",
-      "name": "ATM — Ocean Beach 18",
+      "name": "ATM — Ocean Beach 2",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7167,7 +7180,7 @@
     },
     {
       "id": "ign-1089887",
-      "name": "ATM — Crosstown 5",
+      "name": "ATM — Crosstown 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Crosstown",
@@ -7180,7 +7193,7 @@
     },
     {
       "id": "ign-1089888",
-      "name": "ATM — Ocean Beach 12",
+      "name": "ATM — Ocean Beach 14",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7193,7 +7206,7 @@
     },
     {
       "id": "ign-1089889",
-      "name": "ATM — Ocean Beach 1",
+      "name": "ATM — Ocean Beach 21",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7206,7 +7219,7 @@
     },
     {
       "id": "ign-1089890",
-      "name": "ATM — Southside 3",
+      "name": "ATM — Southside 1",
       "category": "atm",
       "region": "hamlet",
       "area": "Southside",
@@ -7219,7 +7232,7 @@
     },
     {
       "id": "ign-1089892",
-      "name": "ATM — Bayside 2",
+      "name": "ATM — Bayside 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Bayside",
@@ -7232,7 +7245,7 @@
     },
     {
       "id": "ign-1089894",
-      "name": "ATM — Ocean Beach 15",
+      "name": "ATM — Ocean Beach 10",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7245,7 +7258,7 @@
     },
     {
       "id": "ign-1089896",
-      "name": "ATM — Ocean Beach 19",
+      "name": "ATM — Ocean Beach 18",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7258,7 +7271,7 @@
     },
     {
       "id": "ign-1089899",
-      "name": "ATM — VCIA 1",
+      "name": "ATM — VCIA 12",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7271,7 +7284,7 @@
     },
     {
       "id": "ign-1089900",
-      "name": "ATM — VCIA 7",
+      "name": "ATM — VCIA 1",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7297,7 +7310,7 @@
     },
     {
       "id": "ign-1089902",
-      "name": "ATM — Ocean Beach 6",
+      "name": "ATM — Ocean Beach 4",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7310,7 +7323,7 @@
     },
     {
       "id": "ign-1089903",
-      "name": "ATM — Bayside 1",
+      "name": "ATM — Bayside 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Bayside",
@@ -7323,7 +7336,7 @@
     },
     {
       "id": "ign-1089904",
-      "name": "ATM — Bayside 4",
+      "name": "ATM — Bayside 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Bayside",
@@ -7335,21 +7348,8 @@
       "source": "ign 1089904 (ATM)"
     },
     {
-      "id": "ign-1089905",
-      "name": "ATM — Crosstown 4",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Crosstown",
-      "wx": -700,
-      "wy": 1197,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089905 (ATM)"
-    },
-    {
       "id": "ign-1089906",
-      "name": "ATM — Balsero 3",
+      "name": "ATM — Balsero 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Balsero",
@@ -7361,21 +7361,8 @@
       "source": "ign 1089906 (ATM)"
     },
     {
-      "id": "ign-1089909",
-      "name": "ATM — Balsero 1",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Balsero",
-      "wx": -1984,
-      "wy": 179,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089909 (ATM)"
-    },
-    {
       "id": "ign-1089910",
-      "name": "ATM — Crosstown 1",
+      "name": "ATM — Crosstown 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Crosstown",
@@ -7388,7 +7375,7 @@
     },
     {
       "id": "ign-1089911",
-      "name": "ATM — VCIA 10",
+      "name": "ATM — VCIA 4",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7401,7 +7388,7 @@
     },
     {
       "id": "ign-1089912",
-      "name": "ATM — Ocean Beach 7",
+      "name": "ATM — Ocean Beach 5",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7414,7 +7401,7 @@
     },
     {
       "id": "ign-1089913",
-      "name": "ATM — VCIA 3",
+      "name": "ATM — VCIA 16",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7427,7 +7414,7 @@
     },
     {
       "id": "ign-1089914",
-      "name": "ATM — Ocean Beach 22",
+      "name": "ATM — Ocean Beach 13",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7440,7 +7427,7 @@
     },
     {
       "id": "ign-1089918",
-      "name": "ATM — VCIA 9",
+      "name": "ATM — VCIA 2",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7452,21 +7439,8 @@
       "source": "ign 1089918 (ATM)"
     },
     {
-      "id": "ign-1089919",
-      "name": "ATM — VCIA 2",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "VCIA",
-      "wx": -2325,
-      "wy": -786,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089919 (ATM)"
-    },
-    {
       "id": "ign-1089921",
-      "name": "ATM — VCIA 5",
+      "name": "ATM — VCIA 13",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7478,8 +7452,21 @@
       "source": "ign 1089921 (ATM)"
     },
     {
+      "id": "ign-1089922",
+      "name": "ATM — VCIA 3",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "VCIA",
+      "wx": -2334,
+      "wy": -780,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089922 (ATM)"
+    },
+    {
       "id": "ign-1089923",
-      "name": "ATM — VCIA 15",
+      "name": "ATM — VCIA 6",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7492,7 +7479,7 @@
     },
     {
       "id": "ign-1089925",
-      "name": "ATM — VCIA 4",
+      "name": "ATM — VCIA 11",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
@@ -7505,7 +7492,7 @@
     },
     {
       "id": "ign-1089926",
-      "name": "ATM — Southside 5",
+      "name": "ATM — Southside 4",
       "category": "atm",
       "region": "hamlet",
       "area": "Southside",
@@ -7556,17 +7543,17 @@
       "source": "ign 1089929 (ATM)"
     },
     {
-      "id": "ign-1089931",
-      "name": "ATM — VCIA 6",
+      "id": "ign-1089932",
+      "name": "ATM — VCIA 7",
       "category": "atm",
       "region": "vice_city",
       "area": "VCIA",
-      "wx": -2463,
-      "wy": -777,
+      "wx": -2480,
+      "wy": -779,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089931 (ATM)"
+      "source": "ign 1089932 (ATM)"
     },
     {
       "id": "ign-1089934",
@@ -7583,7 +7570,7 @@
     },
     {
       "id": "ign-1089935",
-      "name": "ATM — Stockyard 2",
+      "name": "ATM — Stockyard 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Stockyard",
@@ -7596,7 +7583,7 @@
     },
     {
       "id": "ign-1089936",
-      "name": "ATM — Ocean Beach 20",
+      "name": "ATM — Ocean Beach 22",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7609,7 +7596,7 @@
     },
     {
       "id": "ign-1089937",
-      "name": "ATM — Stockyard 7",
+      "name": "ATM — Stockyard 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Stockyard",
@@ -7635,7 +7622,7 @@
     },
     {
       "id": "ign-1089940",
-      "name": "ATM — Ocean Beach 2",
+      "name": "ATM — Ocean Beach 23",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7648,7 +7635,7 @@
     },
     {
       "id": "ign-1089941",
-      "name": "ATM — Ocean Beach 13",
+      "name": "ATM — Ocean Beach 15",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7674,7 +7661,7 @@
     },
     {
       "id": "ign-1089943",
-      "name": "ATM — Stockyard 4",
+      "name": "ATM — Stockyard 2",
       "category": "atm",
       "region": "leonard",
       "area": "Stockyard",
@@ -7687,7 +7674,7 @@
     },
     {
       "id": "ign-1089945",
-      "name": "ATM — Stockyard 3",
+      "name": "ATM — Stockyard 7",
       "category": "atm",
       "region": "leonard",
       "area": "Stockyard",
@@ -7699,21 +7686,8 @@
       "source": "ign 1089945 (ATM)"
     },
     {
-      "id": "ign-1089946",
-      "name": "ATM — Balsero 4",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Balsero",
-      "wx": -2068,
-      "wy": 1152,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089946 (ATM)"
-    },
-    {
       "id": "ign-1089947",
-      "name": "ATM — Ocean Beach 23",
+      "name": "ATM — Ocean Beach 11",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -7726,7 +7700,7 @@
     },
     {
       "id": "ign-1089948",
-      "name": "ATM — Washington Beach 3",
+      "name": "ATM — Washington Beach 2",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -7752,7 +7726,7 @@
     },
     {
       "id": "ign-1089950",
-      "name": "ATM — Washington Beach 2",
+      "name": "ATM — Washington Beach 6",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -7765,7 +7739,7 @@
     },
     {
       "id": "ign-1089953",
-      "name": "ATM — Balsero 7",
+      "name": "ATM — Balsero 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Balsero",
@@ -7777,8 +7751,21 @@
       "source": "ign 1089953 (ATM)"
     },
     {
+      "id": "ign-1089956",
+      "name": "ATM — Balsero 6",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -2801,
+      "wy": 751,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089956 (ATM)"
+    },
+    {
       "id": "ign-1089957",
-      "name": "ATM — Balsero 8",
+      "name": "ATM — Balsero 5",
       "category": "atm",
       "region": "vice_city",
       "area": "Balsero",
@@ -7788,19 +7775,6 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1089957 (ATM)"
-    },
-    {
-      "id": "ign-1089958",
-      "name": "ATM — Hamlet 4",
-      "category": "atm",
-      "region": "hamlet",
-      "area": "Hamlet",
-      "wx": -2596,
-      "wy": -3050,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089958 (ATM)"
     },
     {
       "id": "ign-1089959",
@@ -7829,6 +7803,19 @@
       "source": "ign 1089962 (ATM)"
     },
     {
+      "id": "ign-1089963",
+      "name": "ATM — Hamlet 1",
+      "category": "atm",
+      "region": "hamlet",
+      "area": "Hamlet",
+      "wx": -3280,
+      "wy": -2947,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1089963 (ATM)"
+    },
+    {
       "id": "ign-1089964",
       "name": "ATM — Washington Beach 5",
       "category": "atm",
@@ -7842,21 +7829,8 @@
       "source": "ign 1089964 (ATM)"
     },
     {
-      "id": "ign-1089965",
-      "name": "ATM — Belville 1",
-      "category": "atm",
-      "region": "leonard",
-      "area": "Belville",
-      "wx": -800,
-      "wy": 2940,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089965 (ATM)"
-    },
-    {
       "id": "ign-1089966",
-      "name": "ATM — Washington Beach 6",
+      "name": "ATM — Washington Beach 3",
       "category": "atm",
       "region": "leonard",
       "area": "Washington Beach",
@@ -7869,7 +7843,7 @@
     },
     {
       "id": "ign-1089967",
-      "name": "ATM — Waning Sands 7",
+      "name": "ATM — Waning Sands 4",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -7882,7 +7856,7 @@
     },
     {
       "id": "ign-1089968",
-      "name": "ATM — Waning Sands 8",
+      "name": "ATM — Waning Sands 1",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -7895,7 +7869,7 @@
     },
     {
       "id": "ign-1089969",
-      "name": "ATM — Waning Sands 3",
+      "name": "ATM — Waning Sands 5",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -7907,21 +7881,8 @@
       "source": "ign 1089969 (ATM)"
     },
     {
-      "id": "ign-1089970",
-      "name": "ATM — Balsero 2",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Balsero",
-      "wx": -3635,
-      "wy": 736,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1089970 (ATM)"
-    },
-    {
       "id": "ign-1089971",
-      "name": "ATM — Leonard County 1",
+      "name": "ATM — Leonard County 2",
       "category": "atm",
       "region": "leonard",
       "area": "Leonard County",
@@ -7934,7 +7895,7 @@
     },
     {
       "id": "ign-1089972",
-      "name": "ATM — Leonard County 2",
+      "name": "ATM — Leonard County 1",
       "category": "atm",
       "region": "leonard",
       "area": "Leonard County",
@@ -7947,7 +7908,7 @@
     },
     {
       "id": "ign-1089973",
-      "name": "ATM — Waning Sands 5",
+      "name": "ATM — Waning Sands 2",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -7960,7 +7921,7 @@
     },
     {
       "id": "ign-1089975",
-      "name": "ATM — Watson Bay 1",
+      "name": "ATM — Watson Bay 6",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -7999,7 +7960,7 @@
     },
     {
       "id": "ign-1089978",
-      "name": "ATM — Watson Bay 6",
+      "name": "ATM — Watson Bay 1",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -8012,7 +7973,7 @@
     },
     {
       "id": "ign-1089979",
-      "name": "ATM — Key Lento 2",
+      "name": "ATM — Key Lento 3",
       "category": "atm",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -8025,7 +7986,7 @@
     },
     {
       "id": "ign-1089981",
-      "name": "ATM — Ambrosia 1",
+      "name": "ATM — Ambrosia 3",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -8038,7 +7999,7 @@
     },
     {
       "id": "ign-1089982",
-      "name": "ATM — Key Lento 3",
+      "name": "ATM — Key Lento 1",
       "category": "atm",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -8051,7 +8012,7 @@
     },
     {
       "id": "ign-1089983",
-      "name": "ATM — Ambrosia 5",
+      "name": "ATM — Ambrosia 1",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -8064,7 +8025,7 @@
     },
     {
       "id": "ign-1089986",
-      "name": "ATM — Key Lento 1",
+      "name": "ATM — Key Lento 2",
       "category": "atm",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -8077,7 +8038,7 @@
     },
     {
       "id": "ign-1089987",
-      "name": "ATM — Port Gellhorn 9",
+      "name": "ATM — Port Gellhorn 7",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8103,7 +8064,7 @@
     },
     {
       "id": "ign-1089989",
-      "name": "ATM — Port Gellhorn 5",
+      "name": "ATM — Port Gellhorn 1",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8116,7 +8077,7 @@
     },
     {
       "id": "ign-1089990",
-      "name": "ATM — Port Gellhorn 11",
+      "name": "ATM — Port Gellhorn 10",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8142,7 +8103,7 @@
     },
     {
       "id": "ign-1089993",
-      "name": "ATM — Port Gellhorn 7",
+      "name": "ATM — Port Gellhorn 8",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8155,7 +8116,7 @@
     },
     {
       "id": "ign-1089995",
-      "name": "ATM — Port Gellhorn 10",
+      "name": "ATM — Port Gellhorn 9",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8168,7 +8129,7 @@
     },
     {
       "id": "ign-1089996",
-      "name": "ATM — Port Gellhorn 3",
+      "name": "ATM — Port Gellhorn 5",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -8284,30 +8245,17 @@
       "source": "ign 1090014 (Ammu-Nation)"
     },
     {
-      "id": "ign-1090015",
-      "name": "Prestige Firearms",
+      "id": "ign-1090019",
+      "name": "Hamlet Traders",
       "category": "ammunation",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1663,
-      "wy": 1379,
+      "region": "hamlet",
+      "area": "Hamlet",
+      "wx": -2579,
+      "wy": -3049,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Armería marcada en el mapa de IGN. Carga chaleco antes del golpe. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090015 (Ammu-Nation)"
-    },
-    {
-      "id": "ign-1090020",
-      "name": "Martez Empeños",
-      "category": "ammunation",
-      "region": "vice_city",
-      "area": "Little Cuba",
-      "wx": -1219,
-      "wy": 132,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Armería marcada en el mapa de IGN. Carga chaleco antes del golpe. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090020 (Ammu-Nation)"
+      "source": "ign 1090019 (Ammu-Nation)"
     },
     {
       "id": "ign-1090024",
@@ -8324,7 +8272,7 @@
     },
     {
       "id": "ign-1090025",
-      "name": "ATM (Towable) — Downtown 1",
+      "name": "ATM (Towable) — Downtown 8",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8337,7 +8285,7 @@
     },
     {
       "id": "ign-1090026",
-      "name": "ATM (Towable) — Downtown 14",
+      "name": "ATM (Towable) — Downtown 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8376,7 +8324,7 @@
     },
     {
       "id": "ign-1090029",
-      "name": "ATM (Towable) — Downtown 11",
+      "name": "ATM (Towable) — Downtown 5",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8389,7 +8337,7 @@
     },
     {
       "id": "ign-1090030",
-      "name": "ATM (Towable) — Downtown 4",
+      "name": "ATM (Towable) — Downtown 14",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8402,7 +8350,7 @@
     },
     {
       "id": "ign-1090031",
-      "name": "ATM (Towable) — Tequesta 1",
+      "name": "ATM (Towable) — Tequesta 6",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -8415,7 +8363,7 @@
     },
     {
       "id": "ign-1090032",
-      "name": "ATM (Towable) — Downtown 7",
+      "name": "ATM (Towable) — Downtown 11",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8425,19 +8373,6 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090032 (ATM (Towable))"
-    },
-    {
-      "id": "ign-1090033",
-      "name": "ATM (Towable) — Tequesta 4",
-      "category": "atm",
-      "region": "vice_city",
-      "area": "Tequesta",
-      "wx": -831,
-      "wy": -977,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090033 (ATM (Towable))"
     },
     {
       "id": "ign-1090034",
@@ -8454,7 +8389,7 @@
     },
     {
       "id": "ign-1090035",
-      "name": "ATM (Towable) — Downtown 2",
+      "name": "ATM (Towable) — Downtown 13",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8467,7 +8402,7 @@
     },
     {
       "id": "ign-1090036",
-      "name": "ATM (Towable) — Tequesta 7",
+      "name": "ATM (Towable) — Tequesta 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -8480,7 +8415,7 @@
     },
     {
       "id": "ign-1090037",
-      "name": "ATM (Towable) — Tequesta 6",
+      "name": "ATM (Towable) — Tequesta 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -8493,7 +8428,7 @@
     },
     {
       "id": "ign-1090038",
-      "name": "ATM (Towable) — Tequesta 3",
+      "name": "ATM (Towable) — Tequesta 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -8506,7 +8441,7 @@
     },
     {
       "id": "ign-1090040",
-      "name": "ATM (Towable) — Downtown 5",
+      "name": "ATM (Towable) — Downtown 15",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8519,7 +8454,7 @@
     },
     {
       "id": "ign-1090041",
-      "name": "ATM (Towable) — Tequesta 8",
+      "name": "ATM (Towable) — Tequesta 7",
       "category": "atm",
       "region": "vice_city",
       "area": "Tequesta",
@@ -8532,7 +8467,7 @@
     },
     {
       "id": "ign-1090042",
-      "name": "ATM (Towable) — Downtown 8",
+      "name": "ATM (Towable) — Downtown 16",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8545,7 +8480,7 @@
     },
     {
       "id": "ign-1090043",
-      "name": "ATM (Towable) — Downtown 6",
+      "name": "ATM (Towable) — Downtown 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8558,7 +8493,7 @@
     },
     {
       "id": "ign-1090045",
-      "name": "ATM (Towable) — Downtown 3",
+      "name": "ATM (Towable) — Downtown 7",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8571,7 +8506,7 @@
     },
     {
       "id": "ign-1090046",
-      "name": "ATM (Towable) — Downtown 16",
+      "name": "ATM (Towable) — Downtown 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8584,7 +8519,7 @@
     },
     {
       "id": "ign-1090047",
-      "name": "ATM (Towable) — Downtown 13",
+      "name": "ATM (Towable) — Downtown 9",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8597,7 +8532,7 @@
     },
     {
       "id": "ign-1090048",
-      "name": "ATM (Towable) — Downtown 15",
+      "name": "ATM (Towable) — Downtown 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8610,7 +8545,7 @@
     },
     {
       "id": "ign-1090050",
-      "name": "ATM (Towable) — Peacock Bay 1",
+      "name": "ATM (Towable) — Peacock Bay 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Peacock Bay",
@@ -8623,7 +8558,7 @@
     },
     {
       "id": "ign-1090051",
-      "name": "ATM (Towable) — Downtown 9",
+      "name": "ATM (Towable) — Downtown 12",
       "category": "atm",
       "region": "vice_city",
       "area": "Downtown",
@@ -8636,7 +8571,7 @@
     },
     {
       "id": "ign-1090052",
-      "name": "ATM (Towable) — Vice City 3",
+      "name": "ATM (Towable) — Vice City 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -8649,7 +8584,7 @@
     },
     {
       "id": "ign-1090053",
-      "name": "ATM (Towable) — Vice City 1",
+      "name": "ATM (Towable) — Vice City 3",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -8675,7 +8610,7 @@
     },
     {
       "id": "ign-1090056",
-      "name": "ATM (Towable) — Salton 1",
+      "name": "ATM (Towable) — Salton 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Salton",
@@ -8688,7 +8623,7 @@
     },
     {
       "id": "ign-1090057",
-      "name": "ATM (Towable) — Vice City 4",
+      "name": "ATM (Towable) — Vice City 1",
       "category": "atm",
       "region": "vice_city",
       "area": "Vice City",
@@ -8711,6 +8646,19 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090058 (ATM (Towable))"
+    },
+    {
+      "id": "ign-1090059",
+      "name": "ATM (Towable) — Peacock Bay 1",
+      "category": "atm",
+      "region": "hamlet",
+      "area": "Peacock Bay",
+      "wx": -1323,
+      "wy": -1797,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090059 (ATM (Towable))"
     },
     {
       "id": "ign-1090060",
@@ -8779,7 +8727,7 @@
     },
     {
       "id": "ign-1090072",
-      "name": "ATM (Towable) — Ocean Beach 2",
+      "name": "ATM (Towable) — Ocean Beach 4",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8792,7 +8740,7 @@
     },
     {
       "id": "ign-1090074",
-      "name": "ATM (Towable) — Ocean Beach 9",
+      "name": "ATM (Towable) — Ocean Beach 11",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8805,7 +8753,7 @@
     },
     {
       "id": "ign-1090075",
-      "name": "ATM (Towable) — Ocean Beach 5",
+      "name": "ATM (Towable) — Ocean Beach 9",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8815,19 +8763,6 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090075 (ATM (Towable))"
-    },
-    {
-      "id": "ign-1090076",
-      "name": "ATM (Towable) — Southside 2",
-      "category": "atm",
-      "region": "hamlet",
-      "area": "Southside",
-      "wx": -1777,
-      "wy": -2204,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090076 (ATM (Towable))"
     },
     {
       "id": "ign-1090077",
@@ -8857,7 +8792,7 @@
     },
     {
       "id": "ign-1090080",
-      "name": "ATM (Towable) — Ocean Beach 16",
+      "name": "ATM (Towable) — Ocean Beach 2",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8867,6 +8802,19 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090080 (ATM (Towable))"
+    },
+    {
+      "id": "ign-1090081",
+      "name": "ATM (Towable) — Balsero 2",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -1982,
+      "wy": 189,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090081 (ATM (Towable))"
     },
     {
       "id": "ign-1090082",
@@ -8896,7 +8844,7 @@
     },
     {
       "id": "ign-1090084",
-      "name": "ATM (Towable) — Ocean Beach 4",
+      "name": "ATM (Towable) — Ocean Beach 12",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8909,7 +8857,7 @@
     },
     {
       "id": "ign-1090085",
-      "name": "ATM (Towable) — Stockyard 1",
+      "name": "ATM (Towable) — Stockyard 2",
       "category": "atm",
       "region": "vice_city",
       "area": "Stockyard",
@@ -8922,7 +8870,7 @@
     },
     {
       "id": "ign-1090086",
-      "name": "ATM (Towable) — Southside 3",
+      "name": "ATM (Towable) — Southside 2",
       "category": "atm",
       "region": "hamlet",
       "area": "Southside",
@@ -8935,7 +8883,7 @@
     },
     {
       "id": "ign-1090091",
-      "name": "ATM (Towable) — Ocean Beach 13",
+      "name": "ATM (Towable) — Ocean Beach 7",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8961,7 +8909,7 @@
     },
     {
       "id": "ign-1090093",
-      "name": "ATM (Towable) — Ocean Beach 6",
+      "name": "ATM (Towable) — Ocean Beach 5",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8974,7 +8922,7 @@
     },
     {
       "id": "ign-1090094",
-      "name": "ATM (Towable) — Ocean Beach 3",
+      "name": "ATM (Towable) — Ocean Beach 10",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -8987,7 +8935,7 @@
     },
     {
       "id": "ign-1090095",
-      "name": "ATM (Towable) — Balsero 1",
+      "name": "ATM (Towable) — Balsero 4",
       "category": "atm",
       "region": "vice_city",
       "area": "Balsero",
@@ -9012,8 +8960,21 @@
       "source": "ign 1090097 (ATM (Towable))"
     },
     {
+      "id": "ign-1090098",
+      "name": "ATM (Towable) — Balsero 1",
+      "category": "atm",
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -2054,
+      "wy": 1147,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090098 (ATM (Towable))"
+    },
+    {
       "id": "ign-1090099",
-      "name": "ATM (Towable) — Stockyard 6",
+      "name": "ATM (Towable) — Stockyard 9",
       "category": "atm",
       "region": "leonard",
       "area": "Stockyard",
@@ -9026,7 +8987,7 @@
     },
     {
       "id": "ign-1090100",
-      "name": "ATM (Towable) — Ocean Beach 17",
+      "name": "ATM (Towable) — Ocean Beach 14",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -9039,7 +9000,7 @@
     },
     {
       "id": "ign-1090101",
-      "name": "ATM (Towable) — Washington Beach 5",
+      "name": "ATM (Towable) — Washington Beach 3",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9052,7 +9013,7 @@
     },
     {
       "id": "ign-1090102",
-      "name": "ATM (Towable) — Washington Beach 7",
+      "name": "ATM (Towable) — Washington Beach 5",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9065,7 +9026,7 @@
     },
     {
       "id": "ign-1090103",
-      "name": "ATM (Towable) — Washington Beach 3",
+      "name": "ATM (Towable) — Washington Beach 1",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9078,7 +9039,7 @@
     },
     {
       "id": "ign-1090104",
-      "name": "ATM (Towable) — Washington Beach 1",
+      "name": "ATM (Towable) — Washington Beach 7",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9091,7 +9052,7 @@
     },
     {
       "id": "ign-1090105",
-      "name": "ATM (Towable) — Washington Beach 2",
+      "name": "ATM (Towable) — Washington Beach 4",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9130,7 +9091,7 @@
     },
     {
       "id": "ign-1090109",
-      "name": "ATM (Towable) — Stockyard 7",
+      "name": "ATM (Towable) — Stockyard 10",
       "category": "atm",
       "region": "leonard",
       "area": "Stockyard",
@@ -9142,21 +9103,8 @@
       "source": "ign 1090109 (ATM (Towable))"
     },
     {
-      "id": "ign-1090110",
-      "name": "ATM (Towable) — Hamlet 2",
-      "category": "atm",
-      "region": "hamlet",
-      "area": "Hamlet",
-      "wx": -2603,
-      "wy": -3193,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090110 (ATM (Towable))"
-    },
-    {
       "id": "ign-1090111",
-      "name": "ATM (Towable) — Washington Beach 6",
+      "name": "ATM (Towable) — Washington Beach 2",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9169,7 +9117,7 @@
     },
     {
       "id": "ign-1090113",
-      "name": "ATM (Towable) — Washington Beach 4",
+      "name": "ATM (Towable) — Washington Beach 6",
       "category": "atm",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -9182,7 +9130,7 @@
     },
     {
       "id": "ign-1090115",
-      "name": "ATM (Towable) — Balsero 2",
+      "name": "ATM (Towable) — Balsero 3",
       "category": "atm",
       "region": "ambrosia",
       "area": "Balsero",
@@ -9195,7 +9143,7 @@
     },
     {
       "id": "ign-1090117",
-      "name": "ATM (Towable) — Key Lento 1",
+      "name": "ATM (Towable) — Key Lento 3",
       "category": "atm",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -9205,6 +9153,19 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090117 (ATM (Towable))"
+    },
+    {
+      "id": "ign-1090118",
+      "name": "ATM (Towable) — Key Lento 1",
+      "category": "atm",
+      "region": "leonida_keys",
+      "area": "Key Lento",
+      "wx": -2703,
+      "wy": -6151,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090118 (ATM (Towable))"
     },
     {
       "id": "ign-1090121",
@@ -9231,45 +9192,6 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090122 (ATM (Towable))"
-    },
-    {
-      "id": "ign-1090123",
-      "name": "Downtown Shorefront Bank",
-      "category": "bank_small",
-      "region": "vice_city",
-      "area": "Downtown",
-      "wx": -769,
-      "wy": -226,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Sucursal marcada en IGN. Confirma en el juego si es bóveda o banco chico. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090123 (Bank)"
-    },
-    {
-      "id": "ign-1090129",
-      "name": "Ocean Beach Fleeca Bank",
-      "category": "bank_small",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1790,
-      "wy": 510,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Sucursal marcada en IGN. Confirma en el juego si es bóveda o banco chico. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090129 (Bank)"
-    },
-    {
-      "id": "ign-1090132",
-      "name": "Key Lento Fleeca Bank",
-      "category": "bank_small",
-      "region": "leonida_keys",
-      "area": "Key Lento",
-      "wx": -2693,
-      "wy": -6150,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Sucursal marcada en IGN. Confirma en el juego si es bóveda o banco chico. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090132 (Bank)"
     },
     {
       "id": "ign-1090137",
@@ -9350,17 +9272,43 @@
       "source": "ign 1090158 (Pawn Shop)"
     },
     {
-      "id": "ign-1090163",
-      "name": "The Jewelry Place",
+      "id": "ign-1090159",
+      "name": "Donovan Banks & Co.",
       "category": "jewelry",
       "region": "vice_city",
-      "area": "Balsero",
-      "wx": -2789,
-      "wy": 761,
+      "area": "Peacock Bay",
+      "wx": -1221,
+      "wy": -1716,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Joyería o pawn marcado en IGN. Caja fuerte trasera; vende el loot a un contacto. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090163 (Low-End Jewelry)"
+      "source": "ign 1090159 (High-End Jewelry)"
+    },
+    {
+      "id": "ign-1090166",
+      "name": "Joyeria Empeños",
+      "category": "jewelry",
+      "region": "hamlet",
+      "area": "Southside",
+      "wx": -1768,
+      "wy": -2213,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Joyería o pawn marcado en IGN. Caja fuerte trasera; vende el loot a un contacto. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090166 (Pawn Shop)"
+    },
+    {
+      "id": "ign-1090171",
+      "name": "Ayoka Jewelers",
+      "category": "jewelry",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1648,
+      "wy": 1344,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Joyería o pawn marcado en IGN. Caja fuerte trasera; vende el loot a un contacto. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090171 (High-End Jewelry)"
     },
     {
       "id": "ign-1090172",
@@ -9402,6 +9350,19 @@
       "source": "ign 1090192 (Convenience Store)"
     },
     {
+      "id": "ign-1090196",
+      "name": "Xero Food Mart - Buckskin Swamp — Balsero 1",
+      "category": "stickup",
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -3630,
+      "wy": 738,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090196 (Convenience Store)"
+    },
+    {
       "id": "ign-1090197",
       "name": "Xero Food Mart - Buckskin Swamp — Balsero 2",
       "category": "stickup",
@@ -9415,17 +9376,17 @@
       "source": "ign 1090197 (Convenience Store)"
     },
     {
-      "id": "ign-1090229",
-      "name": "Leonida Truck Stop",
+      "id": "ign-1090205",
+      "name": "Alpha Convenience Store - Belville",
       "category": "stickup",
-      "region": "hamlet",
-      "area": "Hamlet",
-      "wx": -3279,
-      "wy": -2957,
+      "region": "leonard",
+      "area": "Belville",
+      "wx": -800,
+      "wy": 2937,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090229 (Convenience Store)"
+      "source": "ign 1090205 (Convenience Store)"
     },
     {
       "id": "ign-1090237",
@@ -9556,19 +9517,6 @@
       "confidence": "medium",
       "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090259 (Fast Food)"
-    },
-    {
-      "id": "ign-1090260",
-      "name": "Peewees - Rockridge",
-      "category": "stickup",
-      "region": "vice_city",
-      "area": "Rockridge",
-      "wx": -1346,
-      "wy": 539,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090260 (Fast Food)"
     },
     {
       "id": "ign-1090261",
@@ -9935,17 +9883,17 @@
       "source": "ign 1090310 (Safe)"
     },
     {
-      "id": "ign-1090312",
-      "name": "Armory Safe 2 - Vespucci Mansion",
+      "id": "ign-1090311",
+      "name": "Armory Safe - Vespucci Mansion",
       "category": "safe",
       "region": "vice_beach",
       "area": "Bayside",
-      "wx": 466,
-      "wy": 1215,
+      "wx": 473,
+      "wy": 1217,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090312 (Safe)"
+      "source": "ign 1090311 (Safe)"
     },
     {
       "id": "ign-1090313",
@@ -10013,19 +9961,6 @@
       "source": "ign 1090320 (Safe)"
     },
     {
-      "id": "ign-1090321",
-      "name": "Safe - Biker Hideout",
-      "category": "safe",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -2028,
-      "wy": 3917,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090321 (Safe)"
-    },
-    {
       "id": "ign-1090322",
       "name": "Safe - Farm Fix Meth Lab",
       "category": "safe",
@@ -10063,19 +9998,6 @@
       "confidence": "medium",
       "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090325 (Safe)"
-    },
-    {
-      "id": "ign-1090326",
-      "name": "Lieutenant Room Safe - La Cascara Motel",
-      "category": "safe",
-      "region": "port_gellhorn",
-      "area": "Port Gellhorn",
-      "wx": -6856,
-      "wy": 3979,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090326 (Safe)"
     },
     {
       "id": "ign-1090327",
@@ -10128,19 +10050,6 @@
       "confidence": "medium",
       "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090330 (Safe)"
-    },
-    {
-      "id": "ign-1090331",
-      "name": "Safe - Weed Grow",
-      "category": "safe",
-      "region": "mount_kalaga",
-      "area": "Millport",
-      "wx": -1372,
-      "wy": 7120,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Caja fuerte marcada en IGN. Está dentro del local, no en la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090331 (Safe)"
     },
     {
       "id": "ign-1090332",
@@ -10351,6 +10260,19 @@
       "source": "ign 1090348 (Base Jump)"
     },
     {
+      "id": "ign-1090349",
+      "name": "Valdemar on the River Base Jump",
+      "category": "stunt",
+      "region": "vice_city",
+      "area": "Little Cuba",
+      "wx": -1120,
+      "wy": -286,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Stunt marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090349 (Base Jump)"
+    },
+    {
       "id": "ign-1090350",
       "name": "Archipelago Apartments North Base Jump",
       "category": "stunt",
@@ -10362,19 +10284,6 @@
       "confidence": "medium",
       "tip": "Stunt marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090350 (Base Jump)"
-    },
-    {
-      "id": "ign-1090351",
-      "name": "High Life Hotel Base Jump",
-      "category": "stunt",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1974,
-      "wy": -340,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Stunt marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090351 (Base Jump)"
     },
     {
       "id": "ign-1090352",
@@ -13094,6 +13003,19 @@
       "source": "ign 1090600 (Under the Bridge)"
     },
     {
+      "id": "ign-1090602",
+      "name": "Pay 'N' Spray - Waxman Island",
+      "category": "paynspray",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": 121,
+      "wy": 292,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Pay ’n’ Spray marcado en IGN. Pierde estrellas y vende el coche con tracker. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090602 (Pay 'N' Spray)"
+    },
+    {
       "id": "ign-1090605",
       "name": "Pay 'N' Spray - Salton",
       "category": "paynspray",
@@ -13159,19 +13081,6 @@
       "source": "ign 1090626 (Mod Shop)"
     },
     {
-      "id": "ign-1090630",
-      "name": "Dirt Merchants",
-      "category": "modshop",
-      "region": "port_gellhorn",
-      "area": "Port Gellhorn",
-      "wx": -6405,
-      "wy": 2790,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Taller de tuning marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090630 (Mod Shop)"
-    },
-    {
       "id": "ign-1090632",
       "name": "One-Eyed Willie's Auto Shop",
       "category": "modshop",
@@ -13183,6 +13092,32 @@
       "confidence": "medium",
       "tip": "Taller de tuning marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090632 (Mod Shop)"
+    },
+    {
+      "id": "ign-1090646",
+      "name": "Xero Gas - Salton",
+      "category": "gas",
+      "region": "vice_city",
+      "area": "Little Cuba",
+      "wx": -1565,
+      "wy": -62,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Gasolinera marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090646 (Gas Station)"
+    },
+    {
+      "id": "ign-1090648",
+      "name": "Ron Gas - Little Cuba",
+      "category": "gas",
+      "region": "vice_city",
+      "area": "Little Cuba",
+      "wx": -1063,
+      "wy": 204,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Gasolinera marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090648 (Gas Station)"
     },
     {
       "id": "ign-1090669",
@@ -13238,7 +13173,7 @@
     },
     {
       "id": "ign-1090697",
-      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 6",
       "category": "charger",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -13251,7 +13186,7 @@
     },
     {
       "id": "ign-1090698",
-      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 5",
       "category": "charger",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -13277,7 +13212,7 @@
     },
     {
       "id": "ign-1090700",
-      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 2",
       "category": "charger",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -13303,7 +13238,7 @@
     },
     {
       "id": "ign-1090702",
-      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Key Lento 3",
       "category": "charger",
       "region": "leonida_keys",
       "area": "Key Lento",
@@ -13329,7 +13264,7 @@
     },
     {
       "id": "ign-1090704",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 4",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13342,7 +13277,7 @@
     },
     {
       "id": "ign-1090705",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 8",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13368,7 +13303,7 @@
     },
     {
       "id": "ign-1090707",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 6",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13381,7 +13316,7 @@
     },
     {
       "id": "ign-1090708",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 9",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 7",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13394,7 +13329,7 @@
     },
     {
       "id": "ign-1090709",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 5",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13407,7 +13342,7 @@
     },
     {
       "id": "ign-1090710",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 8",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 9",
       "category": "charger",
       "region": "hamlet",
       "area": "Hamlet",
@@ -13420,7 +13355,7 @@
     },
     {
       "id": "ign-1090711",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 2",
       "category": "charger",
       "region": "grassrivers",
       "area": "Hamlet",
@@ -13433,7 +13368,7 @@
     },
     {
       "id": "ign-1090712",
-      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Hamlet 1",
       "category": "charger",
       "region": "grassrivers",
       "area": "Hamlet",
@@ -13472,7 +13407,7 @@
     },
     {
       "id": "ign-1090715",
-      "name": "Electric Charger — Electric Vehicle Charger — Watson Bay 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Watson Bay 2",
       "category": "charger",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -13498,7 +13433,7 @@
     },
     {
       "id": "ign-1090717",
-      "name": "Electric Charger — Electric Vehicle Charger — Southwind 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Southwind 2",
       "category": "charger",
       "region": "leonida_keys",
       "area": "Southwind",
@@ -13524,7 +13459,7 @@
     },
     {
       "id": "ign-1090719",
-      "name": "Electric Charger — Electric Vehicle Charger — VCIA 1",
+      "name": "Electric Charger — Electric Vehicle Charger — VCIA 5",
       "category": "charger",
       "region": "vice_city",
       "area": "VCIA",
@@ -13537,7 +13472,7 @@
     },
     {
       "id": "ign-1090720",
-      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 7",
       "category": "charger",
       "region": "vice_city",
       "area": "Tequesta",
@@ -13563,7 +13498,7 @@
     },
     {
       "id": "ign-1090722",
-      "name": "Electric Charger — Electric Vehicle Charger — Southwind 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Southwind 1",
       "category": "charger",
       "region": "grassrivers",
       "area": "Southwind",
@@ -13576,7 +13511,7 @@
     },
     {
       "id": "ign-1090723",
-      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Tequesta",
@@ -13589,7 +13524,7 @@
     },
     {
       "id": "ign-1090724",
-      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 5",
       "category": "charger",
       "region": "vice_city",
       "area": "Tequesta",
@@ -13602,7 +13537,7 @@
     },
     {
       "id": "ign-1090725",
-      "name": "Electric Charger — Electric Vehicle Charger — Salton 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Salton 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Salton",
@@ -13615,7 +13550,7 @@
     },
     {
       "id": "ign-1090726",
-      "name": "Electric Charger — Electric Vehicle Charger — VCIA 2",
+      "name": "Electric Charger — Electric Vehicle Charger — VCIA 1",
       "category": "charger",
       "region": "vice_city",
       "area": "VCIA",
@@ -13628,7 +13563,7 @@
     },
     {
       "id": "ign-1090727",
-      "name": "Electric Charger — Electric Vehicle Charger — VCIA 4",
+      "name": "Electric Charger — Electric Vehicle Charger — VCIA 3",
       "category": "charger",
       "region": "vice_city",
       "area": "VCIA",
@@ -13641,7 +13576,7 @@
     },
     {
       "id": "ign-1090728",
-      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 6",
       "category": "charger",
       "region": "vice_city",
       "area": "Tequesta",
@@ -13653,21 +13588,21 @@
       "source": "ign 1090728 (Electric Charger)"
     },
     {
-      "id": "ign-1090729",
-      "name": "Electric Charger — Electric Vehicle Charger — VCIA 3",
+      "id": "ign-1090730",
+      "name": "Electric Charger — Electric Vehicle Charger — VCIA 4",
       "category": "charger",
       "region": "vice_city",
       "area": "VCIA",
-      "wx": -2131,
+      "wx": -2122,
       "wy": -683,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Cargador eléctrico marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090729 (Electric Charger)"
+      "source": "ign 1090730 (Electric Charger)"
     },
     {
       "id": "ign-1090731",
-      "name": "Electric Charger — Electric Vehicle Charger — Salton 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Salton 1",
       "category": "charger",
       "region": "vice_city",
       "area": "Salton",
@@ -13680,7 +13615,7 @@
     },
     {
       "id": "ign-1090732",
-      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Tequesta 1",
       "category": "charger",
       "region": "vice_city",
       "area": "Tequesta",
@@ -13706,7 +13641,7 @@
     },
     {
       "id": "ign-1090735",
-      "name": "Electric Charger — Electric Vehicle Charger — Downtown 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Downtown 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Downtown",
@@ -13719,7 +13654,7 @@
     },
     {
       "id": "ign-1090736",
-      "name": "Electric Charger — Electric Vehicle Charger — VCIA 5",
+      "name": "Electric Charger — Electric Vehicle Charger — VCIA 2",
       "category": "charger",
       "region": "vice_city",
       "area": "VCIA",
@@ -13758,7 +13693,7 @@
     },
     {
       "id": "ign-1090739",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 13",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13784,7 +13719,7 @@
     },
     {
       "id": "ign-1090741",
-      "name": "Electric Charger — Electric Vehicle Charger — Downtown 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Downtown 1",
       "category": "charger",
       "region": "vice_city",
       "area": "Downtown",
@@ -13797,7 +13732,7 @@
     },
     {
       "id": "ign-1090742",
-      "name": "Electric Charger — Electric Vehicle Charger — Balsero 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Balsero 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Balsero",
@@ -13810,7 +13745,7 @@
     },
     {
       "id": "ign-1090743",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 1",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13823,7 +13758,7 @@
     },
     {
       "id": "ign-1090744",
-      "name": "Electric Charger — Electric Vehicle Charger — Bayside 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Bayside 1",
       "category": "charger",
       "region": "vice_city",
       "area": "Bayside",
@@ -13836,7 +13771,7 @@
     },
     {
       "id": "ign-1090745",
-      "name": "Electric Charger — Electric Vehicle Charger — Bayside 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Bayside 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Bayside",
@@ -13849,7 +13784,7 @@
     },
     {
       "id": "ign-1090746",
-      "name": "Electric Charger — Electric Vehicle Charger — Bayside 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Bayside 3",
       "category": "charger",
       "region": "vice_city",
       "area": "Bayside",
@@ -13862,7 +13797,7 @@
     },
     {
       "id": "ign-1090747",
-      "name": "Electric Charger — Electric Vehicle Charger — Crosstown 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Crosstown 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Crosstown",
@@ -13888,7 +13823,7 @@
     },
     {
       "id": "ign-1090751",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 9",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 7",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13901,7 +13836,7 @@
     },
     {
       "id": "ign-1090752",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 3",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13914,7 +13849,7 @@
     },
     {
       "id": "ign-1090753",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 15",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13927,7 +13862,7 @@
     },
     {
       "id": "ign-1090754",
-      "name": "Electric Charger — Electric Vehicle Charger — Bayside 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Bayside 4",
       "category": "charger",
       "region": "vice_city",
       "area": "Bayside",
@@ -13940,7 +13875,7 @@
     },
     {
       "id": "ign-1090755",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 2",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13953,7 +13888,7 @@
     },
     {
       "id": "ign-1090756",
-      "name": "Electric Charger — Electric Vehicle Charger — Crosstown 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Crosstown 1",
       "category": "charger",
       "region": "vice_city",
       "area": "Crosstown",
@@ -13966,7 +13901,7 @@
     },
     {
       "id": "ign-1090757",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 13",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 5",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13979,7 +13914,7 @@
     },
     {
       "id": "ign-1090758",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 15",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 10",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -13992,7 +13927,7 @@
     },
     {
       "id": "ign-1090759",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 6",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -14005,7 +13940,7 @@
     },
     {
       "id": "ign-1090760",
-      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 2",
       "category": "charger",
       "region": "vice_city",
       "area": "Stockyard",
@@ -14018,7 +13953,7 @@
     },
     {
       "id": "ign-1090761",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 10",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 12",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14031,7 +13966,7 @@
     },
     {
       "id": "ign-1090762",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 8",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14044,7 +13979,7 @@
     },
     {
       "id": "ign-1090763",
-      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 4",
       "category": "charger",
       "region": "leonard",
       "area": "Stockyard",
@@ -14057,7 +13992,7 @@
     },
     {
       "id": "ign-1090764",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 9",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -14070,7 +14005,7 @@
     },
     {
       "id": "ign-1090765",
-      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 5",
       "category": "charger",
       "region": "leonard",
       "area": "Stockyard",
@@ -14083,7 +14018,7 @@
     },
     {
       "id": "ign-1090766",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 4",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14096,7 +14031,7 @@
     },
     {
       "id": "ign-1090767",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 14",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 6",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14109,7 +14044,7 @@
     },
     {
       "id": "ign-1090768",
-      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Stockyard 1",
       "category": "charger",
       "region": "leonard",
       "area": "Stockyard",
@@ -14122,7 +14057,7 @@
     },
     {
       "id": "ign-1090769",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 8",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 14",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14135,7 +14070,7 @@
     },
     {
       "id": "ign-1090770",
-      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 12",
+      "name": "Electric Charger — Electric Vehicle Charger — Ocean Beach 9",
       "category": "charger",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -14161,7 +14096,7 @@
     },
     {
       "id": "ign-1090772",
-      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 2",
       "category": "charger",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -14174,7 +14109,7 @@
     },
     {
       "id": "ign-1090773",
-      "name": "Electric Charger — Electric Vehicle Charger — Belville 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Belville 5",
       "category": "charger",
       "region": "leonard",
       "area": "Belville",
@@ -14187,7 +14122,7 @@
     },
     {
       "id": "ign-1090774",
-      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 3",
       "category": "charger",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -14200,7 +14135,7 @@
     },
     {
       "id": "ign-1090775",
-      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 4",
       "category": "charger",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -14226,7 +14161,7 @@
     },
     {
       "id": "ign-1090777",
-      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Washington Beach 1",
       "category": "charger",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -14239,7 +14174,7 @@
     },
     {
       "id": "ign-1090778",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 2",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14252,7 +14187,7 @@
     },
     {
       "id": "ign-1090779",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 5",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14265,7 +14200,7 @@
     },
     {
       "id": "ign-1090780",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 1",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14278,7 +14213,7 @@
     },
     {
       "id": "ign-1090781",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 4",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14291,7 +14226,7 @@
     },
     {
       "id": "ign-1090782",
-      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 2",
       "category": "charger",
       "region": "leonard",
       "area": "Waning Sands",
@@ -14304,7 +14239,7 @@
     },
     {
       "id": "ign-1090783",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 7",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14317,7 +14252,7 @@
     },
     {
       "id": "ign-1090784",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 6",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -14330,7 +14265,7 @@
     },
     {
       "id": "ign-1090785",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 8",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -14433,19 +14368,6 @@
       "source": "ign 1090803 (Bus Stop)"
     },
     {
-      "id": "ign-1090804",
-      "name": "Bus Stop — SW 2nd St - A",
-      "category": "transit",
-      "region": "vice_city",
-      "area": "Downtown",
-      "wx": -815,
-      "wy": -471,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090804 (Bus Stop)"
-    },
-    {
       "id": "ign-1090806",
       "name": "Bus Stop — Catalan Blvd - F",
       "category": "transit",
@@ -14498,17 +14420,17 @@
       "source": "ign 1090820 (Bus Stop)"
     },
     {
-      "id": "ign-1090821",
-      "name": "Bus Stop — South Vice Ave - D",
+      "id": "ign-1090822",
+      "name": "Bus Stop — South Vice Ave - C",
       "category": "transit",
       "region": "vice_city",
-      "area": "Tequesta",
-      "wx": -999,
-      "wy": -1468,
+      "area": "Peacock Bay",
+      "wx": -987,
+      "wy": -1509,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090821 (Bus Stop)"
+      "source": "ign 1090822 (Bus Stop)"
     },
     {
       "id": "ign-1090824",
@@ -14563,30 +14485,17 @@
       "source": "ign 1090829 (Bus Stop)"
     },
     {
-      "id": "ign-1090831",
-      "name": "Bus Stop — Westbrook Dr - C",
+      "id": "ign-1090833",
+      "name": "Bus Stop — Westbrook Dr - B",
       "category": "transit",
       "region": "vice_city",
       "area": "Salton",
-      "wx": -1192,
-      "wy": -648,
+      "wx": -1211,
+      "wy": -680,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090831 (Bus Stop)"
-    },
-    {
-      "id": "ign-1090832",
-      "name": "Bus Stop — Westbrook Dr - A",
-      "category": "transit",
-      "region": "vice_city",
-      "area": "Salton",
-      "wx": -1208,
-      "wy": -724,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090832 (Bus Stop)"
+      "source": "ign 1090833 (Bus Stop)"
     },
     {
       "id": "ign-1090834",
@@ -14704,19 +14613,6 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090845 (Bus Stop)"
-    },
-    {
-      "id": "ign-1090850",
-      "name": "Bus Stop — NW 4th Ave - D",
-      "category": "transit",
-      "region": "vice_city",
-      "area": "Little Cuba",
-      "wx": -1198,
-      "wy": -203,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090850 (Bus Stop)"
     },
     {
       "id": "ign-1090851",
@@ -14940,19 +14836,6 @@
       "source": "ign 1090882 (Bus Stop)"
     },
     {
-      "id": "ign-1090884",
-      "name": "Bus Stop — SW 5th Ave - A",
-      "category": "transit",
-      "region": "hamlet",
-      "area": "Peacock Bay",
-      "wx": -1418,
-      "wy": -2055,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090884 (Bus Stop)"
-    },
-    {
       "id": "ign-1090888",
       "name": "Bus Stop — Koko Blvd - A",
       "category": "transit",
@@ -15057,17 +14940,17 @@
       "source": "ign 1090902 (Bus Stop)"
     },
     {
-      "id": "ign-1090908",
-      "name": "Bus Stop — NW 19th St - A",
+      "id": "ign-1090904",
+      "name": "Bus Stop — NW 19th St - B",
       "category": "transit",
       "region": "vice_city",
       "area": "Little Cuba",
-      "wx": -1755,
-      "wy": 17,
+      "wx": -1722,
+      "wy": 36,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090908 (Bus Stop)"
+      "source": "ign 1090904 (Bus Stop)"
     },
     {
       "id": "ign-1090911",
@@ -15122,17 +15005,17 @@
       "source": "ign 1090919 (Bus Stop)"
     },
     {
-      "id": "ign-1090924",
-      "name": "Bus Stop — NW 9th St - B",
+      "id": "ign-1090920",
+      "name": "Bus Stop — NW 9th St - C",
       "category": "transit",
       "region": "vice_city",
       "area": "Rockridge",
-      "wx": -1154,
-      "wy": 840,
+      "wx": -1143,
+      "wy": 821,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090924 (Bus Stop)"
+      "source": "ign 1090920 (Bus Stop)"
     },
     {
       "id": "ign-1090925",
@@ -15187,19 +15070,6 @@
       "source": "ign 1090935 (Bus Stop)"
     },
     {
-      "id": "ign-1090938",
-      "name": "Bus Stop — SW 3rd Ave - C",
-      "category": "transit",
-      "region": "hamlet",
-      "area": "Southside",
-      "wx": -1871,
-      "wy": -2090,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090938 (Bus Stop)"
-    },
-    {
       "id": "ign-1090939",
       "name": "Bus Stop — Rialto Cswy - D",
       "category": "transit",
@@ -15224,6 +15094,19 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090941 (Bus Stop)"
+    },
+    {
+      "id": "ign-1090944",
+      "name": "Bus Stop — SW 3rd Ave - B",
+      "category": "transit",
+      "region": "hamlet",
+      "area": "Southside",
+      "wx": -1906,
+      "wy": -2089,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090944 (Bus Stop)"
     },
     {
       "id": "ign-1090945",
@@ -15317,6 +15200,19 @@
       "source": "ign 1090960 (Bus Stop)"
     },
     {
+      "id": "ign-1090961",
+      "name": "Bus Stop — Atlantic Ave - D",
+      "category": "transit",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1812,
+      "wy": 435,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090961 (Bus Stop)"
+    },
+    {
       "id": "ign-1090966",
       "name": "Bus Stop — NW 9th Ave - D",
       "category": "transit",
@@ -15393,6 +15289,19 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090973 (Bus Stop)"
+    },
+    {
+      "id": "ign-1090974",
+      "name": "Bus Stop — NE 4th Ave - B",
+      "category": "transit",
+      "region": "vice_city",
+      "area": "Crosstown",
+      "wx": -559,
+      "wy": 1407,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090974 (Bus Stop)"
     },
     {
       "id": "ign-1090976",
@@ -15486,6 +15395,19 @@
       "source": "ign 1090987 (Bus Stop)"
     },
     {
+      "id": "ign-1090989",
+      "name": "Bus Stop — Del Rio Blvd - D",
+      "category": "transit",
+      "region": "vice_city",
+      "area": "Rockridge",
+      "wx": -1502,
+      "wy": 1147,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090989 (Bus Stop)"
+    },
+    {
       "id": "ign-1090990",
       "name": "Bus Stop — Thompson Ave - K",
       "category": "transit",
@@ -15497,19 +15419,6 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090990 (Bus Stop)"
-    },
-    {
-      "id": "ign-1090992",
-      "name": "Bus Stop — Del Rio Blvd - C",
-      "category": "transit",
-      "region": "vice_city",
-      "area": "Rockridge",
-      "wx": -1556,
-      "wy": 1173,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090992 (Bus Stop)"
     },
     {
       "id": "ign-1090994",
@@ -15536,6 +15445,19 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090995 (Bus Stop)"
+    },
+    {
+      "id": "ign-1090998",
+      "name": "Bus Stop — Atlantic Ave - F",
+      "category": "transit",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1884,
+      "wy": 965,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1090998 (Bus Stop)"
     },
     {
       "id": "ign-1091003",
@@ -15720,17 +15642,17 @@
       "source": "ign 1091032 (Bus Stop)"
     },
     {
-      "id": "ign-1091034",
-      "name": "Bus Stop — Crockett Ter",
+      "id": "ign-1091039",
+      "name": "Bus Stop — SR-25 - A",
       "category": "transit",
-      "region": "leonard",
-      "area": "Stockyard",
-      "wx": -361,
-      "wy": 2180,
+      "region": "vice_city",
+      "area": "Balsero",
+      "wx": -2722,
+      "wy": 826,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091034 (Bus Stop)"
+      "source": "ign 1091039 (Bus Stop)"
     },
     {
       "id": "ign-1091040",
@@ -15772,17 +15694,17 @@
       "source": "ign 1091043 (Bus Stop)"
     },
     {
-      "id": "ign-1091045",
-      "name": "Bus Stop — Shorebeach Rd - C",
+      "id": "ign-1091044",
+      "name": "Bus Stop — Shorebeach Rd - B",
       "category": "transit",
       "region": "vice_beach",
       "area": "Washington Beach",
-      "wx": 1874,
-      "wy": 1894,
+      "wx": 1865,
+      "wy": 1879,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091045 (Bus Stop)"
+      "source": "ign 1091044 (Bus Stop)"
     },
     {
       "id": "ign-1091047",
@@ -15876,17 +15798,17 @@
       "source": "ign 1091054 (Bus Stop)"
     },
     {
-      "id": "ign-1091058",
-      "name": "Bus Stop — Sunbelt Hwy - A",
+      "id": "ign-1091055",
+      "name": "Bus Stop — US-82 - B",
       "category": "transit",
-      "region": "leonida_keys",
-      "area": "Key Lento",
-      "wx": -3008,
-      "wy": -6529,
+      "region": "grassrivers",
+      "area": "Watson Bay",
+      "wx": -4435,
+      "wy": -1969,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091058 (Bus Stop)"
+      "source": "ign 1091055 (Bus Stop)"
     },
     {
       "id": "ign-1091070",
@@ -15965,19 +15887,6 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091082 (Ferry)"
-    },
-    {
-      "id": "ign-1091083",
-      "name": "Ferry — Dalton Island",
-      "category": "transit",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1806,
-      "wy": -921,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091083 (Ferry)"
     },
     {
       "id": "ign-1091084",
@@ -16173,19 +16082,6 @@
       "confidence": "medium",
       "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091098 (Standout Vehicle)"
-    },
-    {
-      "id": "ign-1091099",
-      "name": "Standout Vehicle — Declasse Ghosts Exposed Parkland",
-      "category": "rare_vehicle",
-      "region": "capri",
-      "area": "Capri",
-      "wx": -6654,
-      "wy": 43,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091099 (Standout Vehicle)"
     },
     {
       "id": "ign-1091100",
@@ -16537,19 +16433,6 @@
       "confidence": "medium",
       "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091126 (Standout Vehicle)"
-    },
-    {
-      "id": "ign-1091127",
-      "name": "Standout Vehicle — Vapid Shrimp and Save Shifter",
-      "category": "rare_vehicle",
-      "region": "leonida_keys",
-      "area": "Key Lento",
-      "wx": -2810,
-      "wy": -6324,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091127 (Standout Vehicle)"
     },
     {
       "id": "ign-1091128",
@@ -17293,6 +17176,19 @@
       "source": "ign 1091193 (Standout Vehicle)"
     },
     {
+      "id": "ign-1091194",
+      "name": "Standout Vehicle — LCC Monarch Avarus",
+      "category": "rare_vehicle",
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -2034,
+      "wy": 3931,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091194 (Standout Vehicle)"
+    },
+    {
       "id": "ign-1091196",
       "name": "Standout Vehicle — Vapid Truth & Justice Caracara",
       "category": "rare_vehicle",
@@ -17304,6 +17200,19 @@
       "confidence": "medium",
       "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091196 (Standout Vehicle)"
+    },
+    {
+      "id": "ign-1091197",
+      "name": "Standout Vehicle — Vapid Firebug Dominator",
+      "category": "rare_vehicle",
+      "region": "port_gellhorn",
+      "area": "Port Gellhorn",
+      "wx": -6839,
+      "wy": 3973,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091197 (Standout Vehicle)"
     },
     {
       "id": "ign-1091198",
@@ -17319,8 +17228,21 @@
       "source": "ign 1091198 (Standout Vehicle)"
     },
     {
+      "id": "ign-1091199",
+      "name": "Standout Vehicle — Albany Verdant Buccaneer",
+      "category": "rare_vehicle",
+      "region": "mount_kalaga",
+      "area": "Millport",
+      "wx": -1389,
+      "wy": 7121,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Vehículo raro o encargo marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091199 (Standout Vehicle)"
+    },
+    {
       "id": "ign-1091205",
-      "name": "Casual & Street — This / That - Ocean Beach — Ocean Beach 2",
+      "name": "Casual & Street — This / That - Ocean Beach — Ocean Beach 1",
       "category": "clothing",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -17330,19 +17252,6 @@
       "confidence": "medium",
       "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091205 (Casual & Street)"
-    },
-    {
-      "id": "ign-1091216",
-      "name": "Casual & Street — Slinger - Peacock Bay",
-      "category": "clothing",
-      "region": "vice_city",
-      "area": "Peacock Bay",
-      "wx": -1302,
-      "wy": -1642,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091216 (Casual & Street)"
     },
     {
       "id": "ign-1091222",
@@ -17358,30 +17267,43 @@
       "source": "ign 1091222 (Sportswear)"
     },
     {
-      "id": "ign-1091244",
-      "name": "Souvenir & Swimwear — Telegraphe",
+      "id": "ign-1091228",
+      "name": "Formal — Ferruccio Tucci - Ocean Beach — Ocean Beach 1",
       "category": "clothing",
-      "region": "vice_city",
-      "area": "Downtown",
-      "wx": -325,
-      "wy": 155,
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1575,
+      "wy": 1309,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091244 (Souvenir & Swimwear)"
+      "source": "ign 1091228 (Formal)"
     },
     {
-      "id": "ign-1091247",
-      "name": "Souvenir & Swimwear — Vice Style",
+      "id": "ign-1091235",
+      "name": "Formal — Nola - Peacock Bay",
       "category": "clothing",
       "region": "vice_city",
-      "area": "Downtown",
-      "wx": -313,
-      "wy": 0,
+      "area": "Peacock Bay",
+      "wx": -1314,
+      "wy": -1635,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091247 (Souvenir & Swimwear)"
+      "source": "ign 1091235 (Formal)"
+    },
+    {
+      "id": "ign-1091241",
+      "name": "Souvenir & Swimwear — Coastal Souvenirs",
+      "category": "clothing",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1797,
+      "wy": 509,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091241 (Souvenir & Swimwear)"
     },
     {
       "id": "ign-1091258",
@@ -17423,17 +17345,30 @@
       "source": "ign 1091279 (Footwear)"
     },
     {
-      "id": "ign-1091290",
-      "name": "Hair & Beauty — Salon Pérez",
+      "id": "ign-1091302",
+      "name": "Tattoos — Black Spot Tattoo",
       "category": "clothing",
-      "region": "vice_city",
-      "area": "Little Cuba",
-      "wx": -1065,
-      "wy": 153,
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1784,
+      "wy": 970,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091290 (Hair & Beauty)"
+      "source": "ign 1091302 (Tattoos)"
+    },
+    {
+      "id": "ign-1091322",
+      "name": "Electronics — Electronick",
+      "category": "clothing",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": -778,
+      "wy": -278,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Tienda de ropa o estilo marcada en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091322 (Electronics)"
     },
     {
       "id": "ign-1091323",
@@ -17605,19 +17540,6 @@
       "source": "ign 1091344 (Cafes & Takeout)"
     },
     {
-      "id": "ign-1091347",
-      "name": "Cafes & Takeout — Cuban Food Counter",
-      "category": "food",
-      "region": "vice_city",
-      "area": "Balsero",
-      "wx": -2795,
-      "wy": 736,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091347 (Cafes & Takeout)"
-    },
-    {
       "id": "ign-1091348",
       "name": "Cafes & Takeout — Pith Heads",
       "category": "food",
@@ -17709,8 +17631,21 @@
       "source": "ign 1091358 (Cafes & Takeout)"
     },
     {
+      "id": "ign-1091359",
+      "name": "Cafes & Takeout — Safia Restaurant",
+      "category": "food",
+      "region": "vice_city",
+      "area": "Little Cuba",
+      "wx": -1065,
+      "wy": 145,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091359 (Cafes & Takeout)"
+    },
+    {
       "id": "ign-1091361",
-      "name": "Cafes & Takeout — Torreri Bread - Downtown — Vice City 1",
+      "name": "Cafes & Takeout — Torreri Bread - Downtown — Vice City 2",
       "category": "food",
       "region": "vice_city",
       "area": "Vice City",
@@ -17733,6 +17668,19 @@
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091362 (Cafes & Takeout)"
+    },
+    {
+      "id": "ign-1091364",
+      "name": "Cafes & Takeout — Brewtiful Coffee Co. - Downtown",
+      "category": "food",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": -309,
+      "wy": 157,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091364 (Cafes & Takeout)"
     },
     {
       "id": "ign-1091365",
@@ -17762,7 +17710,7 @@
     },
     {
       "id": "ign-1091367",
-      "name": "Cafes & Takeout — Mamma Cita's Cafe - Downtown — Downtown 2",
+      "name": "Cafes & Takeout — Mamma Cita's Cafe - Downtown — Downtown 1",
       "category": "food",
       "region": "vice_city",
       "area": "Downtown",
@@ -17852,21 +17800,8 @@
       "source": "ign 1091374 (Cafes & Takeout)"
     },
     {
-      "id": "ign-1091375",
-      "name": "Cafes & Takeout — Mezzasega Espresso - Ocean Beach",
-      "category": "food",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1585,
-      "wy": 1313,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091375 (Cafes & Takeout)"
-    },
-    {
       "id": "ign-1091376",
-      "name": "Cafes & Takeout — Mamma Cita's Cafe - Downtown — Downtown 1",
+      "name": "Cafes & Takeout — Mamma Cita's Cafe - Downtown — Downtown 2",
       "category": "food",
       "region": "vice_city",
       "area": "Downtown",
@@ -17889,19 +17824,6 @@
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091377 (Cafes & Takeout)"
-    },
-    {
-      "id": "ign-1091378",
-      "name": "Cafes & Takeout — Chido! - Ocean Beach",
-      "category": "food",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1637,
-      "wy": 1341,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091378 (Cafes & Takeout)"
     },
     {
       "id": "ign-1091379",
@@ -17970,7 +17892,7 @@
     },
     {
       "id": "ign-1091384",
-      "name": "Cafes & Takeout — Milk King - Ocean Beach — Ocean Beach 3",
+      "name": "Cafes & Takeout — Milk King - Ocean Beach — Ocean Beach 1",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -18230,7 +18152,7 @@
     },
     {
       "id": "ign-1091409",
-      "name": "Cafes & Takeout — Milk King - Ocean Beach — Ocean Beach 1",
+      "name": "Cafes & Takeout — Milk King - Ocean Beach — Ocean Beach 2",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -18240,6 +18162,19 @@
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091409 (Cafes & Takeout)"
+    },
+    {
+      "id": "ign-1091410",
+      "name": "Cafes & Takeout — Mariana's Caféteria",
+      "category": "food",
+      "region": "hamlet",
+      "area": "Hamlet",
+      "wx": -2597,
+      "wy": -3179,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091410 (Cafes & Takeout)"
     },
     {
       "id": "ign-1091411",
@@ -18281,17 +18216,17 @@
       "source": "ign 1091413 (Cafes & Takeout)"
     },
     {
-      "id": "ign-1091415",
-      "name": "Ambrosia Raceway Park Bar",
-      "category": "bar",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -2971,
-      "wy": 4636,
+      "id": "ign-1091414",
+      "name": "Cafes & Takeout — Shrimp & Save",
+      "category": "food",
+      "region": "leonida_keys",
+      "area": "Key Lento",
+      "wx": -2817,
+      "wy": -6322,
       "precision": "exact",
       "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091415 (Bar)"
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091414 (Cafes & Takeout)"
     },
     {
       "id": "ign-1091416",
@@ -18307,19 +18242,6 @@
       "source": "ign 1091416 (Bar)"
     },
     {
-      "id": "ign-1091417",
-      "name": "Thrillbilly Mud Club Drinks Tent",
-      "category": "bar",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -3773,
-      "wy": 4917,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091417 (Bar)"
-    },
-    {
       "id": "ign-1091421",
       "name": "The Steel Drop",
       "category": "bar",
@@ -18331,19 +18253,6 @@
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091421 (Bar)"
-    },
-    {
-      "id": "ign-1091424",
-      "name": "Zotico's",
-      "category": "bar",
-      "region": "vice_city",
-      "area": "Balsero",
-      "wx": -2847,
-      "wy": 841,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091424 (Bar)"
     },
     {
       "id": "ign-1091428",
@@ -18502,30 +18411,30 @@
       "source": "ign 1091453 (Bar)"
     },
     {
-      "id": "ign-1091456",
-      "name": "High Tide Hotel Poolside Bar",
+      "id": "ign-1091454",
+      "name": "High Tide Hotel Rooftop Bar",
       "category": "bar",
       "region": "vice_beach",
       "area": "Washington Beach",
-      "wx": 1991,
-      "wy": 1884,
+      "wx": 1948,
+      "wy": 1876,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091456 (Bar)"
+      "source": "ign 1091454 (Bar)"
     },
     {
-      "id": "ign-1091459",
-      "name": "Albany Hotel Outdoor Bar",
+      "id": "ign-1091458",
+      "name": "Albany Hotel Poolside Bar",
       "category": "bar",
       "region": "vice_beach",
       "area": "Washington Beach",
-      "wx": 2003,
-      "wy": 1784,
+      "wx": 1952,
+      "wy": 1780,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091459 (Bar)"
+      "source": "ign 1091458 (Bar)"
     },
     {
       "id": "ign-1091460",
@@ -18788,19 +18697,6 @@
       "source": "ign 1091496 (Bar)"
     },
     {
-      "id": "ign-1091498",
-      "name": "Bodega De Mora",
-      "category": "bar",
-      "region": "vice_city",
-      "area": "Peacock Bay",
-      "wx": -1188,
-      "wy": -1733,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091498 (Bar)"
-    },
-    {
       "id": "ign-1091500",
       "name": "The Fitz-Gerald Rooftop Bar",
       "category": "bar",
@@ -18814,17 +18710,17 @@
       "source": "ign 1091500 (Bar)"
     },
     {
-      "id": "ign-1091502",
-      "name": "Romeo Cole Cocktail Hut",
+      "id": "ign-1091501",
+      "name": "Romeo Cole Beachside Bar",
       "category": "bar",
       "region": "vice_beach",
       "area": "Ocean Beach",
-      "wx": 2008,
-      "wy": -72,
+      "wx": 2005,
+      "wy": -57,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091502 (Bar)"
+      "source": "ign 1091501 (Bar)"
     },
     {
       "id": "ign-1091506",
@@ -18840,19 +18736,6 @@
       "source": "ign 1091506 (Bar)"
     },
     {
-      "id": "ign-1091508",
-      "name": "Acai Dreams Indoor Bar",
-      "category": "bar",
-      "region": "vice_beach",
-      "area": "Ocean Beach",
-      "wx": 1954,
-      "wy": -317,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091508 (Bar)"
-    },
-    {
       "id": "ign-1091509",
       "name": "Fin & Farm Bar",
       "category": "bar",
@@ -18864,6 +18747,19 @@
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091509 (Bar)"
+    },
+    {
+      "id": "ign-1091511",
+      "name": "Acai Dreams Rooftop Bar — Ocean Beach 1",
+      "category": "bar",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1966,
+      "wy": -329,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091511 (Bar)"
     },
     {
       "id": "ign-1091515",
@@ -18905,6 +18801,19 @@
       "source": "ign 1091518 (Bar)"
     },
     {
+      "id": "ign-1091519",
+      "name": "Beach Club Cafe",
+      "category": "bar",
+      "region": "vice_beach",
+      "area": "Ocean Beach",
+      "wx": 1646,
+      "wy": -1650,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091519 (Bar)"
+    },
+    {
       "id": "ign-1091522",
       "name": "Nate's Bar",
       "category": "bar",
@@ -18916,19 +18825,6 @@
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091522 (Bar)"
-    },
-    {
-      "id": "ign-1091523",
-      "name": "Skeeter's",
-      "category": "bar",
-      "region": "hamlet",
-      "area": "Hamlet",
-      "wx": -2605,
-      "wy": -3887,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091523 (Bar)"
     },
     {
       "id": "ign-1091526",
@@ -18968,6 +18864,32 @@
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091532 (Bar)"
+    },
+    {
+      "id": "ign-1091534",
+      "name": "Street Food — Skully's Pizza",
+      "category": "food",
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -3776,
+      "wy": 4904,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091534 (Street Food)"
+    },
+    {
+      "id": "ign-1091535",
+      "name": "Street Food — Buck's Burgers",
+      "category": "food",
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -3778,
+      "wy": 4924,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091535 (Street Food)"
     },
     {
       "id": "ign-1091536",
@@ -19087,6 +19009,19 @@
       "source": "ign 1091546 (Street Food)"
     },
     {
+      "id": "ign-1091547",
+      "name": "Street Food — Produce Stall — Stockyard 1",
+      "category": "food",
+      "region": "leonard",
+      "area": "Stockyard",
+      "wx": -354,
+      "wy": 2178,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091547 (Street Food)"
+    },
+    {
       "id": "ign-1091548",
       "name": "Street Food — The Toss Spot - Decor District",
       "category": "food",
@@ -19139,17 +19074,17 @@
       "source": "ign 1091553 (Street Food)"
     },
     {
-      "id": "ign-1091554",
-      "name": "Street Food — Sugar Hook'd",
+      "id": "ign-1091555",
+      "name": "Street Food — Crust Fund - Stockyard",
       "category": "food",
       "region": "leonard",
       "area": "Stockyard",
-      "wx": -251,
-      "wy": 1840,
+      "wx": -259,
+      "wy": 1827,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091554 (Street Food)"
+      "source": "ign 1091555 (Street Food)"
     },
     {
       "id": "ign-1091556",
@@ -19165,17 +19100,17 @@
       "source": "ign 1091556 (Street Food)"
     },
     {
-      "id": "ign-1091557",
-      "name": "Street Food — Boiled Peanuts Stand — Balsero 1",
+      "id": "ign-1091558",
+      "name": "Street Food — Antonio Produce",
       "category": "food",
       "region": "vice_city",
       "area": "Balsero",
-      "wx": -2753,
-      "wy": 787,
+      "wx": -2765,
+      "wy": 772,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091557 (Street Food)"
+      "source": "ign 1091558 (Street Food)"
     },
     {
       "id": "ign-1091560",
@@ -19335,7 +19270,7 @@
     },
     {
       "id": "ign-1091575",
-      "name": "Street Food — Chihuahua Hotdogs - Downtown — Downtown 2",
+      "name": "Street Food — Chihuahua Hotdogs - Downtown — Downtown 1",
       "category": "food",
       "region": "vice_city",
       "area": "Downtown",
@@ -19425,6 +19360,19 @@
       "source": "ign 1091584 (Street Food)"
     },
     {
+      "id": "ign-1091585",
+      "name": "Street Food — Brodies Snack Bar - Downtown",
+      "category": "food",
+      "region": "vice_city",
+      "area": "Downtown",
+      "wx": -316,
+      "wy": 16,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091585 (Street Food)"
+    },
+    {
       "id": "ign-1091586",
       "name": "Street Food — Aficiona Dough",
       "category": "food",
@@ -19478,7 +19426,7 @@
     },
     {
       "id": "ign-1091590",
-      "name": "Street Food — Chihuahua Hotdogs - Downtown — Downtown 1",
+      "name": "Street Food — Chihuahua Hotdogs - Downtown — Downtown 2",
       "category": "food",
       "region": "vice_city",
       "area": "Downtown",
@@ -19517,7 +19465,7 @@
     },
     {
       "id": "ign-1091593",
-      "name": "Street Food — La Sombrilla - Washington Beach — Washington Beach 1",
+      "name": "Street Food — La Sombrilla - Washington Beach — Washington Beach 2",
       "category": "food",
       "region": "vice_beach",
       "area": "Washington Beach",
@@ -19569,7 +19517,7 @@
     },
     {
       "id": "ign-1091597",
-      "name": "Street Food — Ice City Creamery — Ocean Beach 1",
+      "name": "Street Food — Ice City Creamery — Ocean Beach 3",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19595,7 +19543,7 @@
     },
     {
       "id": "ign-1091599",
-      "name": "Street Food — Juice Hut - Ocean Beach — Ocean Beach 2",
+      "name": "Street Food — Juice Hut - Ocean Beach — Ocean Beach 1",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19621,7 +19569,7 @@
     },
     {
       "id": "ign-1091601",
-      "name": "Street Food — Basic Beach - Ocean Beach — Ocean Beach 1",
+      "name": "Street Food — Basic Beach - Ocean Beach — Ocean Beach 2",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19660,7 +19608,7 @@
     },
     {
       "id": "ign-1091604",
-      "name": "Street Food — Ice City Creamery — Ocean Beach 2",
+      "name": "Street Food — Ice City Creamery — Ocean Beach 1",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19673,7 +19621,7 @@
     },
     {
       "id": "ign-1091605",
-      "name": "Street Food — Basic Beach - Ocean Beach — Ocean Beach 2",
+      "name": "Street Food — Basic Beach - Ocean Beach — Ocean Beach 1",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19712,7 +19660,7 @@
     },
     {
       "id": "ign-1091610",
-      "name": "Street Food — Juice Hut - Ocean Beach — Ocean Beach 1",
+      "name": "Street Food — Juice Hut - Ocean Beach — Ocean Beach 2",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19764,7 +19712,7 @@
     },
     {
       "id": "ign-1091614",
-      "name": "Street Food — Ice City Creamery — Ocean Beach 3",
+      "name": "Street Food — Ice City Creamery — Ocean Beach 2",
       "category": "food",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -19828,17 +19776,30 @@
       "source": "ign 1091618 (Street Food)"
     },
     {
-      "id": "ign-1091620",
-      "name": "Street Food — Produce Stall — Hamlet 1",
+      "id": "ign-1091621",
+      "name": "Street Food — Boiled Peanuts Stand — Hamlet 1",
       "category": "food",
       "region": "hamlet",
       "area": "Hamlet",
-      "wx": -2952,
+      "wx": -2967,
       "wy": -3252,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091620 (Street Food)"
+      "source": "ign 1091621 (Street Food)"
+    },
+    {
+      "id": "ign-1091622",
+      "name": "Street Food — LaDonna's Soul Food",
+      "category": "food",
+      "region": "hamlet",
+      "area": "Hamlet",
+      "wx": -2944,
+      "wy": -3258,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091622 (Street Food)"
     },
     {
       "id": "ign-1091623",
@@ -19854,6 +19815,19 @@
       "source": "ign 1091623 (Street Food)"
     },
     {
+      "id": "ign-1091624",
+      "name": "Street Food — Déjà Brew Coffee — Grassrivers 1",
+      "category": "food",
+      "region": "leonida_keys",
+      "area": "Grassrivers",
+      "wx": -2658,
+      "wy": -4662,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091624 (Street Food)"
+    },
+    {
       "id": "ign-1091625",
       "name": "Street Food — Kiosk",
       "category": "food",
@@ -19865,19 +19839,6 @@
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091625 (Street Food)"
-    },
-    {
-      "id": "ign-1091626",
-      "name": "Street Food — Under the Bun",
-      "category": "food",
-      "region": "leonida_keys",
-      "area": "Grassrivers",
-      "wx": -2643,
-      "wy": -4670,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091626 (Street Food)"
     },
     {
       "id": "ign-1091628",
@@ -20179,17 +20140,17 @@
       "source": "ign 1091652 (Curiosity)"
     },
     {
-      "id": "ign-1091654",
-      "name": "Landmark — Dock Ring",
+      "id": "ign-1091653",
+      "name": "Curiosity — Dino Golf",
       "category": "collectible",
-      "region": "vice_city",
-      "area": "Downtown",
-      "wx": 13,
-      "wy": 130,
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -4515,
+      "wy": 3830,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Coleccionable marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091654 (Landmark)"
+      "source": "ign 1091653 (Curiosity)"
     },
     {
       "id": "ign-1091655",
@@ -21154,17 +21115,17 @@
       "source": "ign 1091732 (Racing Challenge)"
     },
     {
-      "id": "ign-1091733",
-      "name": "Ambrosia Raceway - Oval",
+      "id": "ign-1091734",
+      "name": "Ambrosia Raceway - Figure 8",
       "category": "race",
       "region": "ambrosia",
       "area": "Ambrosia",
-      "wx": -2903,
-      "wy": 4828,
+      "wx": -2898,
+      "wy": 4825,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091733 (Ambrosia Raceway)"
+      "source": "ign 1091734 (Ambrosia Raceway)"
     },
     {
       "id": "ign-1091737",
@@ -21180,30 +21141,30 @@
       "source": "ign 1091737 (Gellhorn Raceway)"
     },
     {
-      "id": "ign-1091740",
-      "name": "Gellhorn Raceway - Long Loop CCW",
+      "id": "ign-1091739",
+      "name": "Gellhorn Raceway - Short Loop CCW",
       "category": "race",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
-      "wx": -6817,
-      "wy": 2243,
+      "wx": -6820,
+      "wy": 2238,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091740 (Gellhorn Raceway)"
+      "source": "ign 1091739 (Gellhorn Raceway)"
     },
     {
-      "id": "ign-1091744",
-      "name": "Gellhorn Raceway - Full Loop",
+      "id": "ign-1091742",
+      "name": "Gellhorn Raceway - Basic Loop CCW",
       "category": "race",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
-      "wx": -6841,
-      "wy": 2215,
+      "wx": -6848,
+      "wy": 2207,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091744 (Gellhorn Raceway)"
+      "source": "ign 1091742 (Gellhorn Raceway)"
     },
     {
       "id": "ign-1091746",
@@ -21232,17 +21193,30 @@
       "source": "ign 1091747 (Animal Crackers)"
     },
     {
-      "id": "ign-1091752",
-      "name": "Animal Crackers - Log Jam",
+      "id": "ign-1091750",
+      "name": "Animal Crackers - Farm Tour",
+      "category": "race",
+      "region": "mount_kalaga",
+      "area": "Lummox County",
+      "wx": -5762,
+      "wy": 6603,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091750 (Animal Crackers)"
+    },
+    {
+      "id": "ign-1091751",
+      "name": "Animal Crackers - Golf Tour",
       "category": "race",
       "region": "mount_kalaga",
       "area": "Millport",
-      "wx": -1450,
+      "wx": -1455,
       "wy": 6528,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091752 (Animal Crackers)"
+      "source": "ign 1091751 (Animal Crackers)"
     },
     {
       "id": "ign-1091753",
@@ -21258,56 +21232,43 @@
       "source": "ign 1091753 (Animal Crackers)"
     },
     {
-      "id": "ign-1091755",
-      "name": "Thrillbilly Mud Club - Trash Dash",
+      "id": "ign-1091759",
+      "name": "Thrillbilly Mud Club - Hog Hustle",
       "category": "race",
       "region": "ambrosia",
       "area": "Ambrosia",
-      "wx": -4060,
-      "wy": 4690,
+      "wx": -4043,
+      "wy": 4699,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091755 (Thrillbilly Mud Club)"
+      "source": "ign 1091759 (Thrillbilly Mud Club)"
     },
     {
-      "id": "ign-1091760",
-      "name": "Thrillbilly Mud Club - Big Mud",
+      "id": "ign-1091762",
+      "name": "Thrillbilly Mud Club - Figure 8 Blitz",
       "category": "race",
       "region": "ambrosia",
       "area": "Ambrosia",
-      "wx": -4040,
-      "wy": 4703,
+      "wx": -3927,
+      "wy": 4995,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091760 (Thrillbilly Mud Club)"
+      "source": "ign 1091762 (Thrillbilly Mud Club)"
     },
     {
-      "id": "ign-1091761",
-      "name": "Thrillbilly Mud Club - Skid Loop",
-      "category": "race",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -3931,
-      "wy": 4997,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091761 (Thrillbilly Mud Club)"
-    },
-    {
-      "id": "ign-1091763",
-      "name": "Hit 'N' Run VC - Little Cuba Run",
+      "id": "ign-1091764",
+      "name": "Hit 'N' Run VC - Mural Tour",
       "category": "race",
       "region": "leonard",
       "area": "Stockyard",
-      "wx": -646,
-      "wy": 1946,
+      "wx": -641,
+      "wy": 1943,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091763 (Hit 'n' Run VC)"
+      "source": "ign 1091764 (Hit 'n' Run VC)"
     },
     {
       "id": "ign-1091765",
@@ -21323,56 +21284,56 @@
       "source": "ign 1091765 (Hit 'n' Run VC)"
     },
     {
-      "id": "ign-1091769",
-      "name": "Hit 'N' Run VC - Airport Run",
+      "id": "ign-1091768",
+      "name": "Hit 'N' Run VC - Freeway Run",
       "category": "race",
       "region": "vice_city",
       "area": "Salton",
-      "wx": -1327,
-      "wy": -420,
+      "wx": -1331,
+      "wy": -423,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091769 (Hit 'n' Run VC)"
+      "source": "ign 1091768 (Hit 'n' Run VC)"
     },
     {
-      "id": "ign-1091770",
-      "name": "Hit 'N' Run VC - Port Cruise",
+      "id": "ign-1091771",
+      "name": "Hit 'N' Run VC - The Tunnel",
       "category": "race",
       "region": "vice_city",
       "area": "Tequesta",
-      "wx": 665,
-      "wy": -1840,
+      "wx": 664,
+      "wy": -1836,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091770 (Hit 'n' Run VC)"
+      "source": "ign 1091771 (Hit 'n' Run VC)"
     },
     {
-      "id": "ign-1091773",
-      "name": "Top Fun Drones - Allied Crystal",
+      "id": "ign-1091772",
+      "name": "Top Fun Drones - Captain O'Malley Marina",
       "category": "race",
       "region": "ambrosia",
       "area": "Ambrosia",
-      "wx": -2680,
-      "wy": 3251,
+      "wx": -2685,
+      "wy": 3249,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091773 (Top Fun Drones)"
+      "source": "ign 1091772 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091775",
-      "name": "Top Fun Drones - Navitrak",
+      "id": "ign-1091776",
+      "name": "Top Fun Drones - Apollo Aggregates",
       "category": "race",
       "region": "vice_city",
       "area": "Balsero",
-      "wx": -2868,
-      "wy": 783,
+      "wx": -2864,
+      "wy": 784,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091775 (Top Fun Drones)"
+      "source": "ign 1091776 (Top Fun Drones)"
     },
     {
       "id": "ign-1091779",
@@ -21401,56 +21362,56 @@
       "source": "ign 1091783 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091784",
-      "name": "Top Fun Drones - Avarice Petroleum",
+      "id": "ign-1091786",
+      "name": "Top Fun Drones - Ivory Tower",
       "category": "race",
       "region": "vice_beach",
       "area": "Ocean Beach",
-      "wx": 1759,
-      "wy": -890,
+      "wx": 1768,
+      "wy": -887,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091784 (Top Fun Drones)"
+      "source": "ign 1091786 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091789",
-      "name": "Top Fun Drones - Wildland Zoo",
+      "id": "ign-1091787",
+      "name": "Top Fun Drones - Future Leonida Art Museum",
       "category": "race",
       "region": "vice_city",
       "area": "Downtown",
-      "wx": 38,
-      "wy": 145,
+      "wx": 29,
+      "wy": 136,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091789 (Top Fun Drones)"
+      "source": "ign 1091787 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091792",
-      "name": "Top Fun Drones - Draper Refinery West",
+      "id": "ign-1091791",
+      "name": "Top Fun Drones - Draper Refinery East",
       "category": "race",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
-      "wx": -7401,
-      "wy": 5077,
+      "wx": -7408,
+      "wy": 5074,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091792 (Top Fun Drones)"
+      "source": "ign 1091791 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091793",
-      "name": "Top Fun Drones - Deep Roots",
+      "id": "ign-1091795",
+      "name": "Top Fun Drones - Power Station North",
       "category": "race",
       "region": "hamlet",
       "area": "Hamlet",
-      "wx": -2244,
+      "wx": -2234,
       "wy": -3333,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091793 (Top Fun Drones)"
+      "source": "ign 1091795 (Top Fun Drones)"
     },
     {
       "id": "ign-1091796",
@@ -21466,56 +21427,56 @@
       "source": "ign 1091796 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091800",
-      "name": "Top Fun Drones - Adler Creek",
+      "id": "ign-1091801",
+      "name": "Top Fun Drones - MacAlister Gold Mine",
       "category": "race",
       "region": "mount_kalaga",
       "area": "Lummox County",
-      "wx": -3526,
-      "wy": 7561,
+      "wx": -3520,
+      "wy": 7559,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091800 (Top Fun Drones)"
+      "source": "ign 1091801 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091802",
-      "name": "Top Fun Drones - Manifest Canyon",
+      "id": "ign-1091803",
+      "name": "Top Fun Drones - Red Apple Orchard",
       "category": "race",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
-      "wx": -5613,
-      "wy": 5045,
+      "wx": -5610,
+      "wy": 5046,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091802 (Top Fun Drones)"
+      "source": "ign 1091803 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091807",
-      "name": "Top Fun Drones - St. Vitus Medical Center",
+      "id": "ign-1091805",
+      "name": "Top Fun Drones - Leaf Links",
       "category": "race",
       "region": "vice_beach",
       "area": "Washington Beach",
-      "wx": 1346,
-      "wy": 2248,
+      "wx": 1342,
+      "wy": 2247,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091807 (Top Fun Drones)"
+      "source": "ign 1091805 (Top Fun Drones)"
     },
     {
-      "id": "ign-1091810",
-      "name": "Top Fun Drones - Evergreen Mall",
+      "id": "ign-1091809",
+      "name": "Top Fun Drones - Thundergolf",
       "category": "race",
       "region": "leonard",
       "area": "Waning Sands",
-      "wx": -292,
-      "wy": 3656,
+      "wx": -297,
+      "wy": 3654,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Carrera o desafío marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091810 (Top Fun Drones)"
+      "source": "ign 1091809 (Top Fun Drones)"
     },
     {
       "id": "ign-1091813",
@@ -21594,6 +21555,19 @@
       "confidence": "medium",
       "tip": "Coleccionable marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091819 (Book Swap)"
+    },
+    {
+      "id": "ign-1091820",
+      "name": "Book Swap 7",
+      "category": "collectible",
+      "region": "capri",
+      "area": "Capri",
+      "wx": -6656,
+      "wy": 56,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Coleccionable marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091820 (Book Swap)"
     },
     {
       "id": "ign-1091822",
@@ -22896,6 +22870,32 @@
       "source": "ign 1091954 (Kingfishers)"
     },
     {
+      "id": "ign-1091957",
+      "name": "La Cascara Motel",
+      "category": "illegal_op",
+      "region": "port_gellhorn",
+      "area": "Port Gellhorn",
+      "wx": -6858,
+      "wy": 3960,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Sitio de banda marcado en IGN. Trata el botín como droga o mercancía. Banda: Kolt & Associates. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091957 (Kolt & Associates)"
+    },
+    {
+      "id": "ign-1091961",
+      "name": "Weed Grow",
+      "category": "illegal_op",
+      "region": "mount_kalaga",
+      "area": "Millport",
+      "wx": -1369,
+      "wy": 7114,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Sitio de banda marcado en IGN. Trata el botín como droga o mercancía. Banda: M7. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1091961 (M7)"
+    },
+    {
       "id": "ign-1096599",
       "name": "ATM (Towable) — Belville 2",
       "category": "atm",
@@ -22910,7 +22910,7 @@
     },
     {
       "id": "ign-1096600",
-      "name": "ATM (Towable) — Lummox County 1",
+      "name": "ATM (Towable) — Lummox County 2",
       "category": "atm",
       "region": "mount_kalaga",
       "area": "Lummox County",
@@ -22923,7 +22923,7 @@
     },
     {
       "id": "ign-1096601",
-      "name": "ATM (Towable) — Lummox County 2",
+      "name": "ATM (Towable) — Lummox County 1",
       "category": "atm",
       "region": "mount_kalaga",
       "area": "Lummox County",
@@ -22936,7 +22936,7 @@
     },
     {
       "id": "ign-1096602",
-      "name": "ATM (Towable) — Belville 3",
+      "name": "ATM (Towable) — Belville 1",
       "category": "atm",
       "region": "leonard",
       "area": "Belville",
@@ -22949,7 +22949,7 @@
     },
     {
       "id": "ign-1096603",
-      "name": "ATM (Towable) — Waning Sands 2",
+      "name": "ATM (Towable) — Waning Sands 5",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -22962,7 +22962,7 @@
     },
     {
       "id": "ign-1096605",
-      "name": "ATM (Towable) — Waning Sands 5",
+      "name": "ATM (Towable) — Waning Sands 2",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -22975,7 +22975,7 @@
     },
     {
       "id": "ign-1096606",
-      "name": "ATM (Towable) — Waning Sands 7",
+      "name": "ATM (Towable) — Waning Sands 1",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -22988,7 +22988,7 @@
     },
     {
       "id": "ign-1096607",
-      "name": "ATM (Towable) — Waning Sands 4",
+      "name": "ATM (Towable) — Waning Sands 7",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23001,7 +23001,7 @@
     },
     {
       "id": "ign-1096608",
-      "name": "ATM (Towable) — Waning Sands 6",
+      "name": "ATM (Towable) — Waning Sands 4",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23014,7 +23014,7 @@
     },
     {
       "id": "ign-1096609",
-      "name": "ATM (Towable) — Waning Sands 1",
+      "name": "ATM (Towable) — Waning Sands 6",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23040,7 +23040,7 @@
     },
     {
       "id": "ign-1096612",
-      "name": "ATM (Towable) — Ambrosia 1",
+      "name": "ATM (Towable) — Ambrosia 3",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -23066,7 +23066,7 @@
     },
     {
       "id": "ign-1096615",
-      "name": "ATM (Towable) — Capri 4",
+      "name": "ATM (Towable) — Capri 2",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23092,7 +23092,7 @@
     },
     {
       "id": "ign-1096619",
-      "name": "ATM (Towable) — Capri 1",
+      "name": "ATM (Towable) — Capri 6",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23105,7 +23105,7 @@
     },
     {
       "id": "ign-1096620",
-      "name": "ATM (Towable) — Capri 2",
+      "name": "ATM (Towable) — Capri 4",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23118,7 +23118,7 @@
     },
     {
       "id": "ign-1096621",
-      "name": "ATM (Towable) — Belville 4",
+      "name": "ATM (Towable) — Belville 3",
       "category": "atm",
       "region": "leonard",
       "area": "Belville",
@@ -23131,7 +23131,7 @@
     },
     {
       "id": "ign-1096622",
-      "name": "ATM (Towable) — Watson Bay 4",
+      "name": "ATM (Towable) — Watson Bay 3",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -23144,7 +23144,7 @@
     },
     {
       "id": "ign-1096625",
-      "name": "ATM (Towable) — Watson Bay 5",
+      "name": "ATM (Towable) — Watson Bay 2",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -23157,7 +23157,7 @@
     },
     {
       "id": "ign-1096626",
-      "name": "ATM (Towable) — Watson Bay 3",
+      "name": "ATM (Towable) — Watson Bay 1",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -23170,7 +23170,7 @@
     },
     {
       "id": "ign-1096627",
-      "name": "ATM — Belville 4",
+      "name": "ATM — Belville 3",
       "category": "atm",
       "region": "leonard",
       "area": "Belville",
@@ -23196,7 +23196,7 @@
     },
     {
       "id": "ign-1096629",
-      "name": "ATM — Capri 5",
+      "name": "ATM — Capri 3",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23209,7 +23209,7 @@
     },
     {
       "id": "ign-1096631",
-      "name": "ATM — Waning Sands 4",
+      "name": "ATM — Waning Sands 8",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23222,7 +23222,7 @@
     },
     {
       "id": "ign-1096632",
-      "name": "ATM — Ocean Beach 17",
+      "name": "ATM — Ocean Beach 16",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -23248,7 +23248,7 @@
     },
     {
       "id": "ign-1096634",
-      "name": "ATM — Ocean Beach 3",
+      "name": "ATM — Ocean Beach 12",
       "category": "atm",
       "region": "vice_beach",
       "area": "Ocean Beach",
@@ -23261,7 +23261,7 @@
     },
     {
       "id": "ign-1096635",
-      "name": "ATM — Belville 3",
+      "name": "ATM — Belville 1",
       "category": "atm",
       "region": "leonard",
       "area": "Belville",
@@ -23274,7 +23274,7 @@
     },
     {
       "id": "ign-1096637",
-      "name": "ATM — Ambrosia 4",
+      "name": "ATM — Ambrosia 5",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -23287,7 +23287,7 @@
     },
     {
       "id": "ign-1096639",
-      "name": "ATM — Waning Sands 6",
+      "name": "ATM — Waning Sands 7",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23300,7 +23300,7 @@
     },
     {
       "id": "ign-1096640",
-      "name": "ATM — Millport 2",
+      "name": "ATM — Millport 3",
       "category": "atm",
       "region": "mount_kalaga",
       "area": "Millport",
@@ -23313,7 +23313,7 @@
     },
     {
       "id": "ign-1096641",
-      "name": "ATM — Port Gellhorn 2",
+      "name": "ATM — Port Gellhorn 11",
       "category": "atm",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -23326,7 +23326,7 @@
     },
     {
       "id": "ign-1096642",
-      "name": "ATM — Watson Bay 3",
+      "name": "ATM — Watson Bay 5",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -23339,7 +23339,7 @@
     },
     {
       "id": "ign-1096643",
-      "name": "ATM — Ambrosia 3",
+      "name": "ATM — Ambrosia 2",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -23352,7 +23352,7 @@
     },
     {
       "id": "ign-1096644",
-      "name": "ATM — VCIA 13",
+      "name": "ATM — VCIA 9",
       "category": "atm",
       "region": "capri",
       "area": "VCIA",
@@ -23390,21 +23390,8 @@
       "source": "ign 1096646 (ATM)"
     },
     {
-      "id": "ign-1096648",
-      "name": "ATM — Lummox County 2",
-      "category": "atm",
-      "region": "mount_kalaga",
-      "area": "Lummox County",
-      "wx": -5759,
-      "wy": 6616,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1096648 (ATM)"
-    },
-    {
       "id": "ign-1096649",
-      "name": "ATM — Lummox County 1",
+      "name": "ATM — Lummox County 2",
       "category": "atm",
       "region": "mount_kalaga",
       "area": "Lummox County",
@@ -23417,7 +23404,7 @@
     },
     {
       "id": "ign-1096650",
-      "name": "ATM — Capri 6",
+      "name": "ATM — Capri 1",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23443,7 +23430,7 @@
     },
     {
       "id": "ign-1096652",
-      "name": "ATM — Ambrosia 2",
+      "name": "ATM — Ambrosia 4",
       "category": "atm",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -23456,7 +23443,7 @@
     },
     {
       "id": "ign-1096653",
-      "name": "ATM — Capri 3",
+      "name": "ATM — Capri 6",
       "category": "atm",
       "region": "capri",
       "area": "Capri",
@@ -23469,7 +23456,7 @@
     },
     {
       "id": "ign-1096654",
-      "name": "ATM — Waning Sands 2",
+      "name": "ATM — Waning Sands 6",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23482,7 +23469,7 @@
     },
     {
       "id": "ign-1096655",
-      "name": "ATM — Waning Sands 1",
+      "name": "ATM — Waning Sands 3",
       "category": "atm",
       "region": "leonard",
       "area": "Waning Sands",
@@ -23495,7 +23482,7 @@
     },
     {
       "id": "ign-1096656",
-      "name": "ATM — Watson Bay 5",
+      "name": "ATM — Watson Bay 4",
       "category": "atm",
       "region": "grassrivers",
       "area": "Watson Bay",
@@ -23505,6 +23492,32 @@
       "confidence": "medium",
       "tip": "Cajero marcado en IGN. El remolcable se engancha y se abre lejos de la calle. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1096656 (ATM)"
+    },
+    {
+      "id": "ign-1096657",
+      "name": "Bus Stop — SR-45",
+      "category": "transit",
+      "region": "mount_kalaga",
+      "area": "Lummox County",
+      "wx": -5461,
+      "wy": 6821,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1096657 (Bus Stop)"
+    },
+    {
+      "id": "ign-1096660",
+      "name": "Bus Stop — Valentine Dr - B",
+      "category": "transit",
+      "region": "leonard",
+      "area": "Leonard County",
+      "wx": -456,
+      "wy": 3898,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1096660 (Bus Stop)"
     },
     {
       "id": "ign-1096663",
@@ -23520,19 +23533,6 @@
       "source": "ign 1096663 (Bus Stop)"
     },
     {
-      "id": "ign-1096664",
-      "name": "Bus Stop — Valentine Dr - A",
-      "category": "transit",
-      "region": "leonard",
-      "area": "Leonard County",
-      "wx": -456,
-      "wy": 3879,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1096664 (Bus Stop)"
-    },
-    {
       "id": "ign-1096667",
       "name": "Bus Stop — US-35",
       "category": "transit",
@@ -23544,19 +23544,6 @@
       "confidence": "medium",
       "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1096667 (Bus Stop)"
-    },
-    {
-      "id": "ign-1096671",
-      "name": "Train Station — Grayson",
-      "category": "transit",
-      "region": "mount_kalaga",
-      "area": "Lummox County",
-      "wx": -5484,
-      "wy": 6770,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Parada o estación marcada en IGN. Rompe la línea de visión y pierde la persecución. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1096671 (Train Station)"
     },
     {
       "id": "ign-1096672",
@@ -23674,19 +23661,6 @@
       "confidence": "medium",
       "tip": "Garaje marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1096680 (Purchasable Garage)"
-    },
-    {
-      "id": "ign-1096690",
-      "name": "Florence & Co.",
-      "category": "jewelry",
-      "region": "ambrosia",
-      "area": "Ambrosia",
-      "wx": -2795,
-      "wy": 4570,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Joyería o pawn marcado en IGN. Caja fuerte trasera; vende el loot a un contacto. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1096690 (Pawn Shop)"
     },
     {
       "id": "ign-1096696",
@@ -23910,17 +23884,30 @@
       "source": "ign 1096714 (Street Food)"
     },
     {
-      "id": "ign-1096717",
-      "name": "Street Food — Cody's Famous Fresh Road Grill - Ambrosia",
+      "id": "ign-1096715",
+      "name": "Street Food — Mamma B's Homemade Wine",
       "category": "food",
       "region": "ambrosia",
       "area": "Ambrosia",
-      "wx": -2325,
-      "wy": 3798,
+      "wx": -2326,
+      "wy": 3813,
       "precision": "exact",
       "confidence": "medium",
       "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1096717 (Street Food)"
+      "source": "ign 1096715 (Street Food)"
+    },
+    {
+      "id": "ign-1096716",
+      "name": "Street Food — The Salty Nut Shack — Ambrosia 1",
+      "category": "food",
+      "region": "ambrosia",
+      "area": "Ambrosia",
+      "wx": -2333,
+      "wy": 3789,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Café o puesto de comida marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
+      "source": "ign 1096716 (Street Food)"
     },
     {
       "id": "ign-1096718",
@@ -23937,7 +23924,7 @@
     },
     {
       "id": "ign-1096720",
-      "name": "Electric Charger — Electric Vehicle Charger — Lummox County 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Lummox County 3",
       "category": "charger",
       "region": "mount_kalaga",
       "area": "Lummox County",
@@ -23950,7 +23937,7 @@
     },
     {
       "id": "ign-1096721",
-      "name": "Electric Charger — Electric Vehicle Charger — Lummox County 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Lummox County 1",
       "category": "charger",
       "region": "mount_kalaga",
       "area": "Lummox County",
@@ -23963,7 +23950,7 @@
     },
     {
       "id": "ign-1096722",
-      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Port Gellhorn 3",
       "category": "charger",
       "region": "port_gellhorn",
       "area": "Port Gellhorn",
@@ -23976,7 +23963,7 @@
     },
     {
       "id": "ign-1096723",
-      "name": "Electric Charger — Electric Vehicle Charger — Belville 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Belville 4",
       "category": "charger",
       "region": "leonard",
       "area": "Belville",
@@ -23989,7 +23976,7 @@
     },
     {
       "id": "ign-1096725",
-      "name": "Electric Charger — Electric Vehicle Charger — Balsero 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Balsero 1",
       "category": "charger",
       "region": "capri",
       "area": "Balsero",
@@ -24002,7 +23989,7 @@
     },
     {
       "id": "ign-1096726",
-      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 3",
       "category": "charger",
       "region": "leonard",
       "area": "Waning Sands",
@@ -24015,7 +24002,7 @@
     },
     {
       "id": "ign-1096727",
-      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 1",
       "category": "charger",
       "region": "leonard",
       "area": "Waning Sands",
@@ -24028,7 +24015,7 @@
     },
     {
       "id": "ign-1096728",
-      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 5",
       "category": "charger",
       "region": "leonard",
       "area": "Waning Sands",
@@ -24041,7 +24028,7 @@
     },
     {
       "id": "ign-1096729",
-      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Waning Sands 4",
       "category": "charger",
       "region": "leonard",
       "area": "Waning Sands",
@@ -24054,7 +24041,7 @@
     },
     {
       "id": "ign-1096730",
-      "name": "Electric Charger — Electric Vehicle Charger — Millport 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Millport 3",
       "category": "charger",
       "region": "leonard",
       "area": "Millport",
@@ -24067,7 +24054,7 @@
     },
     {
       "id": "ign-1096731",
-      "name": "Electric Charger — Electric Vehicle Charger — Millport 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Millport 4",
       "category": "charger",
       "region": "mount_kalaga",
       "area": "Millport",
@@ -24080,7 +24067,7 @@
     },
     {
       "id": "ign-1096732",
-      "name": "Electric Charger — Electric Vehicle Charger — Millport 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Millport 1",
       "category": "charger",
       "region": "leonard",
       "area": "Millport",
@@ -24119,7 +24106,7 @@
     },
     {
       "id": "ign-1096735",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 4",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24132,7 +24119,7 @@
     },
     {
       "id": "ign-1096736",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 3",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24145,7 +24132,7 @@
     },
     {
       "id": "ign-1096737",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 5",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24158,7 +24145,7 @@
     },
     {
       "id": "ign-1096738",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 8",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 1",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24171,7 +24158,7 @@
     },
     {
       "id": "ign-1096739",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 7",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24184,7 +24171,7 @@
     },
     {
       "id": "ign-1096740",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 5",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 6",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24210,7 +24197,7 @@
     },
     {
       "id": "ign-1096742",
-      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 7",
+      "name": "Electric Charger — Electric Vehicle Charger — Ambrosia 2",
       "category": "charger",
       "region": "ambrosia",
       "area": "Ambrosia",
@@ -24223,7 +24210,7 @@
     },
     {
       "id": "ign-1096743",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 8",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 7",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24236,7 +24223,7 @@
     },
     {
       "id": "ign-1096744",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 9",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 3",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24249,7 +24236,7 @@
     },
     {
       "id": "ign-1096745",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 1",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 4",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24262,7 +24249,7 @@
     },
     {
       "id": "ign-1096746",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 12",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 1",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24288,7 +24275,7 @@
     },
     {
       "id": "ign-1096748",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 13",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 12",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24301,7 +24288,7 @@
     },
     {
       "id": "ign-1096749",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 6",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 11",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24314,7 +24301,7 @@
     },
     {
       "id": "ign-1096750",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 10",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24327,7 +24314,7 @@
     },
     {
       "id": "ign-1096751",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 10",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 13",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24340,7 +24327,7 @@
     },
     {
       "id": "ign-1096752",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 11",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 2",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24353,7 +24340,7 @@
     },
     {
       "id": "ign-1096753",
-      "name": "Electric Charger — Electric Vehicle Charger — Capri 3",
+      "name": "Electric Charger — Electric Vehicle Charger — Capri 8",
       "category": "charger",
       "region": "capri",
       "area": "Capri",
@@ -24366,7 +24353,7 @@
     },
     {
       "id": "ign-1096755",
-      "name": "Electric Charger — Electric Vehicle Charger — Belville 4",
+      "name": "Electric Charger — Electric Vehicle Charger — Belville 2",
       "category": "charger",
       "region": "leonard",
       "area": "Belville",
@@ -24379,7 +24366,7 @@
     },
     {
       "id": "ign-1096756",
-      "name": "Electric Charger — Electric Vehicle Charger — Watson Bay 2",
+      "name": "Electric Charger — Electric Vehicle Charger — Watson Bay 3",
       "category": "charger",
       "region": "grassrivers",
       "area": "Watson Bay",
