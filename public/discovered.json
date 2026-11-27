@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-11-26T23:23:52.755Z",
+  "updatedAt": "2026-11-27T05:32:43.484Z",
   "locations": [
     {
       "id": "gtadb-L1047",
@@ -599,6 +599,19 @@
       "confidence": "low",
       "tip": "Estación nueva en gtadb. Inferido del tipo de edificio en gtadb; sin verificación.",
       "source": "gtadb L1863 (descubierto automáticamente)"
+    },
+    {
+      "id": "gtadb-L1887",
+      "name": "Mojito Mae's",
+      "category": "stickup",
+      "region": "vice_city",
+      "area": "Gloriana Key",
+      "wx": 409,
+      "wy": -1962,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Tienda detectada en gtadb. Caja rápida, entra por atrás.",
+      "source": "gtadb L1887 (descubierto automáticamente)"
     },
     {
       "id": "gtadb-L19",
@@ -1574,6 +1587,19 @@
       "confidence": "medium",
       "tip": "Tienda detectada en gtadb. Caja rápida, entra por atrás.",
       "source": "gtadb L3786 (descubierto automáticamente)"
+    },
+    {
+      "id": "gtadb-L3870",
+      "name": "Belville Police",
+      "category": "police",
+      "region": "leonard",
+      "area": "Belville",
+      "wx": -1452,
+      "wy": 2860,
+      "precision": "exact",
+      "confidence": "medium",
+      "tip": "Comisaría detectada en gtadb. No planifiques la huida hacia aquí.",
+      "source": "gtadb L3870 (descubierto automáticamente)"
     },
     {
       "id": "gtadb-L393",
@@ -9361,19 +9387,6 @@
       "confidence": "medium",
       "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1090254 (Fast Food)"
-    },
-    {
-      "id": "ign-1090255",
-      "name": "Peewees - Belville",
-      "category": "stickup",
-      "region": "leonard",
-      "area": "Belville",
-      "wx": -1394,
-      "wy": 2873,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Tienda marcada en IGN. Caja rápida, entra por atrás. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1090255 (Fast Food)"
     },
     {
       "id": "ign-1090256",
@@ -18864,19 +18877,6 @@
       "confidence": "medium",
       "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
       "source": "ign 1091513 (Bar)"
-    },
-    {
-      "id": "ign-1091516",
-      "name": "Mojito Mae's",
-      "category": "bar",
-      "region": "vice_city",
-      "area": "Tequesta",
-      "wx": 393,
-      "wy": -1937,
-      "precision": "exact",
-      "confidence": "medium",
-      "tip": "Bar marcado en IGN. Posición proyectada desde el mapa de IGN Leonida.",
-      "source": "ign 1091516 (Bar)"
     },
     {
       "id": "ign-1091517",
